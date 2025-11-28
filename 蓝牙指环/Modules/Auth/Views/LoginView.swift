@@ -8,11 +8,8 @@ class LoginView: UIView {
     /// 顶部容器 - 包含品牌标题和Logo
     let topContainer = UIView()
     
-    /// 欢迎标题标签 - 显示"Welcome to"
-    let titleLabel = UILabel()
-    
-    /// 品牌名称标签 - 显示"SKYEAGLE"
-    let brandLabel = UILabel()
+    let welcomeImageView = UIImageView()
+    let avatarImageView = UIImageView()
     
     /// Logo视图 - 圆形Logo容器，包含Y形徽章
     let logoView = UIView() // Circular logo
@@ -62,6 +59,7 @@ class LoginView: UIView {
         setupSocialButtons()     // 配置社交登录按钮
         setupBottomContainer()   // 配置底部容器
         applyDiagonalStripes(to: bottomContainer)  // 应用对角线条纹背景
+        //updateSocialButtonsEnabled()
     }
 
     required init?(coder: NSCoder) {
@@ -93,60 +91,15 @@ class LoginView: UIView {
     /// - 设置"SKYEAGLE"品牌名（40pt特粗，深橄榄色）
     /// - 添加多层阴影效果增强3D视觉
     private func setupHeaderTexts() {
-        topContainer.addSubview(titleLabel)
-        topContainer.addSubview(brandLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        brandLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        // 欢迎标题配置
-        titleLabel.text = "Welcome to"
-        titleLabel.textColor = UIColor.black  // 黑色文字
-        titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)  // 28pt粗体
-        titleLabel.textAlignment = .center  // 居中对齐
-        
-        // 品牌名称配置
-        brandLabel.text = "SKYEAGLE"
-        brandLabel.textColor = UIColor(hex: 0x6B5B00) // 深橄榄/棕色
-        brandLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)  // 40pt特粗
-        brandLabel.textAlignment = .center  // 居中对齐
-        
-        // 添加分层3D阴影效果
-        brandLabel.layer.shadowColor = UIColor(hex: 0x6B5B00).cgColor
-        brandLabel.layer.shadowOffset = CGSize(width: 2, height: 2)  // 阴影偏移
-        brandLabel.layer.shadowOpacity = 0.4  // 40%透明度
-        brandLabel.layer.shadowRadius = 2  // 阴影半径2pt
-        
-        // 添加多层标签副本创建深度效果
-        let shadowLabel1 = UILabel()
-        shadowLabel1.text = "SKYEAGLE"
-        shadowLabel1.textColor = UIColor(hex: 0x6B5B00).withAlphaComponent(0.3)  // 30%透明度
-        shadowLabel1.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
-        shadowLabel1.textAlignment = .center
-        shadowLabel1.alpha = 0.3
-        shadowLabel1.transform = CGAffineTransform(translationX: 2, y: 2)  // 偏移2pt
-        topContainer.addSubview(shadowLabel1)
-        shadowLabel1.translatesAutoresizingMaskIntoConstraints = false
-        
-        let shadowLabel2 = UILabel()
-        shadowLabel2.text = "SKYEAGLE"
-        shadowLabel2.textColor = UIColor(hex: 0x6B5B00).withAlphaComponent(0.2)  // 20%透明度
-        shadowLabel2.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
-        shadowLabel2.textAlignment = .center
-        shadowLabel2.alpha = 0.2
-        shadowLabel2.transform = CGAffineTransform(translationX: 4, y: 4)  // 偏移4pt
-        topContainer.addSubview(shadowLabel2)
-        shadowLabel2.translatesAutoresizingMaskIntoConstraints = false
-        
-        // 设置约束
+        topContainer.addSubview(welcomeImageView)
+        welcomeImageView.translatesAutoresizingMaskIntoConstraints = false
+        welcomeImageView.image = UIImage(named: "Welcome")
+        welcomeImageView.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topContainer.topAnchor, constant: 80), // 更多间距
-            titleLabel.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor),
-            brandLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            brandLabel.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor),
-            shadowLabel1.topAnchor.constraint(equalTo: brandLabel.topAnchor),
-            shadowLabel1.centerXAnchor.constraint(equalTo: brandLabel.centerXAnchor, constant: 2),
-            shadowLabel2.topAnchor.constraint(equalTo: brandLabel.topAnchor),
-            shadowLabel2.centerXAnchor.constraint(equalTo: brandLabel.centerXAnchor, constant: 4)
+            welcomeImageView.topAnchor.constraint(equalTo: topContainer.topAnchor, constant: 166),
+            welcomeImageView.leadingAnchor.constraint(equalTo: topContainer.leadingAnchor, constant: 24),
+            welcomeImageView.trailingAnchor.constraint(equalTo: topContainer.trailingAnchor, constant: -24),
+            welcomeImageView.heightAnchor.constraint(equalToConstant: 140)
         ])
     }
 
@@ -155,31 +108,17 @@ class LoginView: UIView {
     /// - 添加Y形金色徽章（翅膀形状）
     /// - 定位在品牌文字右下方
     private func setupLogo() {
-        topContainer.addSubview(logoView)
-        logoView.translatesAutoresizingMaskIntoConstraints = false
-        logoView.backgroundColor = UIColor.black  // 黑色背景
-        logoView.layer.cornerRadius = 25 // 圆形Logo（50pt直径）
-        
-        // 添加Y形徽章（翅膀/鹰形状）
-        let emblemLayer = CAShapeLayer()
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 20, y: 15))    // 起点：左上
-        path.addLine(to: CGPoint(x: 25, y: 25))  // 中线向下
-        path.addLine(to: CGPoint(x: 30, y: 15))  // 右上
-        path.addLine(to: CGPoint(x: 25, y: 35))  // 底部中心
-        path.close()  // 闭合路径形成Y形
-        emblemLayer.path = path.cgPath
-        emblemLayer.fillColor = UIColor(hex: 0xFFD700).cgColor // 金色填充
-        emblemLayer.strokeColor = UIColor(hex: 0xFFD700).cgColor // 金色描边
-        emblemLayer.lineWidth = 1  // 描边宽度1pt
-        logoView.layer.addSublayer(emblemLayer)
-        
-        // 设置Logo位置和尺寸
+        topContainer.addSubview(avatarImageView)
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.image = UIImage(named: "头像")
+        avatarImageView.contentMode = .scaleAspectFit
+        avatarImageView.layer.cornerRadius = 12
+        avatarImageView.layer.masksToBounds = true
         NSLayoutConstraint.activate([
-            logoView.topAnchor.constraint(equalTo: brandLabel.bottomAnchor, constant: 30),  // 品牌文字下方30pt
-            logoView.trailingAnchor.constraint(equalTo: topContainer.trailingAnchor, constant: -30),  // 右侧30pt
-            logoView.widthAnchor.constraint(equalToConstant: 50),  // 宽度50pt
-            logoView.heightAnchor.constraint(equalToConstant: 50)  // 高度50pt
+            avatarImageView.topAnchor.constraint(equalTo: topContainer.topAnchor, constant: 110),
+            avatarImageView.trailingAnchor.constraint(equalTo: topContainer.trailingAnchor, constant: -24),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 48),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
 
