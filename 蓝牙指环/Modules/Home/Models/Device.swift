@@ -3,7 +3,7 @@ import UIKit
 
 /// 蓝牙设备模型 - 表示可连接的设备信息
 /// 包含设备基本信息、连接状态、信号强度和电池信息
-struct Device: Identifiable {
+struct Device: Identifiable, Codable {
     let id: String              // 设备唯一标识符（UUID字符串）
     let name: String            // 设备名称
     let type: DeviceType        // 设备类型
@@ -73,7 +73,7 @@ struct Device: Identifiable {
 }
 
 /// 设备类型枚举
-enum DeviceType: String, CaseIterable {
+enum DeviceType: String, CaseIterable, Codable {
     case headphones = "耳机"
     case speaker = "音箱"
     case watch = "手表"

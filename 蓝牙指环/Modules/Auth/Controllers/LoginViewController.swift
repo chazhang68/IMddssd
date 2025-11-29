@@ -44,16 +44,6 @@ class LoginViewController: UIViewController {
     /// 跳转到首页（设备搜索页面）
     /// 创建并展示HomeViewController作为根视图控制器
     private func navigateToHome() {
-        let homeViewController = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: homeViewController)
-        
-        // 设置动画过渡
-        UIView.transition(with: UIApplication.shared.windows.first!,
-                          duration: 0.3,
-                          options: .transitionCrossDissolve,
-                          animations: {
-                              UIApplication.shared.windows.first?.rootViewController = navigationController
-                          },
-                          completion: nil)
+        NotificationCenter.default.post(name: Notification.Name("LoginSuccess"), object: nil)
     }
 }

@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SDKIntegrationHelper.shared.initializeSDK()
         
         // 初始化蓝牙管理器
-        _ = BCLRingSDKManager.shared
+        let mgr = BCLRingSDKManager.shared
+        mgr.prepareAutoConnect()
+        mgr.startScanning()
         
         // WeChat SDK暂时禁用 - 等待CocoaPods配置修复
         // let appId = "wxYOUR_APP_ID"
@@ -67,4 +69,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     */
 }
-

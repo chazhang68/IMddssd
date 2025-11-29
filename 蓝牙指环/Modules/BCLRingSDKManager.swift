@@ -9,6 +9,7 @@ class BCLRingSDKManager: NSObject, CBCentralManagerDelegate {
     
     private var centralManager: CBCentralManager?
     private var discoveredDevices: [BCLDevice] = []
+    private var autoConnectIDs: Set<String> = []
     var onDeviceDiscovered: ((BCLDevice) -> Void)?
     var onConnectionStateChanged: ((String, Bool) -> Void)?
     
@@ -22,6 +23,27 @@ class BCLRingSDKManager: NSObject, CBCentralManagerDelegate {
     private func setupBluetooth() {
         // 初始化中央设备管理器
         centralManager = CBCentralManager(delegate: self, queue: .main)
+    }
+    
+    // MARK: - 设备查询
+    
+    /// 获取所有已发现的设备
+    func getDiscoveredDevices() -> [BCLDevice] {
+        return discoveredDevices
+    }
+    
+    /// 根据设备名称查找设备
+    /// - Parameter name: 设备名称
+    /// - Returns: 匹配的 BCLDevice，如果未找到则为 nil
+    func findDevice(byName name: String) -> BCLDevice? {
+        return discoveredDevices.first(where: { $0.name == name })
+    }
+    
+    /// 根据 peripheral ID 查找设备
+    /// - Parameter peripheralID: 设备的 peripheral ID
+    /// - Returns: 匹配的 BCLDevice，如果未找到则为 nil
+    func findDevice(byPeripheralID peripheralID: String) -> BCLDevice? {
+        return discoveredDevices.first(where: { $0.peripheralID == peripheralID })
     }
     
     // MARK: - 设备搜索
@@ -48,6 +70,29 @@ class BCLRingSDKManager: NSObject, CBCentralManagerDelegate {
         print("🔍 开始搜索所有蓝牙设备")
         print("   指环服务UUID: \(ringServiceUUID.uuidString)")
         print("   制造商识别符: 0xFF00-0xFF0F")
+    }
+
+    func prepareAutoConnect() {
+        let ids = DeviceStore.shared.getAllBCLDeviceIDs()
+        autoConnectIDs = Set(ids)
+        attemptRetrieveAutoConnect()
+    }
+
+    private func attemptRetrieveAutoConnect() {
+        guard let cm = centralManager, cm.state == .poweredOn else { return }
+        let uuids = autoConnectIDs.compactMap { UUID(uuidString: $0) }
+        if !uuids.isEmpty {
+            let peripherals = cm.retrievePeripherals(withIdentifiers: uuids)
+            for p in peripherals {
+                let device = BCLDevice(name: p.name ?? "未知设备", peripheralID: p.identifier.uuidString, rssi: -60, peripheral: p)
+                connect(to: device)
+            }
+        }
+        let connected = cm.retrieveConnectedPeripherals(withServices: [ringServiceUUID])
+        for p in connected {
+            let device = BCLDevice(name: p.name ?? "未知设备", peripheralID: p.identifier.uuidString, rssi: -60, peripheral: p)
+            connect(to: device)
+        }
     }
     
     /// 停止搜索
@@ -77,6 +122,7 @@ class BCLRingSDKManager: NSObject, CBCentralManagerDelegate {
         switch central.state {
         case .poweredOn:
             print("蓝牙已打开")
+            attemptRetrieveAutoConnect()
         case .poweredOff:
             print("蓝牙已关闭")
         case .resetting:
@@ -175,7 +221,7 @@ class BCLRingSDKManager: NSObject, CBCentralManagerDelegate {
         }
         
         // 只将指环设备添加到列表
-        if isRingDevice {
+        if isRingDevice && deviceName != "未知设备" {
             let device = BCLDevice(
                 name: deviceName,
                 peripheralID: peripheral.identifier.uuidString,
@@ -189,6 +235,9 @@ class BCLRingSDKManager: NSObject, CBCentralManagerDelegate {
                 print("   匹配原因: \(matchReason)")
                 print("   已添加到搜索列表")
                 onDeviceDiscovered?(device)
+                if autoConnectIDs.contains(device.peripheralID) {
+                    connect(to: device)
+                }
             }
         } else {
             print("❌ 非指环设备，已过滤")

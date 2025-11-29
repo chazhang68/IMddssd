@@ -399,7 +399,11 @@ class RingDetailViewController: UIViewController {
     // MARK: - 事件处理
     
     @objc private func backTapped() {
-        navigationController?.popViewController(animated: true)
+        if let nav = navigationController, nav.viewControllers.count > 1 {
+            nav.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
     }
     
     @objc private func cardTapped(_ gesture: UITapGestureRecognizer) {

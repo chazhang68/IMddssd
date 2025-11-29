@@ -51,7 +51,37 @@ class HomeViewController: UIViewController {
         setupCollectionView()  // 配置集合视图
         wireActions()     // 绑定用户交互
         setupBCLSDK()    // 配置BCL SDK
-        // loadMockDevices() // 注释掙：改为真实蓝牙搜索
+        devices = DeviceStore.shared.load()
+        homeView.deviceCollectionView.reloadData()
+        updateUI()
+        
+        // 监听心率测量完成通知
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleHeartRateMeasurementComplete(_:)),
+            name: NSNotification.Name("HeartRateMeasurementComplete"),
+            object: nil
+        )
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func handleHeartRateMeasurementComplete(_ notification: Notification) {
+        if let userInfo = notification.object as? [String: Any],
+           let heartRate = userInfo["heartRate"] as? Int {
+            print("✅ 接收到心率测量完成: \(heartRate)bpm")
+            // 更新首页中的心率数据
+            updateHeartRateData(heartRate: heartRate)
+        }
+    }
+    
+    private func updateHeartRateData(heartRate: Int) {
+        // 根据你的应用逻辑更新心率数据
+        // 事例：更新模型或UI最后刷新首页
+        print("💳 更新心率数据: \(heartRate)bpm")
+        // TODO: 实现您的业务逻辑，例如保存到数据库、更新UI等
     }
     
     // MARK: - 配置方法
@@ -73,12 +103,64 @@ class HomeViewController: UIViewController {
     }
     
     /// 处理 BCL SDK 发现的设备
+    /// - Parameter device: 新发现的 BCLDevice
     private func handleBCLDeviceDiscovered(_ device: BCLDevice) {
-        // 检查设备是否已在列表中
+        // 检查设备是否已在列表中（避免重复）
         if !bclDiscoveredDevices.contains(where: { $0.peripheralID == device.peripheralID }) {
             bclDiscoveredDevices.append(device)
+            print("✅ 已添加到搜索列表: \(device.name)")
+            
+            // 更新搜索结果视图
             updateSearchResultsViewController()
         }
+    }
+    
+    /// 处理用户选择的 BCL 设备
+    /// - Parameter bclDevice: 用户选择的设备
+    private func handleSelectBCLDevice(_ bclDevice: BCLDevice) {
+        // 停止搜索
+        stopBCLSearch()
+        
+        // 保存设备以便下次自动连接
+        DeviceStore.shared.save(bclDevice)
+        
+        // 根据设备名称自动识别设备类型
+        let deviceType: DeviceType
+        if bclDevice.name.contains("MT AI Glasses") || bclDevice.name.contains("眼镜") {
+            deviceType = .glasses
+        } else if bclDevice.name.contains("Know-you pro") || bclDevice.name.contains("手表") {
+            deviceType = .watch
+        } else if bclDevice.name.contains("Earphones") || bclDevice.name.contains("耳机") {
+            deviceType = .headphones
+        } else if bclDevice.name.contains("ring") || bclDevice.name.contains("指环") || bclDevice.name.contains("Ring") {
+            deviceType = .ring
+        } else {
+            deviceType = .other
+        }
+        
+        // 创建本地Device对象用于展示
+        let localDevice = Device(
+            id: bclDevice.peripheralID,
+            name: bclDevice.name,
+            type: deviceType,
+            rssi: bclDevice.rssi,
+            isConnected: false,
+            isConnecting: false,
+            batteryPercentage: nil
+        )
+        
+        // 添加到设备列表
+        if !devices.contains(where: { $0.id == localDevice.id }) {
+            devices.append(localDevice)
+            homeView.deviceCollectionView.reloadData()
+            updateUI()
+        }
+        
+        // 设置全局管理器并连接设备
+        BluetoothDeviceManager.shared.setCurrentDevice(bclDevice)
+        BCLRingSDKManager.shared.connect(to: bclDevice)
+        
+        print("✅ 用户选择设备: \(bclDevice.name)")
     }
     
     /// 配置设备网格集合视图
@@ -223,47 +305,6 @@ class HomeViewController: UIViewController {
         searchVC.isSearching = isSearching
     }
     
-    /// 处理选中的 BCL 设备
-    private func handleSelectBCLDevice(_ device: BCLDevice) {
-        // 停止搜索
-        stopBCLSearch()
-        
-        // 根据设备名称自动识别设备类型
-        let deviceType: DeviceType
-        if device.name.contains("MT AI Glasses") || device.name.contains("眼镜") {
-            deviceType = .glasses
-        } else if device.name.contains("Know-you pro") || device.name.contains("手表") {
-            deviceType = .watch
-        } else if device.name.contains("Earphones") || device.name.contains("耳机") {
-            deviceType = .headphones
-        } else if device.name.contains("ring") || device.name.contains("指环") || device.name.contains("Ring") {
-            deviceType = .ring
-        } else {
-            deviceType = .other
-        }
-        
-        // 创建本地Device对象用于展示
-        let localDevice = Device(
-            id: device.peripheralID,
-            name: device.name,
-            type: deviceType,
-            rssi: device.rssi,
-            isConnected: false,
-            isConnecting: false,
-            batteryPercentage: nil
-        )
-        
-        // 添加到设备列表
-        if !devices.contains(where: { $0.id == localDevice.id }) {
-            devices.append(localDevice)
-            homeView.deviceCollectionView.reloadData()
-            updateUI()
-        }
-        
-        // 连接设备
-        connectToDevice(localDevice)
-    }
-    
     /// 刷新设备列表
     /// 重新搜索设备
     @objc private func refreshDevices() {
@@ -402,19 +443,21 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let device = devices[indexPath.item]
+        let tab = RingFeaturesTabBarController()
+        tab.device = device
         
-        if device.isConnected {
-            // 已连接的设备，如果是指环则跳转到详情页面
-            if device.type == .ring {
-                showRingDetail(device)
-            } else {
-                // 其他设备显示断开选项
-                showDisconnectAlert(for: device)
-            }
-        } else if !device.isConnecting {
-            // 未连接且不在连接中，开始连接
-            connectToDevice(device)
+        // 使用 SDK 的公开方法找到对应的 BCLDevice
+        if let bclDevice = BCLRingSDKManager.shared.findDevice(byName: device.name) {
+            tab.bclDevice = bclDevice
+            // 设置到全局管理器
+            BluetoothDeviceManager.shared.setCurrentDevice(bclDevice)
+            print("✅ 找到对应的 BCLDevice: \(bclDevice.name)")
+        } else {
+            print("❌ 未找到对应的 BCLDevice，设备名称: \(device.name)")
         }
+        
+        tab.modalPresentationStyle = .fullScreen
+        present(tab, animated: true)
         
         collectionView.deselectItem(at: indexPath, animated: true)
     }
