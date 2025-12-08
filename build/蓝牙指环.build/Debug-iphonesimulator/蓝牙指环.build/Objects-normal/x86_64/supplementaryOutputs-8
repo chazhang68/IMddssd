@@ -1,0 +1,30 @@
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/Home/Views/SearchResultsViewController.swift":
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SearchResultsViewController.dia"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SearchResultsViewController.o"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SearchResultsViewController.d"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SearchResultsViewController.swiftdeps"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SearchResultsViewController.swiftconstvalues"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/Home/Views/DeviceCell.swift":
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceCell.o"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceCell.swiftconstvalues"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceCell.d"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceCell.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceCell.dia"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/Home/Views/HomeView.swift":
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HomeView.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HomeView.dia"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HomeView.d"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HomeView.o"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HomeView.swiftconstvalues"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/RingFeatures/Components/BodyPowerAndHealthModule.swift":
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerAndHealthModule.o"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerAndHealthModule.dia"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerAndHealthModule.swiftconstvalues"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerAndHealthModule.swiftdeps"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerAndHealthModule.d"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/Home/Views/DeviceGridCell.swift":
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceGridCell.d"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceGridCell.swiftconstvalues"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceGridCell.o"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceGridCell.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/DeviceGridCell.dia"

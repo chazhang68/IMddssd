@@ -1,0 +1,30 @@
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/RingFeatures/Components/HealthDataCardModule.swift":
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthDataCardModule.d"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthDataCardModule.dia"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthDataCardModule.swiftdeps"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthDataCardModule.o"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthDataCardModule.swiftconstvalues"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/RingFeatures/Components/HealthIndicatorRingModule.swift":
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthIndicatorRingModule.d"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthIndicatorRingModule.dia"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthIndicatorRingModule.o"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthIndicatorRingModule.swiftconstvalues"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/HealthIndicatorRingModule.swiftdeps"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/RingFeatures/Components/CustomNavigationBarModule.swift":
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/CustomNavigationBarModule.o"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/CustomNavigationBarModule.swiftdeps"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/CustomNavigationBarModule.d"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/CustomNavigationBarModule.swiftconstvalues"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/CustomNavigationBarModule.dia"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/RingFeatures/BluetoothHeartRateManager.swift":
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothHeartRateManager.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothHeartRateManager.dia"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothHeartRateManager.swiftconstvalues"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothHeartRateManager.o"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothHeartRateManager.d"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/RingFeatures/Components/BodyPowerModule.swift":
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerModule.swiftconstvalues"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerModule.d"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerModule.o"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerModule.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BodyPowerModule.dia"

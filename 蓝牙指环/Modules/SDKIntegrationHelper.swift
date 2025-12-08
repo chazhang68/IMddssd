@@ -1,7 +1,7 @@
 import Foundation
-// #if canImport(BCLRingSDK)
-// import BCLRingSDK
-// #endif
+#if swift(>=5.10)
+import BCLRingSDK
+#endif
 
 /// SDK集成辅助类 - 提供SDK初始化和常用功能
 class SDKIntegrationHelper {
@@ -12,35 +12,76 @@ class SDKIntegrationHelper {
     
     /// 初始化BCLRingSDK
     func initializeSDK() {
-        // BCLRingSDK 初始化逻辑（根据实际SDK文档调整）
-        // 此处是占位符，具体初始化方法需参考SDK文档
-        print("BCLRingSDK 初始化完成 - 版本 1.1.19")
+        #if swift(>=5.10)
+        _ = BCLRingManager.shared
+        #else
+        print("BCLRingSDKManager fallback")
+        #endif
     }
     
     // MARK: - 设备搜索和连接辅助方法
     
     /// 准备开始搜索设备
     func prepareForDeviceSearch() -> Bool {
+        #if swift(>=5.10)
+        let mgr = BCLRingManager.shared
+        mgr.scannedDevicesRelayResultBlock = { result in
+            switch result {
+            case .success(let list):
+                for info in list {
+                    let dev = BCLDevice(
+                        name: info.peripheralName ?? info.localName ?? "未知设备",
+                        peripheralID: info.uuidString,
+                        rssi: info.rssi?.intValue ?? -60,
+                        peripheral: info.peripheral
+                    )
+                    BCLRingSDKManager.shared.onDeviceDiscovered?(dev)
+                }
+            case .failure:
+                break
+            }
+        }
+        mgr.startScan { _ in }
+        return true
+        #else
         let manager = BCLRingSDKManager.shared
-        
-        // 验证蓝牙状态
         manager.startScanning()
         return true
+        #endif
     }
     
     /// 停止搜索
     func stopDeviceSearch() {
+        #if swift(>=5.10)
+        BCLRingManager.shared.stopScan()
+        #else
         BCLRingSDKManager.shared.stopScanning()
+        #endif
     }
     
     /// 连接设备
     func connectDevice(_ device: BCLDevice) {
+        #if swift(>=5.10)
+        BCLRingManager.shared.startConnect(uuidString: device.peripheralID, connectResultBlock: { result in
+            switch result {
+            case .success:
+                BCLRingSDKManager.shared.onConnectionStateChanged?(device.name, true)
+            case .failure:
+                break
+            }
+        })
+        #else
         BCLRingSDKManager.shared.connect(to: device)
+        #endif
     }
     
     /// 断开设备
     func disconnectDevice(_ device: BCLDevice) {
+        #if swift(>=5.10)
+        BCLRingManager.shared.disconnect()
+        #else
         BCLRingSDKManager.shared.disconnect(from: device)
+        #endif
     }
     
     // MARK: - SDK 功能映射

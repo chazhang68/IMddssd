@@ -1,0 +1,36 @@
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/Auth/Controllers/LoginViewController.swift":
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginViewController.swiftconstvalues"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginViewController.o"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginViewController.swiftdeps"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginViewController.d"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginViewController.dia"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/SceneDelegate.swift":
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/SceneDelegate.d"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/SceneDelegate.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/SceneDelegate.dia"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/SceneDelegate.swiftconstvalues"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/SceneDelegate.o"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Extensions/UIViewController+ThirdPartyLogin.swift":
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.swiftconstvalues"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.dia"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.o"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.d"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/Auth/Views/LoginView.swift":
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginView.swiftconstvalues"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginView.d"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginView.swiftdeps"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginView.o"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/LoginView.dia"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/AppDelegate.swift":
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/AppDelegate.d"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/AppDelegate.dia"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/AppDelegate.swiftconstvalues"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/AppDelegate.o"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/AppDelegate.swiftdeps"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Extensions/UIColor+Hex.swift":
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIColor+Hex.o"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIColor+Hex.d"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIColor+Hex.swiftconstvalues"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIColor+Hex.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/arm64/UIColor+Hex.dia"

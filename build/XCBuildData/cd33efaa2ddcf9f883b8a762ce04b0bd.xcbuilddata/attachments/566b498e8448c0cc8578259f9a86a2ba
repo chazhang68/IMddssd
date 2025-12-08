@@ -1,0 +1,428 @@
+{
+  "" : {
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/蓝牙指环-master.dia",
+    "emit-module-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/蓝牙指环-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/蓝牙指环-master-emit-module.dia",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/蓝牙指环-master.swiftdeps"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/AppDelegate.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Extensions/UIColor+Hex.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIColor+Hex~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Extensions/UIViewController+ThirdPartyLogin.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/UIViewController+ThirdPartyLogin~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Auth/Controllers/LoginViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Auth/Views/LoginView.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/LoginView~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/BCLRingSDKManager.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BCLRingSDKManager~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/BluetoothDeviceManager.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDeviceManager~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/BluetoothManager/BluetoothDataParser.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothDataParser~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/BluetoothManager/BluetoothHeartRateDelegate.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateDelegate~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Community/CommunityViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CommunityViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Controllers/DeviceSelectViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceSelectViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Controllers/HomeViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Controllers/RingDetailViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDetailViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Controllers/WelcomeViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/WelcomeViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Managers/BluetoothManager.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothManager~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Models/Device.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/Device~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Models/HomeModel.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeModel~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Storage/DeviceStore.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceStore~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Views/DeviceCell.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceCell~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Views/DeviceGridCell.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/DeviceGridCell~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Views/HomeView.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HomeView~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Home/Views/SearchResultsViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SearchResultsViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/BluetoothHeartRateManager.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BluetoothHeartRateManager~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/Components/BodyPowerAndHealthModule.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerAndHealthModule~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/Components/BodyPowerModule.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/BodyPowerModule~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/Components/CustomNavigationBarModule.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/CustomNavigationBarModule~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/Components/HealthDataCardModule.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthDataCardModule~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/Components/HealthIndicatorRingModule.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HealthIndicatorRingModule~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/HeartRateHistoryViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateHistoryViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/HeartRateMeasurementResultViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementResultViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/HeartRateMeasurementViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateMeasurementViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/HeartRateResultViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/HeartRateResultViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/RingDashboardViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDashboardViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/RingDeviceSettingsViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingDeviceSettingsViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/RingHealthViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingHealthViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/RingFeatures/SmartRingDetailsViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SmartRingDetailsViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/SDKIntegrationHelper.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SDKIntegrationHelper~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/Settings/SettingsViewController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SettingsViewController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/TabBar/RingFeaturesTabBarController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/RingFeaturesTabBarController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/Modules/TabBar/TabBarController.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/TabBarController~partial.swiftmodule"
+  },
+  "/Users/a8833/Documents/GitHub/IMddssd/蓝牙指环/SceneDelegate.swift" : {
+    "const-values" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate.swiftconstvalues",
+    "dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate.d",
+    "diagnostics" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate.dia",
+    "index-unit-output-path" : "/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate.o",
+    "swift-dependencies" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate.swiftdeps",
+    "swiftmodule" : "/Users/a8833/Documents/GitHub/IMddssd/build/蓝牙指环.build/Debug-iphonesimulator/蓝牙指环.build/Objects-normal/arm64/SceneDelegate~partial.swiftmodule"
+  }
+}

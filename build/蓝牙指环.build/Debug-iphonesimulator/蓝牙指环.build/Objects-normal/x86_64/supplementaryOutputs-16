@@ -1,0 +1,30 @@
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/BluetoothDeviceManager.swift":
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothDeviceManager.d"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothDeviceManager.o"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothDeviceManager.swiftdeps"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothDeviceManager.dia"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BluetoothDeviceManager.swiftconstvalues"
+"/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/DerivedSources/GeneratedAssetSymbols.swift":
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftconstvalues"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftdeps"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/GeneratedAssetSymbols.o"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/GeneratedAssetSymbols.dia"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/GeneratedAssetSymbols.d"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/SDKIntegrationHelper.swift":
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SDKIntegrationHelper.o"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SDKIntegrationHelper.d"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SDKIntegrationHelper.swiftconstvalues"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SDKIntegrationHelper.dia"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/SDKIntegrationHelper.swiftdeps"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/TabBar/TabBarController.swift":
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/TabBarController.o"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/TabBarController.dia"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/TabBarController.swiftconstvalues"
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/TabBarController.d"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/TabBarController.swiftdeps"
+"/Users/a8833/Documents/GitHub/IMddssd/\u84DD\u7259\u6307\u73AF/Modules/BCLRingSDKManager.swift":
+  dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BCLRingSDKManager.d"
+  object: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BCLRingSDKManager.o"
+  swift-dependencies: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BCLRingSDKManager.swiftdeps"
+  const-values: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BCLRingSDKManager.swiftconstvalues"
+  diagnostics: "/Users/a8833/Documents/GitHub/IMddssd/build/\u84DD\u7259\u6307\u73AF.build/Debug-iphonesimulator/\u84DD\u7259\u6307\u73AF.build/Objects-normal/x86_64/BCLRingSDKManager.dia"

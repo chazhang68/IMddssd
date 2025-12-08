@@ -62,7 +62,7 @@
             dstPath = "";
             dstSubfolderSpec = 10;
             files = (
-                
+                373333313634413942423230343238434136324436423542 /* BCLRingSDK.xcframework in Embed Frameworks */,
             );
             name = "Embed Frameworks";
             runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +330,7 @@
             isa = PBXFrameworksBuildPhase;
             buildActionMask = 2147483647;
             files = (
-                
+                323643393430383430453234344235434236414532353846 /* BCLRingSDK.xcframework in Frameworks */,
             );
             runOnlyForDeploymentPostprocessing = 0;
         };
