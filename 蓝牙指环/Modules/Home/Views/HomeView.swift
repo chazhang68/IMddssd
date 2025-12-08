@@ -2,6 +2,9 @@ import UIKit
 
 /// 首页视图 - 包含设备搜索和管理功能
 /// 提供设备网格卡片展示、搜索、连接状态管理等核心功能
+protocol HomeViewProtocol : AnyObject{
+    func searchDevices()
+}
 class HomeView: UIView {
     
     // MARK: - UI组件定义
@@ -38,6 +41,9 @@ class HomeView: UIView {
     
     /// 刷新按钮 - 刷新设备列表
     let refreshButton = UIButton(type: .system)
+    
+    /// 代理对象
+    weak var delegate: HomeViewProtocol?
 
     // MARK: - 初始化方法
     
@@ -56,7 +62,7 @@ class HomeView: UIView {
         setupTop()                // 配置顶部导航区域
         setupDeviceCollection()   // 配置设备集合视图
         setupEmptyState()         // 配置空状态视图
-        setupControlButtons()     // 配置控制按钮
+//        setupControlButtons()     // 配置控制按钮
     }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -98,6 +104,7 @@ class HomeView: UIView {
         menuButton.setImage(UIImage(named: "add"), for: .normal)
         menuButton.tintColor = UIColor(hex: 0xFFD700)
         menuButton.translatesAutoresizingMaskIntoConstraints = false
+        menuButton.addTarget(self, action: #selector(addDevices), for: .touchUpInside)
         topContainer.addSubview(menuButton)
 
         // 配置返回按钮
@@ -129,7 +136,11 @@ class HomeView: UIView {
             backButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-
+    
+    
+    @objc func addDevices(){
+        delegate?.searchDevices()
+    }
     /// 配置设备网格集合视图
     /// - 2列布局
     /// - 网格卡片显示
@@ -143,9 +154,11 @@ class HomeView: UIView {
             deviceCollectionView.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: 8),
             deviceCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             deviceCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            deviceCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -70)  // 调整为-70以适应TabBar
+            deviceCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)  // 调整为-70以适应TabBar
         ])
     }
+    
+    
     
 
     
@@ -165,7 +178,7 @@ class HomeView: UIView {
         emptyStateIcon.translatesAutoresizingMaskIntoConstraints = false
         
         // 配置空状态文字
-        emptyStateLabel.text = "暂无设备\n点击搜索按钮开始扫描蓝牙设备"  // 两行文字
+        emptyStateLabel.text = "未识别到指环设备\n点击右上角按钮开始扫描"
         emptyStateLabel.textColor = UIColor(hex: 0x999999)  // 浅灰色文字
         emptyStateLabel.font = .systemFont(ofSize: 16)
         emptyStateLabel.numberOfLines = 0  // 多行显示

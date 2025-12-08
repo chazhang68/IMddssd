@@ -1,5 +1,4 @@
 import Foundation
-import BCLRingSDK
 import CoreBluetooth
 
 /// 勇芯智能戒指SDK管理器

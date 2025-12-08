@@ -1,4 +1,0 @@
-// Build Configuration for BCLRingSDK Integration
-IPHONEOS_DEPLOYMENT_TARGET = 13.4
-SWIFT_VERSION = 5.0
-FRAMEWORK_SEARCH_PATHS = $(inherited) $(SRCROOT)/蓝牙指环

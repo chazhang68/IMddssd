@@ -1,5 +1,7 @@
 import UIKit
+
 import BCLRingSDK
+
 
 /// 首页视图控制器 - 设备搜索和管理
 /// 负责蓝牙设备扫描、连接管理、用户交互处理
@@ -51,7 +53,7 @@ class HomeViewController: UIViewController {
         setupCollectionView()  // 配置集合视图
         wireActions()     // 绑定用户交互
         setupBCLSDK()    // 配置BCL SDK
-        devices = DeviceStore.shared.load()
+        devices = []
         homeView.deviceCollectionView.reloadData()
         updateUI()
         
@@ -94,6 +96,7 @@ class HomeViewController: UIViewController {
         sdkManager.onDeviceDiscovered = { [weak self] device in
             print("BCL SDK 发现设备: \(device.name)")
             self?.handleBCLDeviceDiscovered(device)
+            self?.tryAddRingDeviceToHome(device)
         }
         
         // 设置连接状态回调
@@ -162,6 +165,26 @@ class HomeViewController: UIViewController {
         
         print("✅ 用户选择设备: \(bclDevice.name)")
     }
+
+    /// 如果识别到的是指环，则将其添加到首页列表（仅指环显示）
+    private func tryAddRingDeviceToHome(_ bclDevice: BCLDevice) {
+        let isRing = bclDevice.name.contains("ring") || bclDevice.name.contains("指环") || bclDevice.name.contains("Ring")
+        guard isRing else { return }
+        let localDevice = Device(
+            id: bclDevice.peripheralID,
+            name: bclDevice.name,
+            type: .ring,
+            rssi: bclDevice.rssi,
+            isConnected: false,
+            isConnecting: false,
+            batteryPercentage: nil
+        )
+        if !devices.contains(where: { $0.id == localDevice.id }) {
+            devices.append(localDevice)
+            homeView.deviceCollectionView.reloadData()
+            updateUI()
+        }
+    }
     
     /// 配置设备网格集合视图
     /// 设置数据源、代理和初始状态
@@ -209,21 +232,7 @@ class HomeViewController: UIViewController {
     
     /// 加载模拟设备数据
     /// 用于开发和测试的设备列表
-    private func loadMockDevices() {
-        devices = [
-            Device(id: "1", name: "MT AI Glasses", type: .glasses, rssi: -45, isConnected: false, isConnecting: false, batteryPercentage: 98),
-            Device(id: "2", name: "Know-you pro", type: .watch, rssi: -55, isConnected: true, isConnecting: false, batteryPercentage: 85),
-            Device(id: "3", name: "Know-you pro", type: .watch, rssi: -65, isConnected: false, isConnecting: false, batteryPercentage: 72),
-            Device(id: "4", name: "Interesting", type: .camera, rssi: -35, isConnected: false, isConnecting: false, batteryPercentage: 55),
-            Device(id: "5", name: "Smart Ring", type: .ring, rssi: -75, isConnected: false, isConnecting: false, batteryPercentage: nil),
-            Device(id: "6", name: "Earphones", type: .headphones, rssi: -40, isConnected: false, isConnecting: false, batteryPercentage: 90)
-        ]
-        
-        // 设置已连接设备
-        connectedDevice = devices.first { $0.isConnected }
-        updateUI()
-        homeView.deviceCollectionView.reloadData()
-    }
+    private func loadMockDevices() { /* 已按需求禁用首页模拟数据，仅识别到指环后显示 */ }
     
     /// 搜索蓝牙设备（保留原有方法兼容性）
     /// 开始真实设备搜索过程
@@ -236,8 +245,8 @@ class HomeViewController: UIViewController {
     /// 菜单按钮点击事件
     /// 打开菜单页面
     @objc private func menuTapped() { 
-        print("Open menu") 
-        // TODO: 导航到菜单页面
+        let welcome = WelcomeViewController()
+        push(welcome)
     }
     
     /// 开始/停止设备搜索
@@ -315,13 +324,12 @@ class HomeViewController: UIViewController {
     
     /// 显示指环详情页面
     private func showRingDetail(_ device: Device) {
+        guard device.type == .ring else { return }
         let detailVC = RingDetailViewController()
         detailVC.device = device
         
-        // 使用Navigation Controller导航
-        let navController = UINavigationController(rootViewController: detailVC)
-        navController.navigationBar.isHidden = true
-        present(navController, animated: true)
+        // 交给统一的导航控制器处理 Push
+        push(detailVC)
     }
     
     /// 连接指定设备
@@ -473,7 +481,7 @@ extension HomeViewController: BluetoothManagerDelegate {
     
     /// 螄牙管理器 - 设备列表更新
     func bluetoothManager(_ manager: BluetoothManager, didUpdateDevices devices: [Device]) {
-        self.devices = devices
+        self.devices = devices.filter { $0.type == .ring }
         homeView.deviceCollectionView.reloadData()
         updateUI()
     }

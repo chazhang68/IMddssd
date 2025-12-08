@@ -7,61 +7,333 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		323643393430383430453234344235434236414532353846 /* BCLRingSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; };
-		373333313634413942423230343238434136324436423542 /* BCLRingSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+        323643393430383430453234344235434236414532353846 /* BCLRingSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; };
+        373333313634413942423230343238434136324436423542 /* BCLRingSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+        F0B000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000001 /* AppDelegate.swift */; };
+        F0B000010000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000002 /* SceneDelegate.swift */; };
+        F0B000010000000000000003 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000200000000000000001 /* UIColor+Hex.swift */; };
+        F0B000010000000000000004 /* UIViewController+ThirdPartyLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000200000000000000002 /* UIViewController+ThirdPartyLogin.swift */; };
+        F0B000010000000000000005 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000001 /* LoginViewController.swift */; };
+        F0B000010000000000000006 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000002 /* LoginView.swift */; };
+        F0B000010000000000000007 /* BluetoothDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000003 /* BluetoothDataParser.swift */; };
+        F0B000010000000000000008 /* BluetoothHeartRateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000004 /* BluetoothHeartRateDelegate.swift */; };
+        F0B000010000000000000009 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000005 /* CommunityViewController.swift */; };
+        F0B00001000000000000000A /* DeviceSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000006 /* DeviceSelectViewController.swift */; };
+        F0B00001000000000000000B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000007 /* HomeViewController.swift */; };
+        F0B00001000000000000000C /* RingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000008 /* RingDetailViewController.swift */; };
+        F0B00001000000000000000D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000009 /* WelcomeViewController.swift */; };
+        F0B00001000000000000000E /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000000A /* BluetoothManager.swift */; };
+        F0B00001000000000000000F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000000B /* Device.swift */; };
+        F0B000010000000000000010 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000000C /* HomeModel.swift */; };
+        F0B000010000000000000011 /* DeviceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000000D /* DeviceStore.swift */; };
+        F0B000010000000000000012 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000000E /* DeviceCell.swift */; };
+        F0B000010000000000000013 /* DeviceGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000000F /* DeviceGridCell.swift */; };
+        F0B000010000000000000014 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000010 /* HomeView.swift */; };
+        F0B000010000000000000015 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000011 /* SearchResultsViewController.swift */; };
+        F0B000010000000000000016 /* BodyPowerAndHealthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000012 /* BodyPowerAndHealthModule.swift */; };
+        F0B000010000000000000017 /* BodyPowerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000013 /* BodyPowerModule.swift */; };
+        F0B000010000000000000018 /* CustomNavigationBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000014 /* CustomNavigationBarModule.swift */; };
+        F0B000010000000000000019 /* HealthDataCardModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000015 /* HealthDataCardModule.swift */; };
+        F0B00001000000000000001A /* HealthIndicatorRingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000016 /* HealthIndicatorRingModule.swift */; };
+        F0B00001000000000000001B /* BluetoothHeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000018 /* BluetoothHeartRateManager.swift */; };
+        F0B00001000000000000001C /* HeartRateHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000019 /* HeartRateHistoryViewController.swift */; };
+        F0B00001000000000000001D /* HeartRateMeasurementResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000001A /* HeartRateMeasurementResultViewController.swift */; };
+        F0B00001000000000000001E /* HeartRateMeasurementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000001B /* HeartRateMeasurementViewController.swift */; };
+        F0B00001000000000000001F /* HeartRateResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000001C /* HeartRateResultViewController.swift */; };
+        F0B000010000000000000020 /* RingDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000001D /* RingDashboardViewController.swift */; };
+        F0B000010000000000000021 /* RingDeviceSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000001E /* RingDeviceSettingsViewController.swift */; };
+        F0B000010000000000000022 /* RingHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00030000000000000001F /* RingHealthViewController.swift */; };
+        F0B000010000000000000023 /* SmartRingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000020 /* SmartRingDetailsViewController.swift */; };
+        F0B000010000000000000024 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000021 /* SettingsViewController.swift */; };
+        F0B000010000000000000025 /* RingFeaturesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000022 /* RingFeaturesTabBarController.swift */; };
+        F0B000010000000000000026 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000023 /* TabBarController.swift */; };
+        F0B000010000000000000027 /* BCLRingSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000024 /* BCLRingSDKManager.swift */; };
+        F0B000010000000000000028 /* BluetoothDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000025 /* BluetoothDeviceManager.swift */; };
+        F0B000010000000000000029 /* SDKIntegrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000026 /* SDKIntegrationHelper.swift */; };
+        F0B000020000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000004 /* Assets.xcassets */; };
+        F0B000020000000000000002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A000400000000000000001 /* LaunchScreen.storyboard */; };
+        F0B000020000000000000003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A000400000000000000002 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				373333313634413942423230343238434136324436423542 /* BCLRingSDK.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        8A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D /* Embed Frameworks */ = {
+            isa = PBXCopyFilesBuildPhase;
+            buildActionMask = 2147483647;
+            dstPath = "";
+            dstSubfolderSpec = 10;
+            files = (
+                
+            );
+            name = "Embed Frameworks";
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BCLRingSDK.xcframework; path = "蓝牙指环/BCLRingSDK.xcframework"; sourceTree = "<group>"; };
-		87D982E002B45C998F4F0DBC /* Pods-蓝牙指环.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.release.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.release.xcconfig"; sourceTree = "<group>"; };
-		880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "蓝牙指环.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A52442FA2B5F79C968DFEE01 /* Pods-蓝牙指环.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.debug.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.debug.xcconfig"; sourceTree = "<group>"; };
+        393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BCLRingSDK.xcframework; path = "BCLRingSDK.xcframework"; sourceTree = "<group>"; };
+        87D982E002B45C998F4F0DBC /* Pods-蓝牙指环.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.release.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.release.xcconfig"; sourceTree = "<group>"; };
+        880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "蓝牙指环.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+        A52442FA2B5F79C968DFEE01 /* Pods-蓝牙指环.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.debug.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.debug.xcconfig"; sourceTree = "<group>"; };
+        F0A000500000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+        F0A000500000000000000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+        F0A000500000000000000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+        F0A000500000000000000004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+        F0A000200000000000000001 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+        F0A000200000000000000002 /* UIViewController+ThirdPartyLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ThirdPartyLogin.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000001 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000002 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000003 /* BluetoothDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothDataParser.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000004 /* BluetoothHeartRateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothHeartRateDelegate.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000005 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommunityViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000006 /* DeviceSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceSelectViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000007 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000008 /* RingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingDetailViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000009 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeViewController.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000000A /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothManager.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000000B /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000000C /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeModel.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000000D /* DeviceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceStore.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000000E /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceCell.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000000F /* DeviceGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceGridCell.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000010 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000011 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResultsViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000012 /* BodyPowerAndHealthModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyPowerAndHealthModule.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000013 /* BodyPowerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyPowerModule.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000014 /* CustomNavigationBarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomNavigationBarModule.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000015 /* HealthDataCardModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthDataCardModule.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000016 /* HealthIndicatorRingModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthIndicatorRingModule.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000018 /* BluetoothHeartRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothHeartRateManager.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000019 /* HeartRateHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeartRateHistoryViewController.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000001A /* HeartRateMeasurementResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeartRateMeasurementResultViewController.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000001B /* HeartRateMeasurementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeartRateMeasurementViewController.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000001C /* HeartRateResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeartRateResultViewController.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000001D /* RingDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingDashboardViewController.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000001E /* RingDeviceSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingDeviceSettingsViewController.swift"; sourceTree = "<group>"; };
+        F0A00030000000000000001F /* RingHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingHealthViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000020 /* SmartRingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartRingDetailsViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000021 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000022 /* RingFeaturesTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingFeaturesTabBarController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000023 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarController.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000024 /* BCLRingSDKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BCLRingSDKManager.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000025 /* BluetoothDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothDeviceManager.swift"; sourceTree = "<group>"; };
+        F0A000300000000000000026 /* SDKIntegrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDKIntegrationHelper.swift"; sourceTree = "<group>"; };
+        F0A000400000000000000001 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+        F0A000400000000000000002 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		880EC1642ECCD1DD005DF921 /* Exceptions for "蓝牙指环" folder in "蓝牙指环" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 880EC1512ECCD1DB005DF921 /* 蓝牙指环 */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+/* Begin PBXGroup (converted) section */
+        F0A000100000000000000001 /* Extensions */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000200000000000000001 /* UIColor+Hex.swift */,
+                F0A000200000000000000002 /* UIViewController+ThirdPartyLogin.swift */,
+            );
+            path = Extensions;
+            sourceTree = "<group>";
+        };
+        F0A000100000000000000002 /* Modules */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000110000000000000001 /* Auth */,
+                F0A000110000000000000002 /* BluetoothManager */,
+                F0A000110000000000000003 /* Community */,
+                F0A000110000000000000004 /* Home */,
+                F0A000110000000000000005 /* RingFeatures */,
+                F0A000110000000000000006 /* Settings */,
+                F0A000110000000000000007 /* TabBar */,
+                F0A000300000000000000024 /* BCLRingSDKManager.swift */,
+                F0A000300000000000000025 /* BluetoothDeviceManager.swift */,
+                F0A000300000000000000026 /* SDKIntegrationHelper.swift */,
+            );
+            path = Modules;
+            sourceTree = "<group>";
+        };
+        F0A000110000000000000001 /* Auth */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000120000000000000001 /* Controllers */,
+                F0A000120000000000000002 /* Views */,
+            );
+            path = Auth;
+            sourceTree = "<group>";
+        };
+        F0A000120000000000000001 /* Controllers */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000001 /* LoginViewController.swift */,
+            );
+            path = Controllers;
+            sourceTree = "<group>";
+        };
+        F0A000120000000000000002 /* Views */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000002 /* LoginView.swift */,
+            );
+            path = Views;
+            sourceTree = "<group>";
+        };
+        F0A000110000000000000002 /* BluetoothManager */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000003 /* BluetoothDataParser.swift */,
+                F0A000300000000000000004 /* BluetoothHeartRateDelegate.swift */,
+            );
+            path = BluetoothManager;
+            sourceTree = "<group>";
+        };
+        F0A000110000000000000003 /* Community */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000005 /* CommunityViewController.swift */,
+            );
+            path = Community;
+            sourceTree = "<group>";
+        };
+        F0A000110000000000000004 /* Home */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000130000000000000001 /* Controllers */,
+                F0A000130000000000000002 /* Managers */,
+                F0A000130000000000000003 /* Models */,
+                F0A000130000000000000004 /* Storage */,
+                F0A000130000000000000005 /* Views */,
+            );
+            path = Home;
+            sourceTree = "<group>";
+        };
+        F0A000130000000000000001 /* Controllers */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000006 /* DeviceSelectViewController.swift */,
+                F0A000300000000000000007 /* HomeViewController.swift */,
+                F0A000300000000000000008 /* RingDetailViewController.swift */,
+                F0A000300000000000000009 /* WelcomeViewController.swift */,
+            );
+            path = Controllers;
+            sourceTree = "<group>";
+        };
+        F0A000130000000000000002 /* Managers */ = {
+            isa = PBXGroup;
+            children = (
+                F0A00030000000000000000A /* BluetoothManager.swift */,
+            );
+            path = Managers;
+            sourceTree = "<group>";
+        };
+        F0A000130000000000000003 /* Models */ = {
+            isa = PBXGroup;
+            children = (
+                F0A00030000000000000000B /* Device.swift */,
+                F0A00030000000000000000C /* HomeModel.swift */,
+            );
+            path = Models;
+            sourceTree = "<group>";
+        };
+        F0A000130000000000000004 /* Storage */ = {
+            isa = PBXGroup;
+            children = (
+                F0A00030000000000000000D /* DeviceStore.swift */,
+            );
+            path = Storage;
+            sourceTree = "<group>";
+        };
+        F0A000130000000000000005 /* Views */ = {
+            isa = PBXGroup;
+            children = (
+                F0A00030000000000000000E /* DeviceCell.swift */,
+                F0A00030000000000000000F /* DeviceGridCell.swift */,
+                F0A000300000000000000010 /* HomeView.swift */,
+                F0A000300000000000000011 /* SearchResultsViewController.swift */,
+            );
+            path = Views;
+            sourceTree = "<group>";
+        };
+        F0A000110000000000000005 /* RingFeatures */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000140000000000000001 /* Components */,
+                F0A000300000000000000018 /* BluetoothHeartRateManager.swift */,
+                F0A000300000000000000019 /* HeartRateHistoryViewController.swift */,
+                F0A00030000000000000001A /* HeartRateMeasurementResultViewController.swift */,
+                F0A00030000000000000001B /* HeartRateMeasurementViewController.swift */,
+                F0A00030000000000000001C /* HeartRateResultViewController.swift */,
+                F0A00030000000000000001D /* RingDashboardViewController.swift */,
+                F0A00030000000000000001E /* RingDeviceSettingsViewController.swift */,
+                F0A00030000000000000001F /* RingHealthViewController.swift */,
+                F0A000300000000000000020 /* SmartRingDetailsViewController.swift */,
+            );
+            path = RingFeatures;
+            sourceTree = "<group>";
+        };
+        F0A000140000000000000001 /* Components */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000012 /* BodyPowerAndHealthModule.swift */,
+                F0A000300000000000000013 /* BodyPowerModule.swift */,
+                F0A000300000000000000014 /* CustomNavigationBarModule.swift */,
+                F0A000300000000000000015 /* HealthDataCardModule.swift */,
+                F0A000300000000000000016 /* HealthIndicatorRingModule.swift */,
+            );
+            path = Components;
+            sourceTree = "<group>";
+        };
+        F0A000110000000000000006 /* Settings */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000021 /* SettingsViewController.swift */,
+            );
+            path = Settings;
+            sourceTree = "<group>";
+        };
+        F0A000110000000000000007 /* TabBar */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000300000000000000022 /* RingFeaturesTabBarController.swift */,
+                F0A000300000000000000023 /* TabBarController.swift */,
+            );
+            path = TabBar;
+            sourceTree = "<group>";
+        };
+        F0A000150000000000000001 /* Base.lproj */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000400000000000000001 /* LaunchScreen.storyboard */,
+                F0A000400000000000000002 /* Main.storyboard */,
+            );
+            path = Base.lproj;
+            sourceTree = "<group>";
+        };
+/* End PBXGroup (converted) section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		880EC1542ECCD1DB005DF921 /* 蓝牙指环 */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				880EC1642ECCD1DD005DF921 /* Exceptions for "蓝牙指环" folder in "蓝牙指环" target */,
-			);
-			path = "蓝牙指环";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
+/* Begin PBXGroup section (root converted) */
+        880EC1542ECCD1DB005DF921 /* 蓝牙指环 */ = {
+            isa = PBXGroup;
+            children = (
+                F0A000500000000000000001 /* AppDelegate.swift */,
+                F0A000500000000000000002 /* SceneDelegate.swift */,
+                F0A000500000000000000003 /* Info.plist */,
+                1F9260FE526D00084D49D0F3 /* Frameworks */,
+                393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */,
+                F0A000100000000000000001 /* Extensions */,
+                F0A000100000000000000002 /* Modules */,
+                F0A000150000000000000001 /* Base.lproj */,
+                F0A000500000000000000004 /* Assets.xcassets */,
+            );
+            path = "蓝牙指环";
+            sourceTree = "<group>";
+        };
+/* End PBXGroup section (root converted) */
 
 /* Begin PBXFrameworksBuildPhase section */
-		880EC14F2ECCD1DB005DF921 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				323643393430383430453234344235434236414532353846 /* BCLRingSDK.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        880EC14F2ECCD1DB005DF921 /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -73,16 +345,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		880EC1492ECCD1DB005DF921 = {
-			isa = PBXGroup;
-			children = (
-				880EC1542ECCD1DB005DF921 /* 蓝牙指环 */,
-				880EC1532ECCD1DB005DF921 /* Products */,
-				E69BB236479986BB6FF7FEE2 /* Pods */,
-				1F9260FE526D00084D49D0F3 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
+        880EC1492ECCD1DB005DF921 = {
+            isa = PBXGroup;
+            children = (
+                880EC1542ECCD1DB005DF921 /* 蓝牙指环 */,
+                880EC1532ECCD1DB005DF921 /* Products */,
+                E69BB236479986BB6FF7FEE2 /* Pods */,
+                1F9260FE526D00084D49D0F3 /* Frameworks */,
+            );
+            sourceTree = "<group>";
+        };
 		880EC1532ECCD1DB005DF921 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,29 +375,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		880EC1512ECCD1DB005DF921 /* 蓝牙指环 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 880EC1652ECCD1DD005DF921 /* Build configuration list for PBXNativeTarget "蓝牙指环" */;
-			buildPhases = (
-				4A2950A23B4015BC0FB02B37 /* [CP] Check Pods Manifest.lock */,
-				880EC14E2ECCD1DB005DF921 /* Sources */,
-				880EC14F2ECCD1DB005DF921 /* Frameworks */,
-				880EC1502ECCD1DB005DF921 /* Resources */,
-				8A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D /* Embed Frameworks */,
-				7ACB2C0D0869BEDAE539F1CB /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				880EC1542ECCD1DB005DF921 /* 蓝牙指环 */,
-			);
-			name = "蓝牙指环";
-			productName = "蓝牙指环";
-			productReference = 880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */;
-			productType = "com.apple.product-type.application";
-		};
+        880EC1512ECCD1DB005DF921 /* 蓝牙指环 */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = 880EC1652ECCD1DD005DF921 /* Build configuration list for PBXNativeTarget "蓝牙指环" */;
+            buildPhases = (
+                880EC14E2ECCD1DB005DF921 /* Sources */,
+                880EC14F2ECCD1DB005DF921 /* Frameworks */,
+                880EC1502ECCD1DB005DF921 /* Resources */,
+                8A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D /* Embed Frameworks */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = "蓝牙指环";
+            productName = "蓝牙指环";
+            productReference = 880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */;
+            productType = "com.apple.product-type.application";
+        };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,13 +428,16 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		880EC1502ECCD1DB005DF921 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        880EC1502ECCD1DB005DF921 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                F0B000020000000000000001 /* Assets.xcassets in Resources */,
+                F0B000020000000000000002 /* LaunchScreen.storyboard in Resources */,
+                F0B000020000000000000003 /* Main.storyboard in Resources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -217,20 +487,60 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		880EC14E2ECCD1DB005DF921 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        880EC14E2ECCD1DB005DF921 /* Sources */ = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                F0B000010000000000000001 /* AppDelegate.swift in Sources */,
+                F0B000010000000000000002 /* SceneDelegate.swift in Sources */,
+                F0B000010000000000000003 /* UIColor+Hex.swift in Sources */,
+                F0B000010000000000000004 /* UIViewController+ThirdPartyLogin.swift in Sources */,
+                F0B000010000000000000005 /* LoginViewController.swift in Sources */,
+                F0B000010000000000000006 /* LoginView.swift in Sources */,
+                F0B000010000000000000007 /* BluetoothDataParser.swift in Sources */,
+                F0B000010000000000000008 /* BluetoothHeartRateDelegate.swift in Sources */,
+                F0B000010000000000000009 /* CommunityViewController.swift in Sources */,
+                F0B00001000000000000000A /* DeviceSelectViewController.swift in Sources */,
+                F0B00001000000000000000B /* HomeViewController.swift in Sources */,
+                F0B00001000000000000000C /* RingDetailViewController.swift in Sources */,
+                F0B00001000000000000000D /* WelcomeViewController.swift in Sources */,
+                F0B00001000000000000000E /* BluetoothManager.swift in Sources */,
+                F0B00001000000000000000F /* Device.swift in Sources */,
+                F0B000010000000000000010 /* HomeModel.swift in Sources */,
+                F0B000010000000000000011 /* DeviceStore.swift in Sources */,
+                F0B000010000000000000012 /* DeviceCell.swift in Sources */,
+                F0B000010000000000000013 /* DeviceGridCell.swift in Sources */,
+                F0B000010000000000000014 /* HomeView.swift in Sources */,
+                F0B000010000000000000015 /* SearchResultsViewController.swift in Sources */,
+                F0B000010000000000000016 /* BodyPowerAndHealthModule.swift in Sources */,
+                F0B000010000000000000017 /* BodyPowerModule.swift in Sources */,
+                F0B000010000000000000018 /* CustomNavigationBarModule.swift in Sources */,
+                F0B000010000000000000019 /* HealthDataCardModule.swift in Sources */,
+                F0B00001000000000000001A /* HealthIndicatorRingModule.swift in Sources */,
+                F0B00001000000000000001B /* BluetoothHeartRateManager.swift in Sources */,
+                F0B00001000000000000001C /* HeartRateHistoryViewController.swift in Sources */,
+                F0B00001000000000000001D /* HeartRateMeasurementResultViewController.swift in Sources */,
+                F0B00001000000000000001E /* HeartRateMeasurementViewController.swift in Sources */,
+                F0B00001000000000000001F /* HeartRateResultViewController.swift in Sources */,
+                F0B000010000000000000020 /* RingDashboardViewController.swift in Sources */,
+                F0B000010000000000000021 /* RingDeviceSettingsViewController.swift in Sources */,
+                F0B000010000000000000022 /* RingHealthViewController.swift in Sources */,
+                F0B000010000000000000023 /* SmartRingDetailsViewController.swift in Sources */,
+                F0B000010000000000000024 /* SettingsViewController.swift in Sources */,
+                F0B000010000000000000025 /* RingFeaturesTabBarController.swift in Sources */,
+                F0B000010000000000000026 /* TabBarController.swift in Sources */,
+                F0B000010000000000000027 /* BCLRingSDKManager.swift in Sources */,
+                F0B000010000000000000028 /* BluetoothDeviceManager.swift in Sources */,
+                F0B000010000000000000029 /* SDKIntegrationHelper.swift in Sources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		880EC1662ECCD1DD005DF921 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A52442FA2B5F79C968DFEE01 /* Pods-蓝牙指环.debug.xcconfig */;
-			buildSettings = {
+        880EC1662ECCD1DD005DF921 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -249,7 +559,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "-.----";
+                PRODUCT_BUNDLE_IDENTIFIER = "com.example.bluetoothring";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -261,10 +571,9 @@
 			};
 			name = Debug;
 		};
-		880EC1672ECCD1DD005DF921 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87D982E002B45C998F4F0DBC /* Pods-蓝牙指环.release.xcconfig */;
-			buildSettings = {
+        880EC1672ECCD1DD005DF921 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -283,7 +592,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "-.----";
+                PRODUCT_BUNDLE_IDENTIFIER = "com.example.bluetoothring";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;

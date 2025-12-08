@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="1Gf-2B-hZb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="1Gf-2B-hZb">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wk3-hH-AK6">
                                 <rect key="frame" x="137" y="308" width="120" height="114"/>
@@ -28,8 +27,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="1Gf-2B-hZb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9dT-La-41F"/>
+                            <constraint firstItem="1Gf-2B-hZb" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="CCD-OV-CID"/>
                             <constraint firstItem="wk3-hH-AK6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="MKI-vC-HDK"/>
                             <constraint firstItem="wk3-hH-AK6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="190" id="aTc-16-QMO"/>
+                            <constraint firstItem="1Gf-2B-hZb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="cU4-MR-yR4"/>
+                            <constraint firstAttribute="bottom" secondItem="1Gf-2B-hZb" secondAttribute="bottom" id="rCs-tY-Odh"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 初始化为登录页面
         let loginVC = LoginViewController()
-        window.rootViewController = loginVC
+        let loginNav = BaseNavigationController(rootViewController: loginVC)
+        loginNav.setNavigationBarHidden(true, animated: false)
+        window.rootViewController = loginNav
         window.makeKeyAndVisible()
         self.window = window
         

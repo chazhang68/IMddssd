@@ -1,5 +1,7 @@
 import Foundation
-import BCLRingSDK
+// #if canImport(BCLRingSDK)
+// import BCLRingSDK
+// #endif
 
 /// SDK集成辅助类 - 提供SDK初始化和常用功能
 class SDKIntegrationHelper {

@@ -6,7 +6,9 @@
 //
 
 import UIKit
-import BCLRingSDK
+// #if canImport(BCLRingSDK)
+// import BCLRingSDK
+// #endif
 // import GoogleSignIn
 
 @main

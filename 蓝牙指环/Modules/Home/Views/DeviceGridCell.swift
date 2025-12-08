@@ -22,7 +22,7 @@ class DeviceGridCell: UICollectionViewCell {
     let batteryLabel = UILabel()
     
     /// 蓝牙连接状态 - 圆形指示点
-    let bluetoothIndicator = UIView()
+    let bluetoothIndicator = UIImageView()
     
     /// 顶部内容栈视图 - 包含图标和电池信息
     private let topStackView = UIStackView()
@@ -70,11 +70,14 @@ class DeviceGridCell: UICollectionViewCell {
         containerView.addSubview(batteryLabel)
         
         // 右上角蓝牙按钮容器
-        bluetoothIndicator.backgroundColor = .white
-        bluetoothIndicator.layer.cornerRadius = 22
-        bluetoothIndicator.layer.masksToBounds = true
-        bluetoothIndicator.layer.borderWidth = 2
-        bluetoothIndicator.layer.borderColor = UIColor(hex: 0x333333).cgColor
+//        bluetoothIndicator.backgroundColor = .white
+//        bluetoothIndicator.layer.cornerRadius = 22
+//        bluetoothIndicator.layer.masksToBounds = true
+//        bluetoothIndicator.layer.borderWidth = 2
+//        bluetoothIndicator.layer.borderColor = UIColor(hex: 0x333333).cgColor
+//        bluetoothIndicator.translatesAutoresizingMaskIntoConstraints = false
+        bluetoothIndicator.contentMode = .scaleAspectFit
+        bluetoothIndicator.tintColor = UIColor(hex: 0x333333)
         bluetoothIndicator.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(bluetoothIndicator)
         
@@ -122,14 +125,14 @@ class DeviceGridCell: UICollectionViewCell {
             // 右上角蓝牙按钮
             bluetoothIndicator.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
             bluetoothIndicator.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            bluetoothIndicator.widthAnchor.constraint(equalToConstant: 44),
+            bluetoothIndicator.widthAnchor.constraint(equalToConstant: 58),
             bluetoothIndicator.heightAnchor.constraint(equalToConstant: 44),
             
             // 蓝牙图标
-            bluetoothIcon.centerXAnchor.constraint(equalTo: bluetoothIndicator.centerXAnchor),
-            bluetoothIcon.centerYAnchor.constraint(equalTo: bluetoothIndicator.centerYAnchor),
-            bluetoothIcon.widthAnchor.constraint(equalToConstant: 20),
-            bluetoothIcon.heightAnchor.constraint(equalToConstant: 20),
+//            bluetoothIcon.centerXAnchor.constraint(equalTo: bluetoothIndicator.centerXAnchor),
+//            bluetoothIcon.centerYAnchor.constraint(equalTo: bluetoothIndicator.centerYAnchor),
+//            bluetoothIcon.widthAnchor.constraint(equalToConstant: 20),
+//            bluetoothIcon.heightAnchor.constraint(equalToConstant: 20),
             
             // 设备名称约束（左侧中上）
             deviceNameLabel.topAnchor.constraint(equalTo: deviceTypeIcon.bottomAnchor, constant: 12),
@@ -168,19 +171,21 @@ class DeviceGridCell: UICollectionViewCell {
         // 设置蓝牙按钮样式
         if isConnected {
             // 已连接：蓝色背景，白色图标，无边框
-            bluetoothIndicator.backgroundColor = UIColor(hex: 0x2196F3)
-            bluetoothIndicator.layer.borderWidth = 0
-            if let bluetoothIcon = bluetoothIndicator.viewWithTag(999) as? UIImageView {
-                bluetoothIcon.tintColor = .white
-            }
+//            bluetoothIndicator.backgroundColor = UIColor(hex: 0x2196F3)
+//            bluetoothIndicator.layer.borderWidth = 0
+//            if let bluetoothIcon = bluetoothIndicator.viewWithTag(999) as? UIImageView {
+//                bluetoothIcon.tintColor = .white
+//            }
+            bluetoothIndicator.image = UIImage(named: "switch")
         } else {
             // 未连接：白色背景，黑色图标，黑色边框
-            bluetoothIndicator.backgroundColor = .white
-            bluetoothIndicator.layer.borderWidth = 2
-            bluetoothIndicator.layer.borderColor = UIColor(hex: 0x333333).cgColor
-            if let bluetoothIcon = bluetoothIndicator.viewWithTag(999) as? UIImageView {
-                bluetoothIcon.tintColor = UIColor(hex: 0x333333)
-            }
+            bluetoothIndicator.image = UIImage(named: "switch-off")
+//            bluetoothIndicator.backgroundColor = .white
+//            bluetoothIndicator.layer.borderWidth = 2
+//            bluetoothIndicator.layer.borderColor = UIColor(hex: 0x333333).cgColor
+//            if let bluetoothIcon = bluetoothIndicator.viewWithTag(999) as? UIImageView {
+//                bluetoothIcon.tintColor = UIColor(hex: 0x333333)
+//            }
         }
     }
 }
