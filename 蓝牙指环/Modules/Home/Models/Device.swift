@@ -12,6 +12,22 @@ struct Device: Identifiable, Codable {
     var isConnecting: Bool      // 是否正在连接中
     var batteryPercentage: Int? // 电池百分比（如果有）
     
+    // MARK: - 设备类型判断
+    
+    /// 判断是否为指环设备
+    /// 根据设备名称判断：包含 "ring"、"指环"、"Ring"，或者以 "BCL" 开头
+    static func isRingDevice(name: String) -> Bool {
+        return name.contains("ring") || 
+               name.contains("指环") || 
+               name.contains("Ring") ||
+               name.hasPrefix("BCL")
+    }
+    
+    /// 判断当前设备是否为指环
+    var isRingDevice: Bool {
+        return Device.isRingDevice(name: name)
+    }
+    
     /// 根据设备名称和连接状态获取背景图片
     var backgroundImage: UIImage? {
         // 根据设备名称匹配资源图片
@@ -23,7 +39,8 @@ struct Device: Identifiable, Codable {
             imageName = isConnected ? "Know-you-pro-s" : "Know-you-pro-n"
         } else if name.contains("Earphones") || name.contains("耳机") {
             imageName = "earphones2"
-        } else if name.contains("ring") || name.contains("指环") || name.contains("Ring") {
+        } else if Device.isRingDevice(name: name) {
+            // 使用统一的指环判断逻辑
             imageName = "ring"
         } else {
             imageName = nil

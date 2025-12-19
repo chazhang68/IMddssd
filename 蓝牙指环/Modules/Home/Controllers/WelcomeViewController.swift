@@ -623,7 +623,7 @@ import BCLRingSDK
             deviceType = .watch
         } else if bclDevice.name.contains("Earphones") || bclDevice.name.contains("耳机") {
             deviceType = .headphones
-        } else if bclDevice.name.contains("ring") || bclDevice.name.contains("指环") || bclDevice.name.contains("Ring") {
+        } else if Device.isRingDevice(name: bclDevice.name) {
             deviceType = .ring
         } else {
             deviceType = .other

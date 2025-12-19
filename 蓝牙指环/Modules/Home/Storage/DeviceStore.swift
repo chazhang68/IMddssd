@@ -76,5 +76,31 @@ final class DeviceStore {
     func getAllBCLDeviceIDs() -> [String] {
         return loadBCLDevices().map { $0.id }
     }
+    
+    /// 移除指定的 BCLDevice
+    /// - Parameter id: 设备 ID
+    func removeBCLDevice(id: String) {
+        var devices = loadBCLDevices()
+        devices.removeAll { $0.id == id }
+        
+        // 保存更新后的列表
+        if let encoded = try? JSONEncoder().encode(devices) {
+            UserDefaults.standard.set(encoded, forKey: bclDeviceKey)
+            print("✅ 已移除 BCLDevice: \(id)")
+        }
+    }
+    
+    /// 清除所有已保存的 BCLDevice（用于清除测试数据）
+    func clearAllBCLDevices() {
+        UserDefaults.standard.removeObject(forKey: bclDeviceKey)
+        print("✅ 已清除所有已保存的 BCLDevice")
+    }
+    
+    /// 清除所有设备数据（包括 Device 和 BCLDevice）
+    func clearAllDevices() {
+        UserDefaults.standard.removeObject(forKey: deviceKey)
+        UserDefaults.standard.removeObject(forKey: bclDeviceKey)
+        print("✅ 已清除所有设备数据")
+    }
 }
 
