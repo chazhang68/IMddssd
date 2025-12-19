@@ -10,6 +10,7 @@
 		8E87D2502EF4FBDC00C6BA8C /* BCLRingSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; };
 		8E87D2522EF4FC5900C6BA8C /* Pods_蓝牙指环.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E87D24E2EF4FBD300C6BA8C /* Pods_蓝牙指环.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E87D2542EF5218400C6BA8C /* Pods_蓝牙指环.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E87D24E2EF4FBD300C6BA8C /* Pods_蓝牙指环.framework */; };
+		8E87D25E2EF550F000C6BA8C /* BluetoothBindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E87D25D2EF550F000C6BA8C /* BluetoothBindingView.swift */; };
 		F0B000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000001 /* AppDelegate.swift */; };
 		F0B000010000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000002 /* SceneDelegate.swift */; };
 		F0B000010000000000000003 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000200000000000000001 /* UIColor+Hex.swift */; };
@@ -77,6 +78,7 @@
 		3B7066859935D14BCCE6B488 /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "蓝牙指环.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E87D24E2EF4FBD300C6BA8C /* Pods_蓝牙指环.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = "Pods_蓝牙指环.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E87D25D2EF550F000C6BA8C /* BluetoothBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBindingView.swift; sourceTree = "<group>"; };
 		BD2C8C87AB4938A094014214 /* Pods-蓝牙指环.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.debug.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.debug.xcconfig"; sourceTree = "<group>"; };
 		E25FEA1B4E9AF2AD0E01E580 /* Pods-蓝牙指环.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.release.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.release.xcconfig"; sourceTree = "<group>"; };
 		F0A000200000000000000001 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				F0A00030000000000000000F /* DeviceGridCell.swift */,
 				F0A000300000000000000010 /* HomeView.swift */,
 				F0A000300000000000000011 /* SearchResultsViewController.swift */,
+				8E87D25D2EF550F000C6BA8C /* BluetoothBindingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				F0B00001000000000000001D /* HeartRateMeasurementResultViewController.swift in Sources */,
 				F0B00001000000000000001E /* HeartRateMeasurementViewController.swift in Sources */,
 				F0B00001000000000000001F /* HeartRateResultViewController.swift in Sources */,
+				8E87D25E2EF550F000C6BA8C /* BluetoothBindingView.swift in Sources */,
 				F0B000010000000000000020 /* RingDashboardViewController.swift in Sources */,
 				F0B000010000000000000021 /* RingDeviceSettingsViewController.swift in Sources */,
 				F0B000010000000000000022 /* RingHealthViewController.swift in Sources */,

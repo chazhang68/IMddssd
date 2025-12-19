@@ -1,5 +1,6 @@
 import UIKit
 import CoreBluetooth
+import SwiftUI
 
 
 /// 首页视图控制器 - 设备搜索和管理
@@ -744,8 +745,10 @@ class HomeViewController: UIViewController {
     /// 菜单按钮点击事件
     /// 打开菜单页面
     @objc private func menuTapped() { 
-        let welcome = WelcomeViewController()
-        push(welcome)
+        let bindingView = BluetoothBindingView()
+        let hostingController = UIHostingController(rootView: bindingView)
+        hostingController.modalPresentationStyle = .fullScreen
+        present(hostingController, animated: true, completion: nil)
     }
     
     /// 开始/停止设备搜索
