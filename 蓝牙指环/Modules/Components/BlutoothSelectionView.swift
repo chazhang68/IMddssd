@@ -16,7 +16,8 @@ struct BluetoothSelectionView: View {
     @State private var listContentHeight: CGFloat = 0
 
     let yellowColor = Color(UIColor(hex: 0xFFD700))
-    let darkOverlayColor = Color(UIColor(hex: 0x1C1C1E))
+    let whiteColor = Color(UIColor(hex: 0xEBEBF5))
+    let darkOverlayColor = Color(UIColor(hex: 0x1E1E1E))
     let separatorColor = Color.white.opacity(0.15)
 
     var body: some View {
@@ -33,7 +34,7 @@ struct BluetoothSelectionView: View {
                 VStack(spacing: 0) {
                     Text("新的设备")
                         .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(.white)
+                        .foregroundColor(whiteColor)
                         .padding(.vertical, 14)
                     
                     Divider()
@@ -50,7 +51,7 @@ struct BluetoothSelectionView: View {
                                     }) {
                                         Text(device.name)
                                             .font(.system(size: 18, weight: .regular))
-                                            .foregroundColor(yellowColor)
+                                            .foregroundColor(selectedDeviceId == device.id ? yellowColor : whiteColor)
                                             .frame(maxWidth: .infinity)
                                             .padding(.vertical, 18)
                                     }
