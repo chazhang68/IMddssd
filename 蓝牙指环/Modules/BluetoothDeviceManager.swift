@@ -47,6 +47,15 @@ final class BluetoothDeviceManager {
                 self.currentDevice = bclDevice
                 self.isConnected = true
                 print("✅ 蓝牙设备已连接: \(deviceName)")
+                
+                // 发送连接状态变化通知（包含设备信息）
+                // HomeViewController 会监听这个通知并返回首页
+                NotificationCenter.default.post(
+                    name: BluetoothDeviceManager.connectionStateChangedNotification,
+                    object: nil,
+                    userInfo: ["deviceName": deviceName, "isConnected": true]
+                )
+                print("📤 已发送连接成功通知，HomeViewController 将返回首页")
             }
         } else {
             // 设备已断开
@@ -55,10 +64,14 @@ final class BluetoothDeviceManager {
                 print("⚠️  蓝牙设备已断开: \(deviceName)")
                 // 暂不清除 currentDevice，以便保留设备信息
             }
+            
+            // 发送连接状态变化通知
+            NotificationCenter.default.post(
+                name: BluetoothDeviceManager.connectionStateChangedNotification,
+                object: nil,
+                userInfo: ["deviceName": deviceName, "isConnected": false]
+            )
         }
-        
-        // 发送连接状态变化通知
-        NotificationCenter.default.post(name: BluetoothDeviceManager.connectionStateChangedNotification, object: nil)
     }
     
     // MARK: - 公开方法
