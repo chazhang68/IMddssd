@@ -134,27 +134,6 @@ struct BluetoothBindingView: View {
     }
 }
 
-// MARK: - Helper Views
-
-struct CircleBadge: View {
-    let icon: String
-    let iconColor: Color
-    let bgColor: Color
-    
-    var body: some View {
-        ZStack {
-            bgColor
-            Image(systemName: icon)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 24, height: 24)
-                .foregroundColor(iconColor)
-        }
-        .frame(width: 48, height: 48)
-        .clipShape(Circle())
-    }
-}
-
 // Custom Shape for rounded corners on specific corners
 struct RoundedCorner: Shape {
     var radius: CGFloat = .infinity

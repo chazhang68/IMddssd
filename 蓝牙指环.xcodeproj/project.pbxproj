@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E30745E2EF58DE1007A1D56 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */; };
+		8E3074632EF59345007A1D56 /* BlutoothSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */; };
 		8E87D2502EF4FBDC00C6BA8C /* BCLRingSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; };
 		8E87D2522EF4FC5900C6BA8C /* Pods_蓝牙指环.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E87D24E2EF4FBD300C6BA8C /* Pods_蓝牙指环.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E87D2542EF5218400C6BA8C /* Pods_蓝牙指环.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E87D24E2EF4FBD300C6BA8C /* Pods_蓝牙指环.framework */; };
@@ -77,6 +79,8 @@
 		393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BCLRingSDK.xcframework; sourceTree = "<group>"; };
 		3B7066859935D14BCCE6B488 /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "蓝牙指环.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothSelectionView.swift; sourceTree = "<group>"; };
 		8E87D24E2EF4FBD300C6BA8C /* Pods_蓝牙指环.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = "Pods_蓝牙指环.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E87D25D2EF550F000C6BA8C /* BluetoothBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBindingView.swift; sourceTree = "<group>"; };
 		BD2C8C87AB4938A094014214 /* Pods-蓝牙指环.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.debug.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +179,15 @@
 			path = "蓝牙指环";
 			sourceTree = "<group>";
 		};
+		8E3074612EF59313007A1D56 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */,
+				8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		8E87D2532EF5216100C6BA8C /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +225,7 @@
 		F0A000100000000000000002 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8E3074612EF59313007A1D56 /* Components */,
 				F0A000110000000000000001 /* Auth */,
 				F0A000110000000000000002 /* BluetoothManager */,
 				F0A000110000000000000003 /* Community */,
@@ -513,6 +527,7 @@
 				F0B000010000000000000007 /* BluetoothDataParser.swift in Sources */,
 				F0B000010000000000000008 /* BluetoothHeartRateDelegate.swift in Sources */,
 				F0B000010000000000000009 /* CommunityViewController.swift in Sources */,
+				8E3074632EF59345007A1D56 /* BlutoothSelectionView.swift in Sources */,
 				F0B00001000000000000000A /* DeviceSelectViewController.swift in Sources */,
 				F0B00001000000000000000B /* HomeViewController.swift in Sources */,
 				F0B00001000000000000000C /* RingDetailViewController.swift in Sources */,
@@ -542,6 +557,7 @@
 				F0B000010000000000000023 /* SmartRingDetailsViewController.swift in Sources */,
 				F0B000010000000000000024 /* SettingsViewController.swift in Sources */,
 				F0B000010000000000000025 /* RingFeaturesTabBarController.swift in Sources */,
+				8E30745E2EF58DE1007A1D56 /* CustomAlertView.swift in Sources */,
 				F0B000010000000000000026 /* TabBarController.swift in Sources */,
 				F0B000010000000000000027 /* BCLRingSDKManager.swift in Sources */,
 				F0B000010000000000000028 /* BluetoothDeviceManager.swift in Sources */,
