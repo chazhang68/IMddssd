@@ -12,6 +12,7 @@ final class BaseNavigationController: UINavigationController, UIGestureRecognize
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(hex: 0x0E0F12)
+        appearance.shadowColor = .clear
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor.white,
             .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -41,12 +42,29 @@ final class BaseNavigationController: UINavigationController, UIGestureRecognize
 final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         setupTabBar()
         setupTabs()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        var frame = tabBar.frame
+        let baseHeight: CGFloat = 64
+        let safeBottom = view.safeAreaInsets.bottom
+        frame.size.height = baseHeight + safeBottom
+        frame.origin.y = view.bounds.height - frame.size.height
+        tabBar.frame = frame
+    }
+    
     private func setupTabBar() {
-        tabBar.backgroundColor = UIColor(hex: 0x0E0F12)
+        tabBar.isTranslucent = false
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(hex: 0x2B2B2B)
+        appearance.shadowColor = .clear
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
         tabBar.tintColor = UIColor(hex: 0xFFD23A)
         tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.6)
         tabBar.layer.cornerRadius = 24
@@ -59,9 +77,20 @@ final class TabBarController: UITabBarController {
         let community = CommunityViewController()
         let settings = SettingsViewController()
         
-        home.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house.fill"), tag: 0)
-        community.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "bubble.left.and.bubble.right.fill"), tag: 1)
-        settings.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.fill"), tag: 2)
+        let homeImage = UIImage(named: "home")?.withRenderingMode(.alwaysOriginal)
+        let homeSelectedImage = UIImage(named: "home2")?.withRenderingMode(.alwaysOriginal)
+        home.tabBarItem = UITabBarItem(title: nil, image: homeImage, selectedImage: homeSelectedImage)
+        home.tabBarItem.imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
+
+        let communityImage = UIImage(named: "community")?.withRenderingMode(.alwaysOriginal)
+        let communitySelectedImage = UIImage(named: "community2")?.withRenderingMode(.alwaysOriginal)
+        community.tabBarItem = UITabBarItem(title: nil, image: communityImage, selectedImage: communitySelectedImage)
+        community.tabBarItem.imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
+
+        let settingsImage = UIImage(named: "my")?.withRenderingMode(.alwaysOriginal)
+        let settingsSelectedImage = UIImage(named: "my2")?.withRenderingMode(.alwaysOriginal)
+        settings.tabBarItem = UITabBarItem(title: nil, image: settingsImage, selectedImage: settingsSelectedImage)
+        settings.tabBarItem.imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
 
         // 为每个 Tab 包装统一的导航控制器，方便后续 Push
         let homeNav = BaseNavigationController(rootViewController: home)

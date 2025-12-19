@@ -85,7 +85,7 @@ class HomeView: UIView {
         // 配置标题
         titleLabel.text = "SKYEAGLE"
         titleLabel.textColor = .white
-        titleLabel.font = .systemFont(ofSize: 32, weight: .bold)
+        titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         topContainer.addSubview(titleLabel)
 
@@ -93,7 +93,7 @@ class HomeView: UIView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd, yyyy"
         dateLabel.text = dateFormatter.string(from: Date())
-        dateLabel.textColor = UIColor(hex: 0x999999)
+        dateLabel.textColor = UIColor(hex: 0xA4A4A4)
         dateLabel.font = .systemFont(ofSize: 14)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         topContainer.addSubview(dateLabel)
@@ -106,6 +106,31 @@ class HomeView: UIView {
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         menuButton.addTarget(self, action: #selector(addDevices), for: .touchUpInside)
         topContainer.addSubview(menuButton)
+        
+        // 创建一个灰色背景的圆形视图
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(hex: 0x2B2B2B) // 灰棕色
+        backgroundView.layer.cornerRadius = 20 // 半径为20，使其成为圆形
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        topContainer.addSubview(backgroundView)
+
+        // 设置 backgroundView 的约束
+        NSLayoutConstraint.activate([
+            backgroundView.widthAnchor.constraint(equalToConstant: 40),
+            backgroundView.heightAnchor.constraint(equalToConstant: 40),
+            backgroundView.trailingAnchor.constraint(equalTo: topContainer.trailingAnchor, constant: -16),
+            backgroundView.topAnchor.constraint(equalTo: topContainer.topAnchor, constant: 12)
+        ])
+
+        // 将 menuButton 添加到 backgroundView 中，并设置居中
+        backgroundView.addSubview(menuButton)
+        NSLayoutConstraint.activate([
+            menuButton.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            menuButton.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            menuButton.widthAnchor.constraint(equalToConstant: 40),
+            menuButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
 
         // 配置返回按钮
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
