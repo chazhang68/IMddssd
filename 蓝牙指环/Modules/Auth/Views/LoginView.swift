@@ -1,13 +1,12 @@
 import UIKit
 
-/// 登录视图 - 完整的用户登录界面
-/// 包含顶部品牌区域、用户协议区域和第三方登录按钮区域
-class LoginView: UIView {
+class LoginView: UIView, UITextViewDelegate {
     // MARK: - UI组件定义
     
     /// 顶部容器 - 包含品牌标题和Logo
     let topContainer = UIView()
     
+    let backgroundImageView = UIImageView()
     let welcomeImageView = UIImageView()
     let avatarImageView = UIImageView()
     
@@ -16,9 +15,10 @@ class LoginView: UIView {
     
     /// 用户协议容器 - 包含复选框和协议文本
     let consentContainer = UIView()
+    let consentTextView = UITextView()
     
     /// 同意复选框 - 用户勾选同意协议
-    let checkBox = UIButton(type: .system)
+    let checkBox = UIButton(type: .custom)
     
     /// 协议说明标签 - 显示"I have read and agree to the"
     let consentLabel = UILabel()
@@ -46,19 +46,21 @@ class LoginView: UIView {
     
     /// 用户同意状态 - 记录用户是否勾选同意协议
     var isConsentChecked = false
+    
+    let cornerButtonRadius: CGFloat = 20
 
     // MARK: - 初始化方法
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(hex: 0xFFD700) // 明亮黄色背景
+        backgroundColor = .clear
+        setupBackground()
         setupTopContainer()      // 配置顶部容器
         setupHeaderTexts()       // 配置标题和品牌文字
         setupLogo()              // 配置Logo和徽章
         setupConsentSection()    // 配置用户协议区域
         setupSocialButtons()     // 配置社交登录按钮
         setupBottomContainer()   // 配置底部容器
-        applyDiagonalStripes(to: bottomContainer)  // 应用对角线条纹背景
         //updateSocialButtonsEnabled()
     }
 
@@ -76,13 +78,13 @@ class LoginView: UIView {
         addSubview(topContainer)
         topContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topContainer.topAnchor.constraint(equalTo: topAnchor),
             topContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
             topContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.65) // 调整高度适配社交登录
+            topContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.60)
         ])
         topContainer.backgroundColor = UIColor(hex: 0xFFD700) // 明亮黄色背景
-        topContainer.layer.cornerRadius = 32 // 大圆角底部边框
+        topContainer.layer.cornerRadius = 36 // 大圆角底部边框
         topContainer.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]  // 仅底部左右圆角
     }
 
@@ -130,36 +132,38 @@ class LoginView: UIView {
         // Checkbox
         consentContainer.addSubview(checkBox)
         checkBox.translatesAutoresizingMaskIntoConstraints = false
-        checkBox.layer.borderWidth = 2
-        checkBox.layer.borderColor = UIColor.white.cgColor
-        checkBox.layer.cornerRadius = 12
-        checkBox.backgroundColor = .clear
         checkBox.addTarget(self, action: #selector(toggleConsent), for: .touchUpInside)
         checkBox.contentMode = .center
+        checkBox.adjustsImageWhenHighlighted = false
+        checkBox.showsTouchWhenHighlighted = false
+        checkBox.backgroundColor = .clear
+        checkBox.setImage(UIImage(named: "unselected")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        checkBox.setImage(UIImage(named: "selected")?.withRenderingMode(.alwaysOriginal), for: .selected)
         
-        // Consent text
-        consentLabel.translatesAutoresizingMaskIntoConstraints = false
-        consentLabel.text = "I have read and agree to the"
-        consentLabel.textColor = UIColor(white: 0.7, alpha: 1.0) // Grey text
-        consentLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        consentLabel.numberOfLines = 0
-        consentContainer.addSubview(consentLabel)
-        
-        // Privacy Policy button
-        privacyButton.translatesAutoresizingMaskIntoConstraints = false
-        privacyButton.setTitle("Privacy Policy", for: .normal)
-        privacyButton.setTitleColor(UIColor(hex: 0xFFD700), for: .normal) // Yellow text
-        privacyButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        privacyButton.contentHorizontalAlignment = .left
-        consentContainer.addSubview(privacyButton)
-        
-        // Management button
-        managementButton.translatesAutoresizingMaskIntoConstraints = false
-        managementButton.setTitle("Management", for: .normal)
-        managementButton.setTitleColor(UIColor(hex: 0xFFD700), for: .normal) // Yellow text
-        managementButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        managementButton.contentHorizontalAlignment = .left
-        consentContainer.addSubview(managementButton)
+        consentTextView.translatesAutoresizingMaskIntoConstraints = false
+        consentTextView.backgroundColor = .clear
+        consentTextView.isEditable = false
+        consentTextView.isScrollEnabled = false
+        consentTextView.textContainerInset = .zero
+        consentTextView.textContainer.lineFragmentPadding = 0
+        consentTextView.linkTextAttributes = [
+            .foregroundColor: UIColor(hex: 0xFFD700)
+        ]
+        let baseColor = UIColor(white: 0.7, alpha: 1.0)
+        let text = "I have read and agree to the Privacy Policy Management"
+        let attr = NSMutableAttributedString(string: text, attributes: [
+            .foregroundColor: baseColor,
+            .font: UIFont.systemFont(ofSize: 16, weight: .regular)
+        ])
+        if let range1 = (text as NSString).range(of: "Privacy Policy") as NSRange? {
+            attr.addAttributes([.link: URL(string: "action://privacy")!], range: range1)
+        }
+        if let range2 = (text as NSString).range(of: "Management") as NSRange? {
+            attr.addAttributes([.link: URL(string: "action://management")!], range: range2)
+        }
+        consentTextView.attributedText = attr
+        consentTextView.delegate = self
+        consentContainer.addSubview(consentTextView)
         
         NSLayoutConstraint.activate([
             consentContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: 30),
@@ -171,17 +175,10 @@ class LoginView: UIView {
             checkBox.widthAnchor.constraint(equalToConstant: 24),
             checkBox.heightAnchor.constraint(equalToConstant: 24),
             
-            consentLabel.leadingAnchor.constraint(equalTo: checkBox.trailingAnchor, constant: 12),
-            consentLabel.topAnchor.constraint(equalTo: consentContainer.topAnchor),
-            consentLabel.trailingAnchor.constraint(equalTo: consentContainer.trailingAnchor),
-            
-            privacyButton.leadingAnchor.constraint(equalTo: consentLabel.leadingAnchor),
-            privacyButton.topAnchor.constraint(equalTo: consentLabel.bottomAnchor, constant: 2),
-            
-            managementButton.leadingAnchor.constraint(equalTo: privacyButton.leadingAnchor),
-            managementButton.topAnchor.constraint(equalTo: privacyButton.bottomAnchor, constant: 2),
-            
-            consentContainer.bottomAnchor.constraint(equalTo: managementButton.bottomAnchor)
+            consentTextView.leadingAnchor.constraint(equalTo: checkBox.trailingAnchor, constant: 12),
+            consentTextView.topAnchor.constraint(equalTo: consentContainer.topAnchor),
+            consentTextView.trailingAnchor.constraint(equalTo: consentContainer.trailingAnchor),
+            consentTextView.bottomAnchor.constraint(equalTo: consentContainer.bottomAnchor)
         ])
     }
 
@@ -200,9 +197,10 @@ class LoginView: UIView {
         setupWeChatButton()
         
         NSLayoutConstraint.activate([
-            socialContainer.topAnchor.constraint(equalTo: consentContainer.bottomAnchor, constant: 30),
-            socialContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            socialContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            socialContainer.topAnchor.constraint(greaterThanOrEqualTo: consentContainer.bottomAnchor, constant: 30),
+            socialContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            socialContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            socialContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             
             googleButton.leadingAnchor.constraint(equalTo: socialContainer.leadingAnchor),
             googleButton.topAnchor.constraint(equalTo: socialContainer.topAnchor),
@@ -225,7 +223,7 @@ class LoginView: UIView {
         socialContainer.addSubview(googleButton)
         googleButton.translatesAutoresizingMaskIntoConstraints = false
         googleButton.backgroundColor = UIColor(hex: 0xFFD700) // Yellow background
-        googleButton.layer.cornerRadius = 16
+        googleButton.layer.cornerRadius = cornerButtonRadius
         
         // Google icon image
         let googleIcon = UIImageView(image: UIImage(named: "Google"))
@@ -238,7 +236,7 @@ class LoginView: UIView {
         let googleText = UILabel()
         googleText.text = "Google"
         googleText.textColor = UIColor.black
-        googleText.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        googleText.font = UIFont.systemFont(ofSize: 14)
         googleText.textAlignment = .center
         googleButton.addSubview(googleText)
         googleText.translatesAutoresizingMaskIntoConstraints = false
@@ -260,7 +258,7 @@ class LoginView: UIView {
         socialContainer.addSubview(appleButton)
         appleButton.translatesAutoresizingMaskIntoConstraints = false
         appleButton.backgroundColor = UIColor(hex: 0xFFD700) // Yellow background
-        appleButton.layer.cornerRadius = 16
+        appleButton.layer.cornerRadius = cornerButtonRadius
         
         // Apple icon image
         let appleIcon = UIImageView(image: UIImage(named: "Apple"))
@@ -273,7 +271,7 @@ class LoginView: UIView {
         let appleText = UILabel()
         appleText.text = "Apple ID"
         appleText.textColor = UIColor.black
-        appleText.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        appleText.font = UIFont.systemFont(ofSize: 14)
         appleText.textAlignment = .center
         appleButton.addSubview(appleText)
         appleText.translatesAutoresizingMaskIntoConstraints = false
@@ -295,7 +293,7 @@ class LoginView: UIView {
         socialContainer.addSubview(wechatButton)
         wechatButton.translatesAutoresizingMaskIntoConstraints = false
         wechatButton.backgroundColor = UIColor(hex: 0xFFD700) // Yellow background
-        wechatButton.layer.cornerRadius = 16
+        wechatButton.layer.cornerRadius = cornerButtonRadius
         
         // WeChat icon image
         let wechatIcon = UIImageView(image: UIImage(named: "WeChat"))
@@ -308,7 +306,7 @@ class LoginView: UIView {
         let wechatText = UILabel()
         wechatText.text = "WeChat"
         wechatText.textColor = UIColor.black
-        wechatText.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        wechatText.font = UIFont.systemFont(ofSize: 14)
         wechatText.textAlignment = .center
         wechatButton.addSubview(wechatText)
         wechatText.translatesAutoresizingMaskIntoConstraints = false
@@ -336,6 +334,20 @@ class LoginView: UIView {
             bottomContainer.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
+    private func setupBackground() {
+        addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.image = UIImage(named: "Background")
+        backgroundImageView.contentMode = .scaleAspectFill
+        NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        sendSubviewToBack(backgroundImageView)
+    }
 
     private func applyDiagonalStripes(to view: UIView) {
         let size = CGSize(width: 24, height: 24)
@@ -359,19 +371,8 @@ class LoginView: UIView {
     /// - 已勾选：显示勾选图标，黄色背景
     /// - 未勾选：清空图标，透明背景
     @objc private func toggleConsent() {
-        isConsentChecked.toggle()  // 切换状态
-        if isConsentChecked {
-            // 已勾选状态
-            checkBox.setImage(UIImage(named: "check"), for: .normal)  // 显示勾选图标
-            checkBox.tintColor = UIColor.black  // 黑色图标
-            checkBox.backgroundColor = UIColor(hex: 0xFFD700)  // 黄色背景
-        } else {
-            // 未勾选状态
-            checkBox.setImage(nil, for: .normal)  // 清空图标
-            checkBox.backgroundColor = .clear  // 透明背景
-        }
-        // 更新边框颜色
-        checkBox.layer.borderColor = isConsentChecked ? UIColor(hex: 0xFFD700).cgColor : UIColor.white.cgColor
+        isConsentChecked.toggle()
+        checkBox.isSelected = isConsentChecked
     }
     
     /// Google登录按钮点击事件
@@ -410,5 +411,16 @@ class LoginView: UIView {
             r = next  // 继续向上查找
         }
         return nil  // 未找到
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        if URL.absoluteString == "action://privacy" {
+            print("Open Privacy Policy")
+            return false
+        } else if URL.absoluteString == "action://management" {
+            print("Open Management")
+            return false
+        }
+        return true
     }
 }
