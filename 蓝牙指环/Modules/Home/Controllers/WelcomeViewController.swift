@@ -1,6 +1,9 @@
 import UIKit
+#if canImport(BCLRingSDK)
+import BCLRingSDK
+#endif
 
-/// 欢迎
+/// 欢迎页界面 - 对应提供的设计稿（含三种状态交互）
  class WelcomeViewController: UIViewController {
     
     enum State {
