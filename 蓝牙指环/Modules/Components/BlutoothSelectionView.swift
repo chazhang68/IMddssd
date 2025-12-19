@@ -50,7 +50,7 @@ struct BluetoothSelectionView: View {
                                         onBluetoothSelected(device.name)
                                     }) {
                                         Text(device.name)
-                                            .font(.system(size: 18, weight: .regular))
+                                            .font(.system(size: 16, weight: .regular))
                                             .foregroundColor(selectedDeviceId == device.id ? yellowColor : whiteColor)
                                             .frame(maxWidth: .infinity)
                                             .padding(.vertical, 18)
@@ -114,6 +114,11 @@ struct BluetoothSelectionView_Previews: PreviewProvider {
             BluetoothSelectionView(
                 devices: [
                     BluetoothDevice(name: "BCL6031ABE"),
+                    BluetoothDevice(name: "Device 1"),
+                    BluetoothDevice(name: "Device 2"),
+                    BluetoothDevice(name: "Device 3"),
+                    BluetoothDevice(name: "Device 4"),
+                    BluetoothDevice(name: "Device 5"),
                     BluetoothDevice(name: "Test Device")
                 ],
                 onBluetoothSelected: { name in
