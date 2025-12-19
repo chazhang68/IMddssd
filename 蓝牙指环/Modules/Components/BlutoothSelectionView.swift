@@ -74,7 +74,7 @@ struct BluetoothSelectionView: View {
                 }
                 .background(darkOverlayColor)
                 .cornerRadius(14)
-//                .padding(.horizontal, 16)
+                .padding(.horizontal, 8)
 
                 Spacer().frame(height: 12)
 
@@ -87,7 +87,7 @@ struct BluetoothSelectionView: View {
                         .background(darkOverlayColor)
                         .cornerRadius(14)
                 }
-//                .padding(.horizontal, 16)
+                .padding(.horizontal, 8)
                 .padding(.bottom, 40)
             }
         }
