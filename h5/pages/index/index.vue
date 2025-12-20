@@ -1,21 +1,5 @@
 <template>
   <view class="health-page">
-    <!-- 顶部标题栏 -->
-    <view class="header">
-      <view class="status-bar"></view>
-      <view class="nav-bar">
-        <view class="nav-left">
-          <!-- TODO: 返回图标 - 手动添加 -->
-          <view class="icon-placeholder back-icon"></view>
-        </view>
-        <text class="nav-title">智能戒指</text>
-        <view class="nav-right">
-          <!-- TODO: 设置图标 - 手动添加 -->
-          <view class="icon-placeholder setting-icon"></view>
-        </view>
-      </view>
-    </view>
-
     <scroll-view class="content" scroll-y>
       <!-- 最近更新时间 -->
       <view class="update-time">
@@ -23,7 +7,7 @@
       </view>
 
       <!-- 环形比例图卡片 -->
-      <view class="ring-chart-card">
+<!--      <view class="ring-chart-card">
         <view class="ring-chart-wrapper">
           <qiun-data-charts
             type="ring"
@@ -57,12 +41,12 @@
           </view>
         </view>
       </view>
-
+-->
       <!-- 身体电量卡片 -->
-      <view class="body-power-card">
+<!--      <view class="body-power-card">
         <view class="power-header">
           <view class="power-title-row">
-            <!-- TODO: 电量图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 电量图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder power-icon"></view>
             <text class="power-title">身体电量</text>
           </view>
@@ -76,14 +60,14 @@
         <view class="power-content">
           <text class="power-text">{{ healthData.healthAdvice }}</text>
         </view>
-      </view>
+      </view>-->
 
       <!-- 健康指标网格 -->
       <view class="health-grid">
         <!-- 荷尔蒙 -->
-        <view class="health-card">
+<!--        <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 荷尔蒙图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 荷尔蒙图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder card-icon"></view>
             <view class="card-info">
               <text class="card-label">荷尔蒙</text>
@@ -104,12 +88,12 @@
             <text class="time-label">00:00</text>
             <text class="time-label">24:00</text>
           </view>
-        </view>
+        </view>-->
 
         <!-- 心血管 -->
-        <view class="health-card">
+<!--        <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 心血管图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 心血管图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder card-icon"></view>
             <view class="card-info">
               <text class="card-label">心血管</text>
@@ -129,7 +113,7 @@
             <text class="time-label">00:00</text>
             <text class="time-label">24:00</text>
           </view>
-        </view>
+        </view>-->
 
         <!-- 血压 -->
         <view class="health-card">
@@ -158,9 +142,9 @@
         </view>
 
         <!-- 情绪 -->
-        <view class="health-card">
+<!--        <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 情绪图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 情绪图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder card-icon"></view>
             <view class="card-info">
               <text class="card-label">情绪</text>
@@ -179,7 +163,7 @@
               </view>
             </view>
           </view>
-        </view>
+        </view>-->
 
         <!-- 睡眠 -->
         <view class="health-card">
@@ -204,9 +188,9 @@
         </view>
 
         <!-- 压力 -->
-        <view class="health-card">
+<!--        <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 压力图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 压力图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder card-icon"></view>
             <view class="card-info">
               <text class="card-label">压力</text>
@@ -227,12 +211,12 @@
             <text class="time-label">00:00</text>
             <text class="time-label">24:00</text>
           </view>
-        </view>
+        </view>-->
 
         <!-- 焦虑 -->
-        <view class="health-card">
+<!--        <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 焦虑图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 焦虑图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder card-icon"></view>
             <view class="card-info">
               <text class="card-label">焦虑</text>
@@ -253,12 +237,12 @@
             <text class="time-label">00:00</text>
             <text class="time-label">24:00</text>
           </view>
-        </view>
+        </view>-->
 
         <!-- 抑郁 -->
-        <view class="health-card">
+<!--        <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 抑郁图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 抑郁图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder card-icon"></view>
             <view class="card-info">
               <text class="card-label">抑郁</text>
@@ -279,12 +263,12 @@
             <text class="time-label">00:00</text>
             <text class="time-label">24:00</text>
           </view>
-        </view>
+        </view>-->
 
         <!-- 疲劳 -->
-        <view class="health-card">
+<!--        <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 疲劳图标 - 手动添加 -->
+            &lt;!&ndash; TODO: 疲劳图标 - 手动添加 &ndash;&gt;
             <view class="icon-placeholder card-icon"></view>
             <view class="card-info">
               <text class="card-label">疲劳</text>
@@ -305,7 +289,7 @@
             <text class="time-label">00:00</text>
             <text class="time-label">24:00</text>
           </view>
-        </view>
+        </view>-->
 
         <!-- 心率 -->
         <view class="health-card">
@@ -416,19 +400,6 @@
       <view class="bottom-safe-area"></view>
     </scroll-view>
 
-    <!-- 底部TabBar -->
-    <view class="tab-bar">
-      <view class="tab-item active">
-        <!-- TODO: 首页图标 - 手动添加 -->
-        <view class="icon-placeholder tab-icon"></view>
-        <text class="tab-label active">首页</text>
-      </view>
-      <view class="tab-item">
-        <!-- TODO: 健康图标 - 手动添加 -->
-        <view class="icon-placeholder tab-icon"></view>
-        <text class="tab-label">健康</text>
-      </view>
-    </view>
   </view>
 </template>
 
@@ -648,32 +619,6 @@ page {
   height: var(--status-bar-height, 44px);
 }
 
-.nav-bar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 88rpx;
-  padding: 0 30rpx;
-}
-
-.nav-left,
-.nav-right {
-  width: 120rpx;
-  display: flex;
-  align-items: center;
-}
-
-.nav-right {
-  justify-content: flex-end;
-}
-
-.nav-title {
-  font-size: 36rpx;
-  font-weight: 500;
-  color: #0E1213;
-}
-
 /* 图标占位符 */
 .icon-placeholder {
   background-color: rgba(255, 255, 255, 0.3);
@@ -711,7 +656,6 @@ page {
 /* 内容区域 */
 .content {
   flex: 1;
-  padding: 0 30rpx;
 }
 
 /* 更新时间 */
@@ -733,7 +677,7 @@ page {
   border-radius: 32rpx;
   padding: 32rpx;
   gap: 48rpx;
-  margin: 0 30rpx 30rpx 30rpx;
+  margin: 0 30rpx 0rpx 30rpx;
 }
 
 .ring-chart-wrapper {
@@ -781,9 +725,9 @@ page {
 /* 身体电量卡片 */
 .body-power-card {
   background-color: #1F1F1E;
-  border-radius: 32rpx;
+  border-radius: 64rpx;
   padding: 36rpx;
-  margin: 16rpx 30rpx 30rpx 30rpx;
+  margin: 16rpx 30rpx 16rpx 30rpx;
 }
 
 .power-header {
@@ -830,9 +774,9 @@ page {
 
 .power-content {
   margin-top: 16rpx;
-  padding: 32rpx;
+  padding: 38rpx;
   background-color: #2F2E2D;
-  border-radius: 40rpx;
+  border-radius: 38rpx;
   border: 1rpx solid #3C3C3C;
 }
 
@@ -844,18 +788,17 @@ page {
 
 /* 健康指标网格 */
 .health-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16rpx;
   margin: 16rpx 30rpx 30rpx 30rpx;
 }
 
 .health-card {
-  width: calc(50% - 8rpx);
+  width: 100%;
   background-color: #2F2E2D;
-  border-radius: 32rpx;
-  padding: 36rpx;
+  border-radius: 64rpx;
+  padding: 30rpx 35rpx;
   box-sizing: border-box;
 }
 
@@ -870,31 +813,30 @@ page {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4rpx;
 }
 
 .card-label {
-  font-size: 20rpx;
+  font-size: 19rpx;
   color: #FFDA3C;
 }
 
 .card-date {
-  font-size: 20rpx;
+  font-size: 19rpx;
   color: #FFDA3C;
 }
 
 .card-value {
-  font-size: 32rpx;
-  font-weight: 700;
+  font-size: 31rpx;
+  font-weight: bold;
   color: #FFDA3C;
 }
 
 .card-value.small {
-  font-size: 28rpx;
+  font-size: 27rpx;
 }
 
 .card-chart {
-  height: 120rpx;
+  height: 191rpx;
   margin-top: 16rpx;
   border-radius: 8rpx;
   border: 1rpx solid #5D5D5D;
@@ -909,7 +851,7 @@ page {
 }
 
 .time-label {
-  font-size: 20rpx;
+  font-size: 19rpx;
   color: #A4A4A4;
 }
 
@@ -943,27 +885,27 @@ page {
 /* 睡眠图表 */
 .sleep-chart {
   background-color: #0E1213;
-  padding: 8rpx;
   display: flex;
   align-items: center;
+  height: 191rpx;
   border: none;
 }
 
 .sleep-bar-container {
   width: 100%;
-  height: 100%;
+  height: 191rpx;
   display: flex;
   align-items: center;
 }
 
 .sleep-bar {
-  height: 60%;
+  height: 20%;
   border-radius: 8rpx;
 }
 
 /* 底部安全区域 */
 .bottom-safe-area {
-  height: 200rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 }
 
 /* 底部TabBar */
