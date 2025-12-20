@@ -610,15 +610,6 @@ page {
   background-color: #0E1213;
 }
 
-/* 顶部导航栏 */
-.header {
-  background-color: #FFDA3C;
-}
-
-.status-bar {
-  height: var(--status-bar-height, 44px);
-}
-
 /* 图标占位符 */
 .icon-placeholder {
   background-color: rgba(255, 255, 255, 0.3);
@@ -788,16 +779,17 @@ page {
 
 /* 健康指标网格 */
 .health-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 16rpx;
   margin: 16rpx 30rpx 30rpx 30rpx;
 }
 
 .health-card {
-  width: 100%;
+  width: calc(50% - 8rpx);
   background-color: #2F2E2D;
-  border-radius: 64rpx;
+  border-radius: 61rpx;
   padding: 30rpx 35rpx;
   box-sizing: border-box;
 }
@@ -908,35 +900,4 @@ page {
   padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 }
 
-/* 底部TabBar */
-.tab-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: row;
-  background-color: #2F2E2D;
-  border-radius: 32rpx 32rpx 0 0;
-  padding: 20rpx 0;
-  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
-  box-shadow: 0 -8rpx 8rpx rgba(0, 0, 0, 0.08);
-}
-
-.tab-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.tab-label {
-  font-size: 24rpx;
-  color: #A4A4A4;
-}
-
-.tab-label.active {
-  color: #FFDA3C;
-}
 </style>
