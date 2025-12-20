@@ -1,1 +1,0 @@
-#import <WechatOpenSDK/WXApi.h>
