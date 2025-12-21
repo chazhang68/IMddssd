@@ -178,7 +178,8 @@
           </view>
           <view class="card-chart sleep-chart">
             <view class="sleep-bar-container">
-              <view class="sleep-bar" :style="{ width: '70%', background: '#4C4489' }"></view>
+              <view class="sleep-bar" :style="{ height: '92%' }"></view>
+              <view class="sleep-bar" :style="{ height: '92%' }"></view>
             </view>
           </view>
           <view class="card-time-axis">
@@ -885,14 +886,17 @@ page {
 
 .sleep-bar-container {
   width: 100%;
-  height: 191rpx;
+  height: 100%;
   display: flex;
-  align-items: center;
+  align-items: center;   /* 底部对齐 */
+  justify-content: center; /* 水平居中 */
 }
 
 .sleep-bar {
-  height: 20%;
+  width: 45rpx;            /* 固定宽度 */
+  margin: 4rpx;
   border-radius: 8rpx;
+  background: #4C4489;
 }
 
 /* 底部安全区域 */
