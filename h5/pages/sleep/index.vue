@@ -85,6 +85,7 @@
             class="analysis-row sporadic-row" 
             v-for="(item, index) in sporadicSleep" 
             :key="'sporadic-'+index"
+            @click="handleSporadicClick(item)"
           >
              <view class="sporadic-left">
                <text class="sporadic-label">零星睡眠</text>
@@ -169,6 +170,14 @@ const changeDate = (diff: number) => {
 const handleAnalysisClick = (item: AnalysisItem) => {
   if (item.url && uniApi?.navigateTo) {
     uniApi.navigateTo({ url: item.url })
+  }
+}
+
+const handleSporadicClick = (item: any) => {
+  if (uniApi?.navigateTo) {
+    uniApi.navigateTo({
+      url: `/pages/sleep/detail?type=sporadic&time=${item.time}&duration=${item.duration}`
+    })
   }
 }
 </script>
@@ -285,7 +294,7 @@ const handleAnalysisClick = (item: AnalysisItem) => {
 .chart-area {
   height: 200rpx;
   background-color: #151515;
-  border-radius: 16rpx;
+  border-radius: 8rpx;
   margin-bottom: 12rpx;
   overflow: hidden;
   position: relative;
