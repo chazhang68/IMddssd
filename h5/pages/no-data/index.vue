@@ -785,7 +785,7 @@ page {
 }
 
 .nav-title {
-  font-size: 36rpx;
+  font-size: 34rpx;
   font-weight: 500;
   color: #0E1213;
 }
