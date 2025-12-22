@@ -1,0 +1,165 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "智能戒指",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/new-page/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "智能戒指",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/no-data/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "健康监测(无数据)",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/with-data/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "健康监测(有数据)",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare1",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare2",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "前期准备",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare3",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare4",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare5",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare6",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare7",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare8",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/blood-pressure/prepare9",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "开始校准",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/sleep/index",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/sleep/detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "睡眠详情",
+        "navigationBarBackgroundColor": "#FFDA3C",
+        "backgroundColor": "#0E1213"
+      }
+    },
+    {
+      "path": "pages/community/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "社区",
+        "enablePullDownRefresh": false
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "天鹰智能中心",
+    "navigationBarBackgroundColor": "#0E1213",
+    "backgroundColor": "#0E1213"
+  },
+  "uniIdRouter": {}
+}
