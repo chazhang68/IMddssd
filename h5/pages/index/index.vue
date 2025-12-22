@@ -473,6 +473,7 @@ export default {
           show: false
         },
         xAxis: {
+          axisLine: false,
           disabled: true,
           disableGrid: true
         },
@@ -499,6 +500,7 @@ export default {
           show: false
         },
         xAxis: {
+          axisLine: false,
           disabled: true,
           disableGrid: true
         },
@@ -524,6 +526,7 @@ export default {
           show: false
         },
         xAxis: {
+          axisLine: false,
           disabled: true,
           disableGrid: true
         },
@@ -550,8 +553,8 @@ export default {
         series: [{ name: '心血管', data: [40, 45, 50, 48, 55, 52, 50, 48] }]
       },
       bloodPressureChartData: {
-        categories: ['1', '2', '3', '4', '5', '6', '7', '8'],
-        series: [{ name: '血压', data: [110, 112, 108, 115, 110, 108, 112, 110] }]
+        categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+        series: [{ name: '血压', data: [110, 112, 115, 110, 112, 110] }]
       },
       stressChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -832,15 +835,13 @@ page {
   height: 191rpx;
   margin-top: 16rpx;
   border-radius: 8rpx;
-  border-top: 1rpx solid #5D5D5D;
-  border-left: 1rpx solid #5D5D5D;
-  border-right: 1rpx solid #5D5D5D;
+  border: 1rpx solid #5D5D5D;
   overflow: hidden;
 }
 
 .uni-canvas-canvas {
   position: absolute;
-  top: 8rpx !important;
+  top: 10rpx !important;
   left: 0;
   width: 100%;
   height: 100%;
