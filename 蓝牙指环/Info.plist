@@ -38,5 +38,9 @@
 	<array>
 		<string>bluetooth-central</string>
 	</array>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>需要访问蓝牙以搜索和连接智能指环设备</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>需要访问蓝牙以搜索和连接智能指环设备</string>
 </dict>
 </plist>

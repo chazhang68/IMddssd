@@ -1,5 +1,6 @@
 platform :ios, '15'
-use_frameworks!
+use_frameworks! :linkage => :static
+use_modular_headers!
 
 target '蓝牙指环' do
   # BCLRingSDK 主依赖
@@ -12,6 +13,10 @@ target '蓝牙指环' do
   pod 'RxSwift'
   pod 'RxRelay'
   pod 'SwiftDate'
+  
+  # 极光SDK
+  pod 'JCore', '3.2.9'
+  pod 'JVerification', '2.9.3'
   
   # 暂时禁用第三方库，专注于核心功能
   # pod 'WechatOpenSDK'

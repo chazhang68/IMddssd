@@ -10,6 +10,7 @@ import UIKit
 // import BCLRingSDK
 // #endif
 // import GoogleSignIn
+// JCore 和 JVerification 通过 Objective-C Bridging Header 导入
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // 初始化极光SDK
+        let jpushAppKey = "accc563b6c4db58543bf04f0"
+        let channel = "App Store"
+        let isProduction = true
+        
+        // 初始化JVerification（一键登录）
+        // JVerification 2.9.3 使用 setupWithConfig 方法
+        // 注意：JCore 3.2.9 是基础组件，JVerification 已经依赖它
+        DispatchQueue.main.async {
+            let config = JVAuthConfig()
+            config.appKey = jpushAppKey
+            config.channel = channel
+            config.isProduction = isProduction
+            config.authBlock = { result in
+                if let result = result, let code = result["code"] as? Int, code == 2000 {
+                    print("极光SDK初始化成功")
+                } else {
+                    let message = (result?["message"] as? String) ?? "未知错误"
+                    print("极光SDK初始化失败: \(message)")
+                }
+            }
+            JVERIFICATIONService.setup(with: config)
+        }
+        
         // 初始化 BCLRingSDK
         SDKIntegrationHelper.shared.initializeSDK()
         

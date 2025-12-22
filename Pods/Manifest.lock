@@ -1,5 +1,8 @@
 PODS:
   - Foil (5.1.2)
+  - JCore (3.2.9)
+  - JVerification (2.9.3):
+    - JCore (>= 2.1.6)
   - NordicDFU (4.16.0):
     - ZIPFoundation (= 0.9.19)
   - RxRelay (6.9.0):
@@ -11,6 +14,8 @@ PODS:
 
 DEPENDENCIES:
   - Foil
+  - JCore (= 3.2.9)
+  - JVerification (= 2.9.3)
   - NordicDFU
   - RxRelay
   - RxSwift
@@ -21,6 +26,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Foil
+    - JCore
+    - JVerification
     - NordicDFU
     - RxRelay
     - RxSwift
@@ -30,6 +37,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Foil: 4c86d5cc74b811061f5d98649d1ea06365f684fd
+  JCore: 077afdffd7772ecc3f9faef9727af040d31f1d7b
+  JVerification: ff081af51f076b20b6eb94aed4d879419e698583
   NordicDFU: 116a4ec458945889f8e0e71759e03b23c39c3482
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
@@ -37,6 +46,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: c8241b4745aa269a78ca5a022532c6915e948536
   ZIPFoundation: b8c29ea7ae353b309bc810586181fd073cb3312c
 
-PODFILE CHECKSUM: 47de28313e5e9e95000e3c58242013c166a685b7
+PODFILE CHECKSUM: e5b0038ab31cb8badd0e166d41aa7003b8598946
 
 COCOAPODS: 1.16.2

@@ -17,11 +17,17 @@ class LoginViewController: UIViewController {
     }
     
     /// 视图加载完成后的初始化
-    /// 注册微信授权回调通知监听
+    /// 注册微信授权回调通知监听和登录成功通知监听
     override func viewDidLoad() {
         super.viewDidLoad()
         // 监听微信授权码接收通知
         NotificationCenter.default.addObserver(self, selector: #selector(handleWeChatAuth(_:)), name: Notification.Name("WeChatAuthCodeReceived"), object: nil)
+        // 监听登录成功通知
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLoginSuccess), name: Notification.Name("LoginSuccess"), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - 事件处理方法
@@ -41,9 +47,16 @@ class LoginViewController: UIViewController {
         navigateToHome()
     }
     
+    /// 处理登录成功通知
+    /// 当收到登录成功通知时，跳转到首页
+    @objc private func handleLoginSuccess() {
+        navigateToHome()
+    }
+    
     /// 跳转到首页（设备搜索页面）
     /// 创建并展示HomeViewController作为根视图控制器
     private func navigateToHome() {
-        NotificationCenter.default.post(name: Notification.Name("LoginSuccess"), object: nil)
+        // 登录成功后的处理逻辑已由其他组件处理
+        // 这里可以添加额外的跳转逻辑
     }
 }
