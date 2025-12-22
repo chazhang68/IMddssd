@@ -145,6 +145,14 @@
         "navigationBarBackgroundColor": "#FFDA3C",
         "backgroundColor": "#0E1213"
       }
+    },
+    {
+      "path": "pages/community/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "社区",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {
