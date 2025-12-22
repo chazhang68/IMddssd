@@ -46,11 +46,7 @@
           <image class="power-icon" src="/static/icons/power.png"></image>
           <text class="power-title">身体电量</text>
         </view>
-        <view class="power-progress-wrapper">
-          <view class="power-progress-bg">
-            <view class="power-progress-fill" :style="{ width: healthData.bodyPower + '%' }"></view>
-          </view>
-        </view>
+        <view class="power-progress-wrapper"></view>
         <text class="power-value">{{ healthData.bodyPower }}%</text>
       </view>
       <view class="power-content">
@@ -829,22 +825,22 @@ page {
 }
 
 .calendar-day {
-  font-size: 24rpx;
-  color: #A4A4A4;
+  font-size: 30rpx;
+  color: #856B1D;
   margin-bottom: 8rpx;
 }
 
 .calendar-date {
-  font-size: 24rpx;
-  color: #A4A4A4;
+  font-size: 30rpx;
+  color: #856B1D;
   margin-bottom: 8rpx;
 }
 
 .calendar-indicator {
-  width: 48rpx;
-  height: 4rpx;
+  width: 50rpx;
+  height: 16rpx;
   background-color: transparent;
-  border-radius: 2rpx;
+  border-radius: 8rpx;
 }
 
 .calendar-day.active,
@@ -868,8 +864,8 @@ page {
 
 .quick-item {
   flex: 1;
-  background-color: #1F1F1E;
-  border-radius: 20rpx;
+  background-color: #FFDA3C;
+  border-radius: 42rpx;
   padding: 20rpx;
   display: flex;
   align-items: center;
@@ -877,8 +873,9 @@ page {
 }
 
 .quick-text {
-  font-size: 28rpx;
-  color: #FBFBFB;
+  font-weight: 500;
+  font-size: 30rpx;
+  color: #0E1213;
 }
 
 /* 身体电量卡片 */
@@ -940,8 +937,8 @@ page {
 }
 
 .power-text {
-  font-size: 24rpx;
-  line-height: 1.6;
+  font-size: 26rpx;
+  /*line-height: 34rpx;*/
   color: #A4A4A4;
 }
 
@@ -1467,4 +1464,3 @@ page {
   color: #FFDA3C;
 }
 </style>
-</file_content>

@@ -1481,4 +1481,3 @@ page {
   color: #FFDA3C;
 }
 </style>
-</file_content>
