@@ -2,110 +2,112 @@
   <view class="community-page">
     <view class="header">
       <view class="search-bar">
-        <image class="search-icon" src="/static/images/community/search@2x.png" />
-        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder" />
+        <image class="search-icon" src="/static/images/community/search@2x.png"/>
+        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder"/>
       </view>
-
+      <!-- 点击按钮 -->
       <view class="tabs-row">
         <view class="tabs-left">
           <view class="tab-item active">
-            <image class="action-icon" src="/static/images/community/Recommend@2x.png" />
+            <image class="action-icon" src="/static/images/community/Recommend@2x.png"/>
             <text class="tab-text active">Discover</text>
           </view>
           <view class="tab-item">
-            <image class="action-icon" src="/static/images/community/follow@2x.png" />
+            <image class="action-icon" src="/static/images/community/follow@2x.png"/>
             <text class="tab-text">Following</text>
           </view>
         </view>
 
         <view class="action-icons">
           <view class="action-btn">
-            <image class="action-icon" src="/static/images/community/add@2x.png" />
+            <image class="action-icon" src="/static/images/community/add@2x.png"/>
           </view>
           <view class="action-btn badge-wrap">
-            <image class="action-icon" src="/static/images/community/message@2x.png" />
-            <view class="badge"><text>2</text></view>
+            <image class="action-icon" src="/static/images/community/message@2x.png"/>
+            <view class="badge">
+              <text>2</text>
+            </view>
           </view>
         </view>
       </view>
     </view>
+    <!-- 推文列表 -->
     <view class="content">
-      <view class="post-card">
+      <view class="post-card" v-for="post in posts" :key="post.id">
         <view class="post-header">
           <view class="post-left">
-            <image class="post-type-icon" src="/static/images/community/message@2x.png" />
+            <image
+                class="post-type-icon"
+                src="/static/images/community/message@2x.png"
+                v-if="!post.hasAvatar || post.hasAvatar"
+            />
             <view class="author-box">
-              <text class="post-author">SKYEAGLE Team</text>
-              <text class="post-time">15:34 · October 17, 2025</text>
+              <text class="post-author">{{ post.author }}</text>
+              <text class="post-time">{{ post.time }}</text>
             </view>
           </view>
-          <text class="post-action">unfollow</text>
+          <text class="post-action">{{ post.action }}</text>
         </view>
         <view class="post-desc">
-          <text class="post-text">Lightweight, sleek, and packed with tech: stream your favorite content, take hands-free calls, and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight.</text>
+          <text class="post-text">{{ post.content }}</text>
         </view>
-        <view class="post-image"></view>
+        <view class="post-image" :class="{ light: post.hasAvatar }"></view>
         <view class="post-footer">
           <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/like@2x.png" />
-            <text class="metric-value">3</text>
+            <image class="metric-icon" src="/static/images/community/like@2x.png"/>
+            <text class="metric-value">{{ post.metrics.likes }}</text>
           </view>
           <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/chat@2x.png" />
-            <text class="metric-value">5</text>
+            <image class="metric-icon" src="/static/images/community/chat@2x.png"/>
+            <text class="metric-value">{{ post.metrics.comments }}</text>
           </view>
           <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/look@2x.png" />
-            <text class="metric-value">27</text>
+            <image class="metric-icon" src="/static/images/community/look@2x.png"/>
+            <text class="metric-value">{{ post.metrics.views }}</text>
           </view>
           <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/share@2x.png" />
-          </view>
-        </view>
-      </view>
-
-      <view class="post-card">
-        <view class="post-header">
-          <view class="post-left">
-            <view class="avatar">
-              <image class="post-type-icon" src="/static/images/community/message@2x.png" />
-            </view>
-            <view class="author-box">
-              <text class="post-author">Stacey</text>
-              <text class="post-time">12:30 · October 17, 2025</text>
-            </view>
-          </view>
-          <text class="post-action">follow</text>
-        </view>
-        <view class="post-desc">
-          <text class="post-text">Just shared two hilarious and entertaining GIF animations that will definitely brighten your day! Swipe through and enjoy the fun moments.</text>
-        </view>
-        <view class="post-image light"></view>
-        <view class="post-footer">
-          <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/like@2x.png" />
-            <text class="metric-value">12</text>
-          </view>
-          <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/chat@2x.png" />
-            <text class="metric-value">8</text>
-          </view>
-          <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/look@2x.png" />
-            <text class="metric-value">103</text>
-          </view>
-          <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/share@2x.png" />
+            <image class="metric-icon" src="/static/images/community/share@2x.png"/>
           </view>
         </view>
       </view>
 
       <view class="bottom-safe-area"></view>
+
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
+import {ref} from 'vue'
+
+const posts = ref<[]>([
+  {
+    id: 1,
+    author: 'SKYEAGLE Team',
+    time: '15:34 · October 17, 2025',
+    content: 'Lightweight, sleek, and packed with tech: stream your favorite content, take hands-free calls, and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight.',
+    hasAvatar: false,
+    action: 'unfollow',
+    metrics: {
+      likes: 3,
+      comments: 5,
+      views: 27
+    }
+  },
+  {
+    id: 2,
+    author: 'Stacey',
+    time: '12:30 · October 17, 2025',
+    content: 'Just shared two hilarious and entertaining GIF animations that will definitely brighten your day! Swipe through and enjoy the fun moments.',
+    hasAvatar: true,
+    action: 'follow',
+    metrics: {
+      likes: 12,
+      comments: 8,
+      views: 103
+    }
+  }
+]);
 </script>
 
 <style>
@@ -245,7 +247,6 @@ page {
   align-items: center;
   justify-content: center;
   padding: 0 6rpx;
-  box-shadow: 0 0 0 4rpx #0E1213;
 }
 
 .content {
@@ -275,8 +276,10 @@ page {
 
 
 .post-type-icon {
-  width: 28rpx;
-  height: 28rpx;
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  border: 2rpx solid #323232;
 }
 
 .avatar {
@@ -286,7 +289,7 @@ page {
   background-color: #7351D5;
 }
 
-.author-box{
+.author-box {
   display: flex;
   flex-direction: column;
   justify-items: center;
