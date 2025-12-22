@@ -5,6 +5,7 @@
         <image class="search-icon" src="/static/images/community/search@2x.png" />
         <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder" />
       </view>
+
       <view class="tabs-row">
         <view class="tabs-left">
           <view class="tab-item active">
@@ -16,6 +17,7 @@
             <text class="tab-text">Following</text>
           </view>
         </view>
+
         <view class="action-icons">
           <view class="action-btn">
             <image class="action-icon" src="/static/images/community/add@2x.png" />
@@ -150,28 +152,52 @@ page {
   color: #FFDA3C;
 }
 
+/* 修改父容器，确保不换行，且溢出时隐藏或处理 */
 .tabs-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  min-width: 0;
+  justify-content: flex-start; /* 靠左对齐 */
+  gap: 14rpx; /* 左侧组与右侧组间距 7px */
+  width: 100%; /* 确保占满容器 */
+  //overflow: hidden; /* 防止撑破父容器 */
 }
 
+/* 左侧 Tabs 组 */
 .tabs-left {
   display: flex;
   flex-direction: row;
-  gap: 16rpx;
+  gap: 16rpx; /* 内部元素间距 8px */
+  flex: 1; /* 【关键】让左侧尝试占满剩余空间，但在空间不足时会触发内部压缩逻辑 */
+  min-width: 0; /* 【关键】允许 Flex 子项压缩至内容宽度以下，防止溢出 */
+  overflow-x: scroll; /* 如果实在放不下，允许横向滚动 (可选，不需要可去掉) */
+  /* 隐藏滚动条 (针对 Chrome/Safari/Webkit) */
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* 修改 Tab Item：大幅减小内边距 */
 .tab-item {
   display: flex;
   align-items: center;
-  padding: 26rpx 44rpx;
+  justify-content: center;
+  /* 【关键修改】原 44rpx 改为 20rpx-24rpx，节省空间 */
+  padding: 26rpx 30rpx;
   border-radius: 40rpx;
   line-height: 28rpx;
   background: #2F2E2D;
   color: #A4A4A4;
+  flex-shrink: 0; /* 防止 Tab 自身被压缩变形 */
+  white-space: nowrap; /* 确保文字不换行 */
+}
+
+/* 右侧图标组：保持不变，但防止被压缩 */
+.action-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16rpx; /* 内部元素间距 8px */
+  flex-shrink: 0; /* 【关键】禁止右侧图标被压缩，保证它们始终完整显示 */
 }
 
 .tab-item.active {
@@ -187,14 +213,6 @@ page {
 .tab-text.active {
   color: #0E1213;
   font-weight: 500;
-}
-
-.action-icons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16rpx;
-  flex-shrink: 0;
 }
 
 .action-btn {
@@ -216,7 +234,7 @@ page {
 .badge {
   position: absolute;
   top: -4rpx;
-  right: -4rpx;
+  right: -10rpx;
   background-color: #FB3A3A;
   color: #FBFBFB;
   font-size: 20rpx;
