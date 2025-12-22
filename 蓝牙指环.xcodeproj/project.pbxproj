@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2EE3542EF994C700663373 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2EE3532EF994C700663373 /* QRCodeScannerView.swift */; };
 		8E30745E2EF58DE1007A1D56 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */; };
 		8E3074632EF59345007A1D56 /* BlutoothSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */; };
 		8E87D2502EF4FBDC00C6BA8C /* BCLRingSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; };
@@ -52,11 +53,13 @@
 		F0B000010000000000000027 /* BCLRingSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000024 /* BCLRingSDKManager.swift */; };
 		F0B000010000000000000028 /* BluetoothDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000025 /* BluetoothDeviceManager.swift */; };
 		F0B000010000000000000029 /* SDKIntegrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000026 /* SDKIntegrationHelper.swift */; };
+		F0B000010000000000000030 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000031 /* QRCodeScannerView.swift */; };
 		F0B00001000000000000002A /* JVerificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000005 /* JVerificationHelper.m */; };
 		F0B000020000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000004 /* Assets.xcassets */; };
 		F0B000020000000000000002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A000400000000000000001 /* LaunchScreen.storyboard */; };
 		F0B000020000000000000003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A000400000000000000002 /* Main.storyboard */; };
 		F0E000100000000000000001 /* BCLRingSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +79,7 @@
 /* Begin PBXFileReference section */
 		393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BCLRingSDK.xcframework; sourceTree = "<group>"; };
 		880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "蓝牙指环.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E2EE3532EF994C700663373 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
 		8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothSelectionView.swift; sourceTree = "<group>"; };
 		8E87D25D2EF550F000C6BA8C /* BluetoothBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBindingView.swift; sourceTree = "<group>"; };
@@ -123,10 +127,10 @@
 		F0A000400000000000000002 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F0A000500000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0A000500000000000000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F0A000500000000000000005 /* JVerificationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVerificationHelper.m; sourceTree = "<group>"; };
-		F0A000500000000000000006 /* JVerificationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVerificationHelper.h; sourceTree = "<group>"; };
 		F0A000500000000000000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0A000500000000000000004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0A000500000000000000005 /* JVerificationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVerificationHelper.m; sourceTree = "<group>"; };
+		F0A000500000000000000006 /* JVerificationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVerificationHelper.h; sourceTree = "<group>"; };
 		FBEE697CB60CB1631B9EDCEC /* Pods-蓝牙指环.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.release.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +192,7 @@
 		8E3074612EF59313007A1D56 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8E2EE3532EF994C700663373 /* QRCodeScannerView.swift */,
 				8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */,
 				8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */,
 			);
@@ -473,9 +478,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -514,6 +523,7 @@
 				F0B000010000000000000001 /* AppDelegate.swift in Sources */,
 				F0B000010000000000000002 /* SceneDelegate.swift in Sources */,
 				F0B000010000000000000003 /* UIColor+Hex.swift in Sources */,
+				8E2EE3542EF994C700663373 /* QRCodeScannerView.swift in Sources */,
 				F0B000010000000000000004 /* UIViewController+ThirdPartyLogin.swift in Sources */,
 				F0B000010000000000000005 /* LoginViewController.swift in Sources */,
 				F0B000010000000000000006 /* LoginView.swift in Sources */,
@@ -570,7 +580,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U3K75ZV6MC;
+				DEVELOPMENT_TEAM = 7XKYYSLPMH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "蓝牙指环/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -605,7 +615,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U3K75ZV6MC;
+				DEVELOPMENT_TEAM = 7XKYYSLPMH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "蓝牙指环/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
