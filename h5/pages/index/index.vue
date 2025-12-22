@@ -536,7 +536,7 @@ export default {
           column: {
             type: 'group',
             width: 4,
-            activeBgOpacity: 0
+            barBorderCircle: true,
           }
         }
       },
@@ -832,8 +832,18 @@ page {
   height: 191rpx;
   margin-top: 16rpx;
   border-radius: 8rpx;
-  border: 1rpx solid #5D5D5D;
+  border-top: 1rpx solid #5D5D5D;
+  border-left: 1rpx solid #5D5D5D;
+  border-right: 1rpx solid #5D5D5D;
   overflow: hidden;
+}
+
+.uni-canvas-canvas {
+  position: absolute;
+  top: 8rpx !important;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .card-time-axis {
