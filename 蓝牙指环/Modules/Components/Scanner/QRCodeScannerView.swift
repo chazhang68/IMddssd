@@ -89,12 +89,9 @@ struct QRScannerView: View {
 private func overlayMask(container: CGSize, hole: CGRect) -> some View {
     Path { path in
         path.addRect(CGRect(origin: .zero, size: container))
-        path.addRoundedRect(
-            in: hole,
-            cornerSize: CGSize(width: 10, height: 10)
-        )
+        path.addRect(hole)
     }
-    .fill(Color.black.opacity(0.55), style: FillStyle(eoFill: true))
+    .fill(Color.black.opacity(0.60), style: FillStyle(eoFill: true))
 }
 
 private func scanCorners(rect: CGRect) -> some View {
