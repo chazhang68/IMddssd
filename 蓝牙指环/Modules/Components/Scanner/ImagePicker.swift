@@ -1,0 +1,54 @@
+//
+//  ImagePicker.swift
+//  蓝牙指环
+//
+//  Created by zz on 2025/12/23.
+//
+
+import SwiftUI
+import PhotosUI
+
+struct ImagePicker: UIViewControllerRepresentable {
+
+    var onImage: (UIImage) -> Void
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(onImage: onImage)
+    }
+
+    func makeUIViewController(context: Context) -> PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.filter = .images
+        config.selectionLimit = 1
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {}
+
+    final class Coordinator: NSObject, PHPickerViewControllerDelegate {
+
+        let onImage: (UIImage) -> Void
+        init(onImage: @escaping (UIImage) -> Void) {
+            self.onImage = onImage
+        }
+
+        func picker(_ picker: PHPickerViewController,
+                    didFinishPicking results: [PHPickerResult]) {
+
+            picker.dismiss(animated: true)
+
+            guard let provider = results.first?.itemProvider,
+                  provider.canLoadObject(ofClass: UIImage.self) else { return }
+
+            provider.loadObject(ofClass: UIImage.self) { image, _ in
+                if let img = image as? UIImage {
+                    DispatchQueue.main.async {
+                        self.onImage(img)
+                    }
+                }
+            }
+        }
+    }
+}

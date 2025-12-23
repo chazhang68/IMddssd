@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 
 class LoginView: UIView, UITextViewDelegate {
     // MARK: - UI组件定义
@@ -29,11 +30,11 @@ class LoginView: UIView, UITextViewDelegate {
     /// 管理按钮 - 链接到管理页面
     let managementButton = UIButton(type: .system)
     
-    /// 社交登录容器 - 包含Google、Apple、WeChat登录按钮
+    /// 社交登录容器 - 包含手机登录、Apple、WeChat登录按钮
     let socialContainer = UIView()
     
-    /// Google登录按钮 - 黄色背景，黑色图标和文字
-    let googleButton = UIButton(type: .system)
+    /// 极光一键登录按钮 - 黄色背景，黑色图标和文字
+    let jiguangLoginButton = UIButton(type: .system)
     
     /// Apple登录按钮 - 黄色背景，黑色图标和文字
     let appleButton = UIButton(type: .system)
@@ -187,71 +188,93 @@ class LoginView: UIView, UITextViewDelegate {
         socialContainer.translatesAutoresizingMaskIntoConstraints = false
         socialContainer.backgroundColor = .clear
         
-        // Google Button
-        setupGoogleButton()
+        // 按从左到右的顺序设置按钮：手机登录、Apple、WeChat
+        setupJiguangLoginButton() // 左侧：手机登录
+        setupAppleButton()        // 中间：Apple
+        setupWeChatButton()       // 右侧：WeChat
         
-        // Apple Button
-        setupAppleButton()
-        
-        // WeChat Button
-        setupWeChatButton()
+        let spacing: CGFloat = 15
         
         NSLayoutConstraint.activate([
             socialContainer.topAnchor.constraint(greaterThanOrEqualTo: consentContainer.bottomAnchor, constant: 30),
             socialContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             socialContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             socialContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            socialContainer.heightAnchor.constraint(equalToConstant: 60),
             
-            googleButton.leadingAnchor.constraint(equalTo: socialContainer.leadingAnchor),
-            googleButton.topAnchor.constraint(equalTo: socialContainer.topAnchor),
-            googleButton.trailingAnchor.constraint(equalTo: appleButton.leadingAnchor, constant: -15),
+            // 手机登录按钮 - 左侧
+            jiguangLoginButton.leadingAnchor.constraint(equalTo: socialContainer.leadingAnchor),
+            jiguangLoginButton.topAnchor.constraint(equalTo: socialContainer.topAnchor),
+            jiguangLoginButton.bottomAnchor.constraint(equalTo: socialContainer.bottomAnchor),
+            jiguangLoginButton.widthAnchor.constraint(equalTo: socialContainer.widthAnchor, multiplier: 1.0/3.0, constant: -spacing * 2.0/3.0),
             
+            // Apple按钮 - 中间
+            appleButton.leadingAnchor.constraint(equalTo: jiguangLoginButton.trailingAnchor, constant: spacing),
             appleButton.topAnchor.constraint(equalTo: socialContainer.topAnchor),
-            appleButton.centerXAnchor.constraint(equalTo: socialContainer.centerXAnchor),
-            appleButton.widthAnchor.constraint(equalTo: googleButton.widthAnchor),
+            appleButton.bottomAnchor.constraint(equalTo: socialContainer.bottomAnchor),
+            appleButton.widthAnchor.constraint(equalTo: jiguangLoginButton.widthAnchor),
             
+            // WeChat按钮 - 右侧
+            wechatButton.leadingAnchor.constraint(equalTo: appleButton.trailingAnchor, constant: spacing),
             wechatButton.topAnchor.constraint(equalTo: socialContainer.topAnchor),
-            wechatButton.leadingAnchor.constraint(equalTo: appleButton.trailingAnchor, constant: 15),
+            wechatButton.bottomAnchor.constraint(equalTo: socialContainer.bottomAnchor),
             wechatButton.trailingAnchor.constraint(equalTo: socialContainer.trailingAnchor),
-            wechatButton.widthAnchor.constraint(equalTo: googleButton.widthAnchor),
-            
-            socialContainer.heightAnchor.constraint(equalToConstant: 60)
+            wechatButton.widthAnchor.constraint(equalTo: jiguangLoginButton.widthAnchor)
         ])
     }
 
-    private func setupGoogleButton() {
-        socialContainer.addSubview(googleButton)
-        googleButton.translatesAutoresizingMaskIntoConstraints = false
-        googleButton.backgroundColor = UIColor(hex: 0xFFD700) // Yellow background
-        googleButton.layer.cornerRadius = cornerButtonRadius
+    /// 配置极光一键登录按钮
+    private func setupJiguangLoginButton() {
+        // 确保按钮被添加到视图层级
+        if jiguangLoginButton.superview == nil {
+            socialContainer.addSubview(jiguangLoginButton)
+        }
+        jiguangLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        jiguangLoginButton.backgroundColor = UIColor(hex: 0xFFD700) // Yellow background
+        jiguangLoginButton.layer.cornerRadius = cornerButtonRadius
+        jiguangLoginButton.clipsToBounds = true  // 确保圆角生效
+        jiguangLoginButton.isHidden = false  // 确保按钮可见
+        jiguangLoginButton.alpha = 1.0  // 确保不透明
         
-        // Google icon image
-        let googleIcon = UIImageView(image: UIImage(named: "Google"))
-        googleIcon.contentMode = .scaleAspectFit
-        googleIcon.tintColor = UIColor.black
-        googleButton.addSubview(googleIcon)
-        googleIcon.translatesAutoresizingMaskIntoConstraints = false
+        // 创建手机图标 - 使用SF Symbols系统图标
+        let phoneIcon = UIImageView()
+        phoneIcon.contentMode = .scaleAspectFit
+        if let iconImage = UIImage(systemName: "phone.fill") {
+            phoneIcon.image = iconImage
+            phoneIcon.tintColor = UIColor.black
+        } else {
+            // 如果系统图标不可用，创建一个简单的视图作为占位符
+            phoneIcon.backgroundColor = UIColor.black
+            phoneIcon.layer.cornerRadius = 2
+        }
+        jiguangLoginButton.addSubview(phoneIcon)
+        phoneIcon.translatesAutoresizingMaskIntoConstraints = false
         
-        // Google text
-        let googleText = UILabel()
-        googleText.text = "Google"
-        googleText.textColor = UIColor.black
-        googleText.font = UIFont.systemFont(ofSize: 14)
-        googleText.textAlignment = .center
-        googleButton.addSubview(googleText)
-        googleText.translatesAutoresizingMaskIntoConstraints = false
+        // 手机登录文字
+        let loginText = UILabel()
+        loginText.text = "手机登录"
+        loginText.textColor = UIColor.black
+        loginText.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        loginText.textAlignment = .center
+        loginText.numberOfLines = 1
+        jiguangLoginButton.addSubview(loginText)
+        loginText.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            googleIcon.topAnchor.constraint(equalTo: googleButton.topAnchor, constant: 8),
-            googleIcon.centerXAnchor.constraint(equalTo: googleButton.centerXAnchor),
-            googleIcon.widthAnchor.constraint(equalToConstant: 28),
-            googleIcon.heightAnchor.constraint(equalToConstant: 28),
-            googleText.topAnchor.constraint(equalTo: googleIcon.bottomAnchor, constant: 4),
-            googleText.centerXAnchor.constraint(equalTo: googleButton.centerXAnchor),
-            googleText.bottomAnchor.constraint(equalTo: googleButton.bottomAnchor, constant: -8)
+            phoneIcon.topAnchor.constraint(equalTo: jiguangLoginButton.topAnchor, constant: 8),
+            phoneIcon.centerXAnchor.constraint(equalTo: jiguangLoginButton.centerXAnchor),
+            phoneIcon.widthAnchor.constraint(equalToConstant: 24),
+            phoneIcon.heightAnchor.constraint(equalToConstant: 24),
+            
+            loginText.topAnchor.constraint(equalTo: phoneIcon.bottomAnchor, constant: 4),
+            loginText.centerXAnchor.constraint(equalTo: jiguangLoginButton.centerXAnchor),
+            loginText.leadingAnchor.constraint(greaterThanOrEqualTo: jiguangLoginButton.leadingAnchor, constant: 4),
+            loginText.trailingAnchor.constraint(lessThanOrEqualTo: jiguangLoginButton.trailingAnchor, constant: -4),
+            loginText.bottomAnchor.constraint(equalTo: jiguangLoginButton.bottomAnchor, constant: -8)
         ])
         
-        googleButton.addTarget(self, action: #selector(googleLoginTapped), for: .touchUpInside)
+        // 添加点击事件
+        jiguangLoginButton.addTarget(self, action: #selector(jiguangLoginTapped), for: .touchUpInside)
     }
 
     private func setupAppleButton() {
@@ -375,10 +398,20 @@ class LoginView: UIView, UITextViewDelegate {
         checkBox.isSelected = isConsentChecked
     }
     
-    /// Google登录按钮点击事件
-    /// 目前仅打印调试信息，需要后续实现具体登录逻辑
-    @objc private func googleLoginTapped() {
-        print("Google login tapped")  // 调试输出
+    /// 极光一键登录按钮点击事件
+    /// 调用父视图控制器的极光登录方法
+    @objc private func jiguangLoginTapped() {
+        if let vc = owningViewController() {
+            vc.loginWithJiguang { token, error in
+                if let token = token {
+                    print("极光登录成功，token: \(token)")
+                    // 发送登录成功通知
+                    NotificationCenter.default.post(name: Notification.Name("LoginSuccess"), object: nil)
+                } else if let error = error {
+                    print("极光登录失败: \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     /// Apple登录按钮点击事件

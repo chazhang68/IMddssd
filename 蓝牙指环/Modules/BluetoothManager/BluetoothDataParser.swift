@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 // 蓝牙数据解析器
 final class BluetoothDataParser {
