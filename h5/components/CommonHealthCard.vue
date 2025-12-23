@@ -1,42 +1,34 @@
 <template>
-  <view class="common-health-card">
-    <view class="card-header">
-      <view class="title-row">
-        <image class="card-icon" :src="icon"></image>
-        <text class="card-title">{{ title }}</text>
+  <view class="common-health-card hc-card">
+    <view class="card-header hc-header">
+      <view class="title-row hc-title-row">
+        <image class="card-icon hc-icon" :src="icon"></image>
+        <text class="card-title hc-title">{{ title }}</text>
       </view>
       <template v-if="hasData">
-        <view class="value-row">
-          <text class="value-text">{{ value }}</text>
-          <text class="unit-text">{{ unit }}</text>
+        <view class="value-row hc-value">
+          <text class="value-text hc-value-text">{{ value }}</text>
+          <text class="unit-text hc-unit-text">{{ unit }}</text>
         </view>
       </template>
     </view>
     
-    <template v-if="hasData">
-      <view class="card-content">
-        <view class="chart-area">
-          <text class="chart-placeholder">图表区域</text>
-        </view>
-        <view class="status-row" v-if="range || status">
-          <text class="range-text" v-if="range">范围：{{ range }}</text>
-          <text class="status-text" v-if="status" :style="{ color: statusColor }">{{ status }}</text>
-        </view>
-        <view class="stats-row" v-if="stats && stats.length > 0">
-          <view class="stat-item" v-for="(item, index) in stats" :key="index">
-            <text class="stat-value">{{ item.value }}</text>
-            <text class="stat-name">{{ item.name }}</text>
-          </view>
-        </view>
-        <view class="analysis-section" v-if="analysis">
-          <text class="analysis-title">{{ title }}分析</text>
-          <text class="analysis-desc">{{ analysis }}</text>
+    <view class="card-content">
+      <view class="chart-area hc-chart">
+        <view class="chart-grid hc-chart-grid"></view>
+      </view>
+      <view class="status-row" v-if="range">
+        <text class="range-text">范围：{{ range }}</text>
+      </view>
+      <view class="stats-row hc-stats">
+        <view class="stat-item hc-stat-item" v-for="(item, index) in statsDisplay" :key="index">
+          <text class="stat-value hc-stat-value">{{ item.value }}</text>
+          <text class="stat-name hc-stat-name">{{ item.name }}</text>
         </view>
       </view>
-    </template>
-    
-    <view v-else class="empty-state">
-      <text class="empty-text">暂无数据</text>
+      <view class="analysis-pill hc-pill" :class="{ disabled: !hasData }">
+        <text class="pill-text hc-pill-text" :style="{ color: statusColorDisplay }">{{ statusText }}</text>
+      </view>
     </view>
   </view>
 </template>
@@ -84,6 +76,28 @@ export default {
     hasData: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    statsDisplay() {
+      const arr = Array.isArray(this.stats) ? this.stats : []
+      if (this.hasData && arr.length > 0) return arr
+      return [
+        { name: '平均值', value: '0' },
+        { name: '最大值', value: '0' },
+        { name: '最小值', value: '0' }
+      ]
+    },
+    statusText() {
+      if (this.hasData) {
+        if (this.status) return `${this.title}${this.status}`
+        if (this.analysis) return this.analysis
+        return `${this.title}分析`
+      }
+      return this.analysis || `${this.title}分析`
+    },
+    statusColorDisplay() {
+      return this.hasData ? (this.statusColor || '#FBFBFB') : '#A4A4A4'
     }
   }
 }
@@ -149,19 +163,21 @@ export default {
 }
 
 .chart-area {
-  height: 120rpx;
+  height: 200rpx;
   background-color: #0E1213;
   border-radius: 16rpx;
   border: 1rpx solid #5D5D5D;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 20rpx;
 }
 
-.chart-placeholder {
-  color: #5D5D5D;
-  font-size: 24rpx;
+.chart-grid {
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1rpx, transparent 1rpx),
+    linear-gradient(to right, rgba(255,255,255,0.06) 1rpx, transparent 1rpx);
+  background-size: 100% 40rpx, 60rpx 100%;
+  border-radius: 16rpx;
 }
 
 .status-row {
@@ -175,11 +191,6 @@ export default {
 .range-text {
   font-size: 24rpx;
   color: #A4A4A4;
-}
-
-.status-text {
-  font-size: 24rpx;
-  font-weight: bold;
 }
 
 .stats-row {
@@ -213,38 +224,23 @@ export default {
   color: #A4A4A4;
 }
 
-.analysis-section {
+.analysis-pill {
   background-color: #2F2E2D;
-  border-radius: 20rpx;
-  padding: 20rpx;
+  border-radius: 40rpx;
   border: 1rpx solid #3C3C3C;
-}
-
-.analysis-title {
-  font-size: 28rpx;
-  color: #FBFBFB;
-  font-weight: bold;
-  margin-bottom: 10rpx;
-}
-
-.analysis-desc {
-  font-size: 24rpx;
-  line-height: 1.6;
-  color: #A4A4A4;
-}
-
-.empty-state {
-  padding: 30rpx;
+  padding: 24rpx;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #2F2E2D;
-  border-radius: 20rpx;
-  border: 1rpx solid #3C3C3C;
+  justify-content: center;
 }
 
-.empty-text {
-  color: #A4A4A4;
-  font-size: 24rpx;
+.analysis-pill.disabled {
+  opacity: 0.6;
 }
+
+.pill-text {
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
 </style>

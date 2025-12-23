@@ -1,12 +1,12 @@
 <template>
-  <view class="hormone-card">
-    <view class="card-header">
-      <image class="card-icon" src="/static/icons/hormone.png"></image>
-      <text class="card-title">荷尔蒙</text>
+  <view class="hormone-card hc-card">
+    <view class="card-header hc-header">
+      <image class="card-icon hc-icon" src="/static/icons/hormone.png"></image>
+      <text class="card-title hc-title">荷尔蒙</text>
     </view>
     
     <template v-if="hasData">
-      <view class="hormone-chart">
+      <view class="hormone-chart hc-chart">
         <view class="chart-y-axis">
           <text class="axis-label">100</text>
           <text class="axis-label">80</text>
@@ -17,7 +17,7 @@
         </view>
         <view class="chart-content">
           <!-- TODO: 添加荷尔蒙图表 -->
-          <text class="chart-placeholder">图表区域</text>
+          <view class="hc-chart-grid"></view>
         </view>
       </view>
       <view class="chart-x-axis">
@@ -33,8 +33,8 @@
       </view>
     </template>
     
-    <view v-else class="empty-state">
-      <text class="empty-text">暂无荷尔蒙数据</text>
+    <view v-else class="empty-state hc-pill disabled">
+      <text class="pill-text hc-pill-text">荷尔蒙分析</text>
     </view>
   </view>
 </template>

@@ -39,148 +39,161 @@
     </view>
 
     <!-- 身体电量卡片 -->
-<!--    <BodyPowerCard
-      :bodyPower="bodyPowerData.value" 
-      :healthAdvice="bodyPowerData.advice" 
-      :hasData="hasData"
-    />
+    <!--    <BodyPowerCard
+          :bodyPower="bodyPowerData.value"
+          :healthAdvice="bodyPowerData.advice"
+          :hasData="hasData"
+        />
 
-    &lt;!&ndash; 当日情绪卡片 &ndash;&gt;
-    <EmotionCard
-      :grid="emotionData.grid"
-      :state="emotionData.state"
-      :analysis="emotionData.analysis"
-      :therapy="emotionData.therapy"
-      :hasData="hasData"
-    />
+        &lt;!&ndash; 当日情绪卡片 &ndash;&gt;
+        <EmotionCard
+          :grid="emotionData.grid"
+          :state="emotionData.state"
+          :analysis="emotionData.analysis"
+          :therapy="emotionData.therapy"
+          :hasData="hasData"
+        />
 
-    &lt;!&ndash; 荷尔蒙卡片 &ndash;&gt;
-    <HormoneCard
-      :analysis="hormoneData.analysis"
-      :hasData="hasData"
-    />-->
+        &lt;!&ndash; 荷尔蒙卡片 &ndash;&gt;
+        <HormoneCard
+          :analysis="hormoneData.analysis"
+          :hasData="hasData"
+        />-->
 
     <!-- 睡眠卡片 -->
     <SleepCard
-      :stats="sleepData.stats"
-      :analysis="sleepData.analysis"
-      :hasData="hasData"
+        :stats="sleepData.stats"
+        :analysis="sleepData.analysis"
+        :hasData="hasData"
     />
 
     <!-- 心血管卡片 -->
-<!--    <CardiovascularCard-->
-<!--      :details="cardiovascularData.details"-->
-<!--      :analysis="cardiovascularData.analysis"-->
-<!--      :hasData="hasData"-->
-<!--    />-->
+    <!--    <CardiovascularCard-->
+    <!--      :details="cardiovascularData.details"-->
+    <!--      :analysis="cardiovascularData.analysis"-->
+    <!--      :hasData="hasData"-->
+    <!--    />-->
 
     <!-- 血压卡片 -->
     <BloodPressureCard
-      :stats="bloodPressureData.stats"
-      :distribution="bloodPressureData.distribution"
-      :analysis="bloodPressureData.analysis"
-      :hasData="hasData"
+        :stats="bloodPressureData.stats"
+        :distribution="bloodPressureData.distribution"
+        :analysis="bloodPressureData.analysis"
+        :hasData="hasData"
     />
 
     <!-- 疲劳卡片 -->
-<!--    <FatigueCard-->
-<!--      :stats="fatigueData.stats"-->
-<!--      :distribution="fatigueData.distribution"-->
-<!--      :analysis="fatigueData.analysis"-->
-<!--      :hasData="hasData"-->
-<!--    />-->
+    <!--    <FatigueCard-->
+    <!--      :stats="fatigueData.stats"-->
+    <!--      :distribution="fatigueData.distribution"-->
+    <!--      :analysis="fatigueData.analysis"-->
+    <!--      :hasData="hasData"-->
+    <!--    />-->
 
     <!-- 其他健康指标卡片 -->
-    <view class="other-cards">
-      <!-- 心率卡片 -->
-      <CommonHealthCard
-        title="心率"
-        icon="/static/icons/heart-rate.png"
+    <!-- 心率卡片 -->
+    <HeartRateCard
         :value="otherHealthData.heartRate.value"
         unit="bpm"
-        :range="otherHealthData.heartRate.range"
         :status="otherHealthData.heartRate.status"
         :statusColor="otherHealthData.heartRate.statusColor"
         :stats="otherHealthData.heartRate.stats"
         :analysis="otherHealthData.heartRate.analysis"
         :hasData="hasData"
-      />
+    />
 
-      <!-- 血氧卡片 -->
-      <CommonHealthCard
-        title="血氧"
-        icon="/static/icons/blood-oxygen.png"
+    <!-- 血氧卡片 -->
+    <BloodOxygenCard
         :value="otherHealthData.bloodOxygen.value"
         unit="%"
-        :range="otherHealthData.bloodOxygen.range"
         :status="otherHealthData.bloodOxygen.status"
         :statusColor="otherHealthData.bloodOxygen.statusColor"
         :analysis="otherHealthData.bloodOxygen.analysis"
         :hasData="hasData"
-      />
+    />
 
-      <!-- 抑郁卡片 -->
-<!--      <CommonHealthCard
-        title="抑郁"
-        icon="/static/icons/depression.png"
-        :value="otherHealthData.depression.value"
-        :range="otherHealthData.depression.range"
-        :status="otherHealthData.depression.status"
-        :statusColor="otherHealthData.depression.statusColor"
-        :analysis="otherHealthData.depression.analysis"
-        :hasData="hasData"
-      />
+    <!-- 抑郁卡片 -->
+    <!--      <CommonHealthCard
+            title="抑郁"
+            icon="/static/icons/depression.png"
+            :value="otherHealthData.depression.value"
+            :range="otherHealthData.depression.range"
+            :status="otherHealthData.depression.status"
+            :statusColor="otherHealthData.depression.statusColor"
+            :analysis="otherHealthData.depression.analysis"
+            :hasData="hasData"
+          />
 
-      &lt;!&ndash; 压力卡片 &ndash;&gt;
-      <CommonHealthCard
-        title="压力"
-        icon="/static/icons/stress.png"
-        :value="otherHealthData.stress.value"
-        :range="otherHealthData.stress.range"
-        :status="otherHealthData.stress.status"
-        :statusColor="otherHealthData.stress.statusColor"
-        :analysis="otherHealthData.stress.analysis"
-        :hasData="hasData"
-      />
+          &lt;!&ndash; 压力卡片 &ndash;&gt;
+          <CommonHealthCard
+            title="压力"
+            icon="/static/icons/stress.png"
+            :value="otherHealthData.stress.value"
+            :range="otherHealthData.stress.range"
+            :status="otherHealthData.stress.status"
+            :statusColor="otherHealthData.stress.statusColor"
+            :analysis="otherHealthData.stress.analysis"
+            :hasData="hasData"
+          />
 
-      &lt;!&ndash; 焦虑卡片 &ndash;&gt;
-      <CommonHealthCard
-        title="焦虑"
-        icon="/static/icons/anxiety.png"
-        :value="otherHealthData.anxiety.value"
-        :range="otherHealthData.anxiety.range"
-        :status="otherHealthData.anxiety.status"
-        :statusColor="otherHealthData.anxiety.statusColor"
-        :analysis="otherHealthData.anxiety.analysis"
-        :hasData="hasData"
-      />-->
+          &lt;!&ndash; 焦虑卡片 &ndash;&gt;
+          <CommonHealthCard
+            title="焦虑"
+            icon="/static/icons/anxiety.png"
+            :value="otherHealthData.anxiety.value"
+            :range="otherHealthData.anxiety.range"
+            :status="otherHealthData.anxiety.status"
+            :statusColor="otherHealthData.anxiety.statusColor"
+            :analysis="otherHealthData.anxiety.analysis"
+            :hasData="hasData"
+          />-->
 
-      <!-- 步数卡片 -->
-      <CommonHealthCard
-        title="步数"
-        icon="/static/icons/steps.png"
+    <!-- 步数卡片 -->
+    <StepsCard
         :value="otherHealthData.steps.value"
         unit="步"
-        :range="otherHealthData.steps.range"
         :status="otherHealthData.steps.status"
         :statusColor="otherHealthData.steps.statusColor"
         :analysis="otherHealthData.steps.analysis"
         :hasData="hasData"
-      />
+    />
 
-      <!-- 体温分布卡片 -->
-      <CommonHealthCard
-        title="体温分布"
-        icon="/static/icons/temperature.png"
+    <!-- 体温分布卡片 -->
+    <TemperatureCard
         :value="otherHealthData.temperature.value"
         unit="°C"
-        :range="otherHealthData.temperature.range"
         :status="otherHealthData.temperature.status"
         :statusColor="otherHealthData.temperature.statusColor"
         :analysis="otherHealthData.temperature.analysis"
         :hasData="hasData"
-      />
-    </view>
+    />
+
+    <!-- 抑郁卡片 -->
+    <DepressionCard
+        :value="otherHealthData.depression.value"
+        :status="otherHealthData.depression.status"
+        :statusColor="otherHealthData.depression.statusColor"
+        :analysis="otherHealthData.depression.analysis"
+        :hasData="hasData"
+    />
+
+    <!-- 压力卡片 -->
+    <StressCard
+        :value="otherHealthData.stress.value"
+        :status="otherHealthData.stress.status"
+        :statusColor="otherHealthData.stress.statusColor"
+        :analysis="otherHealthData.stress.analysis"
+        :hasData="hasData"
+    />
+
+    <!-- 焦虑卡片 -->
+    <AnxietyCard
+        :value="otherHealthData.anxiety.value"
+        :status="otherHealthData.anxiety.status"
+        :statusColor="otherHealthData.anxiety.statusColor"
+        :analysis="otherHealthData.anxiety.analysis"
+        :hasData="hasData"
+    />
 
     <!-- 底部安全区域 -->
     <view class="bottom-safe-area"></view>
@@ -209,7 +222,13 @@ import SleepCard from '@/components/SleepCard.vue'
 import CardiovascularCard from '@/components/CardiovascularCard.vue'
 import BloodPressureCard from '@/components/BloodPressureCard.vue'
 import FatigueCard from '@/components/FatigueCard.vue'
-import CommonHealthCard from '@/components/CommonHealthCard.vue'
+import HeartRateCard from '@/components/HeartRateCard.vue'
+import BloodOxygenCard from '@/components/BloodOxygenCard.vue'
+import StepsCard from '@/components/StepsCard.vue'
+import TemperatureCard from '@/components/TemperatureCard.vue'
+import StressCard from '@/components/StressCard.vue'
+import AnxietyCard from '@/components/AnxietyCard.vue'
+import DepressionCard from '@/components/DepressionCard.vue'
 
 export default {
   components: {
@@ -220,19 +239,25 @@ export default {
     CardiovascularCard,
     BloodPressureCard,
     FatigueCard,
-    CommonHealthCard
+    HeartRateCard,
+    BloodOxygenCard,
+    StepsCard,
+    TemperatureCard,
+    StressCard,
+    AnxietyCard,
+    DepressionCard
   },
   data() {
     return {
       hasData: false,
       weekDays: [
-        { name: '周日', date: '26', selected: false },
-        { name: '周一', date: '27', selected: false },
-        { name: '周二', date: '28', selected: true },
-        { name: '周三', date: '29', selected: false },
-        { name: '周四', date: '30', selected: false },
-        { name: '周五', date: '31', selected: false },
-        { name: '周六', date: '1', selected: false }
+        {name: '周日', date: '26', selected: false},
+        {name: '周一', date: '27', selected: false},
+        {name: '周二', date: '28', selected: true},
+        {name: '周三', date: '29', selected: false},
+        {name: '周四', date: '30', selected: false},
+        {name: '周五', date: '31', selected: false},
+        {name: '周六', date: '1', selected: false}
       ],
       bodyPowerData: {
         value: 48,
@@ -246,65 +271,68 @@ export default {
           ['#70B03D', '#FFDF0F', '#34EDDD', '#7351D5', '#FF3333', '#F26C0C', '#722A14'],
           ['#70B03D', '#FFDF0F', '#34EDDD', '#7351D5', '#FF3333', '#F26C0C', '#722A14']
         ],
-        state: { title: '心情状态', desc: '内心感到平静祥和，是一种和谐安宁的状态' },
+        state: {title: '心情状态', desc: '内心感到平静祥和，是一种和谐安宁的状态'},
         analysis: [
-          { name: '平静', percent: '50%', color: '#70B03D' },
-          { name: '愉悦', percent: '0%', color: '#FFDF0F' },
-          { name: '悲伤', percent: '0%', color: '#FF3333' },
-          { name: '恐惧', percent: '13%', color: '#F26C0C' },
-          { name: '愤怒', percent: '13%', color: '#722A14' },
-          { name: '惊奇', percent: '0%', color: '#34EDDD' },
-          { name: '厌恶', percent: '25%', color: '#7351D5' }
+          {name: '平静', percent: '50%', color: '#70B03D'},
+          {name: '愉悦', percent: '0%', color: '#FFDF0F'},
+          {name: '悲伤', percent: '0%', color: '#FF3333'},
+          {name: '恐惧', percent: '13%', color: '#F26C0C'},
+          {name: '愤怒', percent: '13%', color: '#722A14'},
+          {name: '惊奇', percent: '0%', color: '#34EDDD'},
+          {name: '厌恶', percent: '25%', color: '#7351D5'}
         ],
-        therapy: { title: '情绪疗愈', desc: '积极平和态：是一种积极情绪下的平和状态，表示在第四象限的情绪点数的占比最多。第四象限情绪点越多且位置越靠右表示越积极，位置越靠下表示越平和，这是一种相对较好的状态，表示您在该段时间内比较安静、平和，安静、平和的状态比较适合学习。' }
+        therapy: {
+          title: '情绪疗愈',
+          desc: '积极平和态：是一种积极情绪下的平和状态，表示在第四象限的情绪点数的占比最多。第四象限情绪点越多且位置越靠右表示越积极，位置越靠下表示越平和，这是一种相对较好的状态，表示您在该段时间内比较安静、平和，安静、平和的状态比较适合学习。'
+        }
       },
       hormoneData: {
         analysis: '内心独白：想在你身上做，春天对樱桃树做的事。'
       },
       sleepData: {
         stats: [
-          { name: '深睡', value: '1时45分', color: '#4C4489' },
-          { name: '浅睡', value: '2时5分', color: '#70B03D' },
-          { name: '快速眼动', value: '1时10分', color: '#FFDF0F' },
-          { name: '清醒', value: '1时0分', color: '#FFDA3C' }
+          {name: '深睡', value: '1时45分', color: '#4C4489'},
+          {name: '浅睡', value: '2时5分', color: '#70B03D'},
+          {name: '快速眼动', value: '1时10分', color: '#FFDF0F'},
+          {name: '清醒', value: '1时0分', color: '#FFDA3C'}
         ],
         analysis: '深睡时长不足：入睡时间过晚尝试规律作息，为睡眠创造安静、黑暗的环境。坚持一些睡前放松练习，能有效帮助加深睡眠。'
       },
       cardiovascularData: {
         details: [
-          { name: '血液粘稠度', result: '27', risk: '正常', riskColor: '#255FBE', range: '0--39' },
-          { name: '血管硬化度', result: '33', risk: '正常', riskColor: '#255FBE', range: '0--39' },
-          { name: '房颤', result: '22', risk: '正常', riskColor: '#255FBE', range: '0--49' },
-          { name: '心律不齐', result: '51', risk: '轻度', riskColor: '#FB3A3A', range: '0--49' },
-          { name: '心肌缺血', result: '60', risk: '中度', riskColor: '#FB3A3A', range: '0--29' },
-          { name: '心衰', result: '8', risk: '正常', riskColor: '#255FBE', range: '0--29' }
+          {name: '血液粘稠度', result: '27', risk: '正常', riskColor: '#255FBE', range: '0--39'},
+          {name: '血管硬化度', result: '33', risk: '正常', riskColor: '#255FBE', range: '0--39'},
+          {name: '房颤', result: '22', risk: '正常', riskColor: '#255FBE', range: '0--49'},
+          {name: '心律不齐', result: '51', risk: '轻度', riskColor: '#FB3A3A', range: '0--49'},
+          {name: '心肌缺血', result: '60', risk: '中度', riskColor: '#FB3A3A', range: '0--29'},
+          {name: '心衰', result: '8', risk: '正常', riskColor: '#255FBE', range: '0--29'}
         ],
         analysis: '血液粘稠度正常：血液流动性良好，能为身体各组织器官正常运输氧气和营养物质，能维持身体正常生理功能。'
       },
       bloodPressureData: {
         stats: [
-          { name: '最高血压', unit: 'mmHg', value: '110' },
-          { name: '最低血压', unit: 'mmHg', value: '71' }
+          {name: '最高血压', unit: 'mmHg', value: '110'},
+          {name: '最低血压', unit: 'mmHg', value: '71'}
         ],
         distribution: [
-          { name: '正常', percent: '100%', color: '#70B03D' },
-          { name: '正常高值', percent: '0%', color: '#FFDF0F' },
-          { name: '低血压', percent: '0%', color: '#FF3333' },
-          { name: '高血压', percent: '0%', color: '#F26C0C' }
+          {name: '正常', percent: '100%', color: '#70B03D'},
+          {name: '正常高值', percent: '0%', color: '#FFDF0F'},
+          {name: '低血压', percent: '0%', color: '#FF3333'},
+          {name: '高血压', percent: '0%', color: '#F26C0C'}
         ],
         analysis: '收缩压正常：收缩压正常'
       },
       fatigueData: {
         stats: [
-          { name: '平均值', value: '61' },
-          { name: '最大值', value: '72' },
-          { name: '最小值', value: '50' }
+          {name: '平均值', value: '61'},
+          {name: '最大值', value: '72'},
+          {name: '最小值', value: '50'}
         ],
         distribution: [
-          { name: '正常（0--29）', percent: '0%', color: '#70B03D' },
-          { name: '轻度（30--59）', percent: '38%', color: '#FFDF0F' },
-          { name: '中度（60--79)', percent: '62%', color: '#FF3333' },
-          { name: '重度（80--100)', percent: '0%', color: '#F26C0C' }
+          {name: '正常（0--29）', percent: '0%', color: '#70B03D'},
+          {name: '轻度（30--59）', percent: '38%', color: '#FFDF0F'},
+          {name: '中度（60--79)', percent: '62%', color: '#FF3333'},
+          {name: '重度（80--100)', percent: '0%', color: '#F26C0C'}
         ],
         analysis: '疲劳分析'
       },
@@ -315,9 +343,9 @@ export default {
           status: '正常',
           statusColor: '#255FBE',
           stats: [
-            { name: '平均值', value: '78' },
-            { name: '最大值', value: '85' },
-            { name: '最小值', value: '65' }
+            {name: '平均值', value: '78'},
+            {name: '最大值', value: '85'},
+            {name: '最小值', value: '65'}
           ],
           analysis: '心率分析'
         },
@@ -507,11 +535,6 @@ page {
   font-weight: 500;
   font-size: 28rpx;
   color: #0E1213;
-}
-
-/* 其他健康指标卡片 */
-.other-cards {
-  margin: 0 30rpx;
 }
 
 /* 底部安全区域 */

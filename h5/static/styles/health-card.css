@@ -1,0 +1,171 @@
+
+/* 通用健康卡片样式 */
+.hc-card {
+    background-color: #1F1F1E;
+    border-radius: 68rpx;
+    padding: 36rpx;
+    margin: 0 30rpx 30rpx;
+}
+
+.hc-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 38rpx;
+}
+
+.hc-title-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16rpx;
+}
+
+.hc-icon {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.hc-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFDA3C;
+}
+
+.hc-value {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8rpx;
+    border-radius: 20px;
+    border: 1px solid #A4A4A4;
+}
+
+.hc-value-text {
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFDA3C;
+}
+
+.hc-unit-text {
+    font-weight: 400;
+    font-size: 10px;
+    color: #A4A4A4;
+}
+
+.hc-chart {
+    height: 200rpx;
+    background-color: #0E1213;
+    border-radius: 16rpx;
+    border: 1rpx solid #5D5D5D;
+    margin-bottom: 20rpx;
+}
+
+.hc-chart-grid {
+    width: 100%;
+    height: 100%;
+    background-image:
+            linear-gradient(to bottom, rgba(255,255,255,0.08) 1rpx, transparent 1rpx),
+            linear-gradient(to right, rgba(255,255,255,0.06) 1rpx, transparent 1rpx);
+    background-size: 100% 40rpx, 60rpx 100%;
+    border-radius: 16rpx;
+}
+
+.hc-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+}
+
+.hc-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40rpx;
+    padding: 16rpx;
+    border: 2rpx solid #3C3C3C;
+    width: calc(33.33% - 12rpx);
+    box-sizing: border-box;
+}
+
+.hc-stat-value {
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFDA3C;
+}
+
+.hc-stat-name {
+    font-weight: 400;
+    font-size: 10px;
+    color: #A4A4A4;
+}
+
+.hc-pill {
+    background-color: #2F2E2D;
+    border-radius: 40rpx;
+    padding: 24rpx;
+    display: flex;
+    align-items: center;
+    border: 2rpx solid #3C3C3C;
+}
+
+/*.hc-pill.disabled {*/
+/*    opacity: 0.6;*/
+/*}*/
+
+
+/* 分布与环图通用 */
+.hc-distribution {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #2F2E2D;
+    border-radius: 20rpx;
+    padding: 20rpx;
+    border: 1rpx solid #3C3C3C;
+    margin-bottom: 20rpx;
+}
+
+.hc-donut {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+    border: 12rpx solid rgba(255,255,255,0.08);
+    margin-right: 20rpx;
+    box-sizing: border-box;
+}
+
+.hc-dist-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12rpx;
+}
+
+.hc-dist-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hc-dist-dot {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+
+.hc-dist-name {
+    flex: 1;
+    font-size: 24rpx;
+    color: #A4A4A4;
+    margin-left: 10rpx;
+}
+
+.hc-dist-percent {
+    font-size: 24rpx;
+    color: #FBFBFB;
+}

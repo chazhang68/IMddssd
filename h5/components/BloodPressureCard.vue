@@ -352,7 +352,8 @@ export default {
 .blood-pressure-analysis {
   background-color: #2F2E2D;
   border-radius: 40rpx;
-  padding: 30rpx;
+  padding: 24rpx;
+  border: 2rpx solid #3C3C3C;
 }
 
 .analysis-section {
