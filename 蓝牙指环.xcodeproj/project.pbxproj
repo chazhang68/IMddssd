@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		8E2EE3542EF994C700663373 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2EE3532EF994C700663373 /* QRCodeScannerView.swift */; };
+		8E2EE3682EF997D900663373 /* Pods_蓝牙指环.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2EE3672EF997D900663373 /* Pods_蓝牙指环.framework */; };
 		8E30745E2EF58DE1007A1D56 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */; };
 		8E3074632EF59345007A1D56 /* BlutoothSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */; };
 		8E87D2502EF4FBDC00C6BA8C /* BCLRingSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; };
 		8E87D25E2EF550F000C6BA8C /* BluetoothBindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E87D25D2EF550F000C6BA8C /* BluetoothBindingView.swift */; };
+		8EEDED1F2EFA29830049A989 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEDED1E2EFA29760049A989 /* CameraPreview.swift */; };
+		8EEDED212EFA29A10049A989 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEDED202EFA29A00049A989 /* ScannerViewModel.swift */; };
+		8EEDED232EFA29AE0049A989 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEDED222EFA29AE0049A989 /* PreviewView.swift */; };
+		8EEDED252EFA29B90049A989 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEDED242EFA29B70049A989 /* ImagePicker.swift */; };
 		F0B000010000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000001 /* AppDelegate.swift */; };
 		F0B000010000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000002 /* SceneDelegate.swift */; };
 		F0B000010000000000000003 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000200000000000000001 /* UIColor+Hex.swift */; };
@@ -53,13 +58,11 @@
 		F0B000010000000000000027 /* BCLRingSDKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000024 /* BCLRingSDKManager.swift */; };
 		F0B000010000000000000028 /* BluetoothDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000025 /* BluetoothDeviceManager.swift */; };
 		F0B000010000000000000029 /* SDKIntegrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000026 /* SDKIntegrationHelper.swift */; };
-		F0B000010000000000000030 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A000300000000000000031 /* QRCodeScannerView.swift */; };
 		F0B00001000000000000002A /* JVerificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000005 /* JVerificationHelper.m */; };
 		F0B000020000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A000500000000000000004 /* Assets.xcassets */; };
 		F0B000020000000000000002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A000400000000000000001 /* LaunchScreen.storyboard */; };
 		F0B000020000000000000003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A000400000000000000002 /* Main.storyboard */; };
 		F0E000100000000000000001 /* BCLRingSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,10 +83,16 @@
 		393635344643334337373330344334393939443844323841 /* BCLRingSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BCLRingSDK.xcframework; sourceTree = "<group>"; };
 		880EC1522ECCD1DB005DF921 /* 蓝牙指环.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "蓝牙指环.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E2EE3532EF994C700663373 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
+		8E2EE3672EF997D900663373 /* Pods_蓝牙指环.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = "Pods_蓝牙指环.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlutoothSelectionView.swift; sourceTree = "<group>"; };
 		8E87D25D2EF550F000C6BA8C /* BluetoothBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothBindingView.swift; sourceTree = "<group>"; };
+		8EEDED1E2EFA29760049A989 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		8EEDED202EFA29A00049A989 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		8EEDED222EFA29AE0049A989 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		8EEDED242EFA29B70049A989 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		9F297D395244CF99292B1471 /* Pods-蓝牙指环.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-蓝牙指环.debug.xcconfig"; path = "Target Support Files/Pods-蓝牙指环/Pods-蓝牙指环.debug.xcconfig"; sourceTree = "<group>"; };
+		E7D6F13248F7865548864D7C /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A000200000000000000001 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		F0A000200000000000000002 /* UIViewController+ThirdPartyLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ThirdPartyLogin.swift"; sourceTree = "<group>"; };
 		F0A000300000000000000001 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2EE3682EF997D900663373 /* Pods_蓝牙指环.framework in Frameworks */,
 				8E87D2502EF4FBDC00C6BA8C /* BCLRingSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +159,8 @@
 		4951F5CF6EF9A19614EFD194 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E2EE3672EF997D900663373 /* Pods_蓝牙指环.framework */,
+				E7D6F13248F7865548864D7C /* Pods_____.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,7 +204,7 @@
 		8E3074612EF59313007A1D56 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				8E2EE3532EF994C700663373 /* QRCodeScannerView.swift */,
+				8EEDED1D2EFA294F0049A989 /* Scanner */,
 				8E3074622EF59345007A1D56 /* BlutoothSelectionView.swift */,
 				8E30745D2EF58DE1007A1D56 /* CustomAlertView.swift */,
 			);
@@ -204,6 +216,18 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		8EEDED1D2EFA294F0049A989 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				8EEDED242EFA29B70049A989 /* ImagePicker.swift */,
+				8EEDED222EFA29AE0049A989 /* PreviewView.swift */,
+				8EEDED202EFA29A00049A989 /* ScannerViewModel.swift */,
+				8EEDED1E2EFA29760049A989 /* CameraPreview.swift */,
+				8E2EE3532EF994C700663373 /* QRCodeScannerView.swift */,
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		E69BB236479986BB6FF7FEE2 /* Pods */ = {
@@ -527,6 +551,7 @@
 				F0B000010000000000000004 /* UIViewController+ThirdPartyLogin.swift in Sources */,
 				F0B000010000000000000005 /* LoginViewController.swift in Sources */,
 				F0B000010000000000000006 /* LoginView.swift in Sources */,
+				8EEDED212EFA29A10049A989 /* ScannerViewModel.swift in Sources */,
 				F0B000010000000000000007 /* BluetoothDataParser.swift in Sources */,
 				F0B000010000000000000008 /* BluetoothHeartRateDelegate.swift in Sources */,
 				F0B000010000000000000009 /* CommunityViewController.swift in Sources */,
@@ -546,6 +571,7 @@
 				F0B000010000000000000016 /* BodyPowerAndHealthModule.swift in Sources */,
 				F0B000010000000000000017 /* BodyPowerModule.swift in Sources */,
 				F0B000010000000000000018 /* CustomNavigationBarModule.swift in Sources */,
+				8EEDED252EFA29B90049A989 /* ImagePicker.swift in Sources */,
 				F0B000010000000000000019 /* HealthDataCardModule.swift in Sources */,
 				F0B00001000000000000001A /* HealthIndicatorRingModule.swift in Sources */,
 				F0B00001000000000000001B /* BluetoothHeartRateManager.swift in Sources */,
@@ -563,8 +589,10 @@
 				8E30745E2EF58DE1007A1D56 /* CustomAlertView.swift in Sources */,
 				F0B000010000000000000026 /* TabBarController.swift in Sources */,
 				F0B000010000000000000027 /* BCLRingSDKManager.swift in Sources */,
+				8EEDED232EFA29AE0049A989 /* PreviewView.swift in Sources */,
 				F0B000010000000000000028 /* BluetoothDeviceManager.swift in Sources */,
 				F0B000010000000000000029 /* SDKIntegrationHelper.swift in Sources */,
+				8EEDED1F2EFA29830049A989 /* CameraPreview.swift in Sources */,
 				F0B00001000000000000002A /* JVerificationHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

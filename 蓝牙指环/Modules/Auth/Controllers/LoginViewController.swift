@@ -58,5 +58,16 @@ class LoginViewController: UIViewController {
     private func navigateToHome() {
         // 登录成功后的处理逻辑已由其他组件处理
         // 这里可以添加额外的跳转逻辑
+        let homeViewController = HomeViewController()
+                let navigationController = UINavigationController(rootViewController: homeViewController)
+                
+                // 设置动画过渡
+                UIView.transition(with: UIApplication.shared.windows.first!,
+                                  duration: 0.3,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                      UIApplication.shared.windows.first?.rootViewController = navigationController
+                                  },
+                                  completion: nil)
     }
 }

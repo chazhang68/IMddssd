@@ -340,6 +340,7 @@ class HomeViewController: UIViewController {
         // 设备控制按钮
         homeView.searchButton.addTarget(self, action: #selector(startDeviceSearch), for: .touchUpInside)
         homeView.refreshButton.addTarget(self, action: #selector(refreshDevices), for: .touchUpInside)
+        homeView.scannerButton.addTarget(self, action: #selector(openScanner), for: .touchUpInside)
     }
     
     /// 更新UI状态
@@ -826,6 +827,16 @@ class HomeViewController: UIViewController {
         if !isSearching {
             startBCLSearch()
         }
+    }
+    
+    @objc private func openScanner() {
+        let view = QRScannerView { [weak self] code in
+            print("扫码结果: \(code)")
+            self?.dismiss(animated: true)
+        }
+        let hosting = UIHostingController(rootView: view)
+        hosting.modalPresentationStyle = .fullScreen
+        present(hosting, animated: true)
     }
     
     /// 显示指环详情页面

@@ -41,6 +41,7 @@ class HomeView: UIView {
     
     /// 刷新按钮 - 刷新设备列表
     let refreshButton = UIButton(type: .system)
+    let scannerButton = UIButton(type: .system)
     
     /// 代理对象
     weak var delegate: HomeViewProtocol?
@@ -60,6 +61,7 @@ class HomeView: UIView {
         super.init(frame: frame)
         backgroundColor = .black  // 黑色主背景
         setupTop()                // 配置顶部导航区域
+        setupScannerButton()
         setupDeviceCollection()   // 配置设备集合视图
         setupEmptyState()         // 配置空状态视图
 //        setupControlButtons()     // 配置控制按钮
@@ -179,7 +181,7 @@ class HomeView: UIView {
             deviceCollectionView.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: 8),
             deviceCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             deviceCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            deviceCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)  // 调整为-70以适应TabBar
+            deviceCollectionView.bottomAnchor.constraint(equalTo: scannerButton.topAnchor, constant: -20)
         ])
     }
     
@@ -231,6 +233,21 @@ class HomeView: UIView {
         // 初始显示空状态
         emptyStateView.isHidden = false
         deviceCollectionView.isHidden = true
+    }
+    
+    private func setupScannerButton() {
+        addSubview(scannerButton)
+        scannerButton.translatesAutoresizingMaskIntoConstraints = false
+        scannerButton.setTitle("扫码绑定", for: .normal)
+        scannerButton.backgroundColor = UIColor(hex: 0xFFD700)
+        scannerButton.setTitleColor(.black, for: .normal)
+        scannerButton.layer.cornerRadius = 24
+        NSLayoutConstraint.activate([
+            scannerButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            scannerButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            scannerButton.widthAnchor.constraint(equalToConstant: 180),
+            scannerButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
     }
     
     /// 配置底部控制按钮
