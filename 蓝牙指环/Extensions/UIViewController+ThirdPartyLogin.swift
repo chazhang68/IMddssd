@@ -81,17 +81,41 @@ extension UIViewController {
     func loginWithJiguang(completion: @escaping (String?, Error?) -> Void) {
         // JVerification 2.9.3 通过 Objective-C Bridging Header 导入
         // 直接使用，不需要 canImport 检查
-        // 先检查认证环境 - checkVerifyEnable 返回 BOOL，不是闭包
+
+        // 先检查SDK是否已经初始化完成
+        if !JVERIFICATIONService.isSetupClient() {
+            let error = NSError(domain: "JiguangLoginError", code: -4, userInfo: [NSLocalizedDescriptionKey: "极光SDK尚未初始化完成，请稍后再试"])
+            print("❌ 极光SDK未初始化")
+            completion(nil, error)
+            return
+        }
+
+        // 检查认证环境 - checkVerifyEnable 返回 BOOL，不是闭包
+        print("🔍 检查一键登录环境...")
         if JVERIFICATIONService.checkVerifyEnable() {
-            // 环境可用，开始一键登录
-            self.startJiguangLogin(completion: completion)
+            print("✅ 一键登录环境可用")
+            // 环境可用，先进行预取号（如果之前失败的话），然后开始一键登录
+            JVERIFICATIONService.preLogin(3000) { preResult in
+                if let preResult = preResult, let preCode = preResult["code"] as? Int {
+                    if preCode == 2000 {
+                        print("✅ 预取号成功，开始一键登录")
+                    } else {
+                        let preMsg = preResult["message"] as? String ?? "未知错误"
+                        print("⚠️ 预取号失败: [\(preCode)] \(preMsg)，尝试继续登录")
+                    }
+                }
+
+                // 无论预取号是否成功，都尝试登录
+                self.startJiguangLogin(completion: completion)
+            }
         } else {
             // 环境不可用（可能是未插卡、无网络等情况）
-            let error = NSError(domain: "JiguangLoginError", code: -1, userInfo: [NSLocalizedDescriptionKey: "一键登录环境不可用，请检查网络和SIM卡"])
+            print("❌ 一键登录环境不可用")
+            let error = NSError(domain: "JiguangLoginError", code: -1, userInfo: [NSLocalizedDescriptionKey: "一键登录环境不可用。\n请检查:\n1. 是否插入SIM卡\n2. 是否开启蜂窝数据\n3. 是否关闭Wi-Fi使用运营商网络"])
             completion(nil, error)
         }
     }
-    
+
     /// 启动极光一键登录流程
     private func startJiguangLogin(completion: @escaping (String?, Error?) -> Void) {
         // 配置登录界面（可选）
@@ -100,12 +124,15 @@ extension UIViewController {
         if let bgImage = UIImage(named: "Background") {
             config.authPageBackgroundImage = bgImage  // 设置背景图
         }
-        
-        // 开始一键登录
-        // JVerification 2.9.3 使用 getAuthorizationWithController 方法
+        config.autoLayout = false  // 不使用AutoLayout，使用传统布局
+        config.shouldAutorotate = true  // 支持自动旋转
+        config.dismissAnimationFlag = true  // 关闭授权页时显示动画
+
         // 先设置UI配置
         JVERIFICATIONService.customUI(with: config)
-        
+
+        print("🚀 拉起一键登录授权页...")
+
         // 调用授权登录
         // 使用 JVerificationHelper 包装类来调用 Objective-C 方法
         JVerificationHelper.getAuthorization(withController: self, hide: false, completion: { (result: [AnyHashable : Any]?) in
@@ -115,23 +142,46 @@ extension UIViewController {
                     let code = result["code"] as? Int ?? -1
                     let loginToken = result["loginToken"] as? String
                     let message = result["message"] as? String ?? "未知错误"
-                    
+                    let operatorType = result["operator"] as? String ?? "unknown"
+
+                    print("📱 一键登录回调: code=\(code), message=\(message), operator=\(operatorType)")
+
                     if code == 2000, let token = loginToken {
                         // 登录成功，获取token
                         // 注意：loginToken需要发送到您的服务器，由服务器调用极光API获取手机号
+                        print("✅ 一键登录成功，token: \(token)")
                         completion(token, nil)
                     } else if code == 6004 {
                         // 用户取消了登录
+                        print("⚠️ 用户取消登录")
                         let error = NSError(domain: "JiguangLoginError", code: -2, userInfo: [NSLocalizedDescriptionKey: "用户取消登录"])
                         completion(nil, error)
                     } else {
-                        // 登录失败
-                        let error = NSError(domain: "JiguangLoginError", code: code, userInfo: [NSLocalizedDescriptionKey: message])
+                        // 登录失败，打印详细错误信息
+                        print("❌ 一键登录失败: [\(code)] \(message)")
+                        var errorMessage = "一键登录失败: \(message)"
+
+                        // 根据错误码提供更友好的提示
+                        switch code {
+                        case 6001:
+                            errorMessage = "网络连接失败，请检查网络后重试"
+                        case 6002:
+                            errorMessage = "未检测到SIM卡，请插入SIM卡后重试"
+                        case 6003:
+                            errorMessage = "蜂窝网络未开启，请在设置中开启蜂窝数据"
+                        case 6000:
+                            errorMessage = "当前运营商不支持一键登录，请使用其他登录方式"
+                        default:
+                            errorMessage = "一键登录失败 [\(code)]: \(message)"
+                        }
+
+                        let error = NSError(domain: "JiguangLoginError", code: code, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                         completion(nil, error)
                     }
                 } else {
                     // 登录失败
-                    let error = NSError(domain: "JiguangLoginError", code: -3, userInfo: [NSLocalizedDescriptionKey: "登录失败"])
+                    print("❌ 一键登录回调结果为空")
+                    let error = NSError(domain: "JiguangLoginError", code: -3, userInfo: [NSLocalizedDescriptionKey: "登录失败，回调结果为空"])
                     completion(nil, error)
                 }
             }
