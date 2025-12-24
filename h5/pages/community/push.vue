@@ -12,7 +12,7 @@
     </view>
 
     <view class="editor-area">
-      <editor id="pushEditor" placeholder="Share your brilliant ideas" class="editor-box" @ready="onEditorReady"/>
+      <view id="quillEditor" class="editor-box"></view>
     </view>
 
     <view class="bottom-toolbar">
@@ -31,10 +31,12 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
+import Quill from 'quill'
+import 'quill/dist/quill.snow.css'
 import LinkDialog from "@/components/dialog/LinkDialog.vue";
 
-const editorCtx = ref(null)
+const quillRef = ref<any>(null)
 const linkDialogRef = ref(null) // 添加引用
 
 function goBack() {
@@ -53,26 +55,29 @@ function openLinkModal() {
 }
 
 function confirmLink(text: string, url: string) {
-  if (!editorCtx.value) return
-
-  // 1. 先插入一个自定义属性的 <a> 节点
-  editorCtx.focus?.()
-  editorCtx.insertText?.({ text })
-  editorCtx.format?.('link', url)
+  const quill = quillRef.value
+  if (!quill) return
+  const t = (text || '').trim()
+  const u = (url || '').trim()
+  if (!u) return
+  const range = quill.getSelection(true)
+  const index = range ? range.index : quill.getLength()
+  quill.insertText(index, t || u, { link: u })
 }
 
-function onEditorReady() {
-  try {
-    uni.createSelectorQuery()
-        .select('#pushEditor')
-        .context((res: any) => {
-          editorCtx.value = res?.context || null
-        })
-        .exec()
-  } catch {
-    editorCtx.value = null
-  }
-}
+onMounted(() => {
+  const el = document.getElementById('quillEditor')
+  if (!el) return
+  const quill = new Quill(el, {
+    theme: 'snow',
+    placeholder: 'Share your brilliant ideas',
+    modules: {
+      toolbar: false,
+      history: { delay: 1000, maxStack: 100, userOnly: false }
+    }
+  })
+  quillRef.value = quill
+})
 </script>
 
 
@@ -100,6 +105,17 @@ function onEditorReady() {
 /* 使用深度选择器 */
 :deep(.ql-editor.ql-blank::before) {
   color: #A4A4A4;
+}
+
+:deep(.ql-container) {
+  background-color: #0E1213;
+  border: none;
+}
+
+:deep(.ql-editor) {
+  min-height: 600rpx;
+  color: #FBFBFB;
+  padding: 0;
 }
 
 .bottom-toolbar {
