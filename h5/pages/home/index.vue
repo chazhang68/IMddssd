@@ -116,32 +116,32 @@
         :hasData="hasData"
     />
 
-    <!-- 抑郁卡片 -->
-    <DepressionCard
-        :value="otherHealthData.depression.value"
-        :status="otherHealthData.depression.status"
-        :statusColor="otherHealthData.depression.statusColor"
-        :analysis="otherHealthData.depression.analysis"
-        :hasData="hasData"
-    />
+<!--    &lt;!&ndash; 抑郁卡片 &ndash;&gt;-->
+<!--    <DepressionCard-->
+<!--        :value="otherHealthData.depression.value"-->
+<!--        :status="otherHealthData.depression.status"-->
+<!--        :statusColor="otherHealthData.depression.statusColor"-->
+<!--        :analysis="otherHealthData.depression.analysis"-->
+<!--        :hasData="hasData"-->
+<!--    />-->
 
-    <!-- 压力卡片 -->
-    <StressCard
-        :value="otherHealthData.stress.value"
-        :status="otherHealthData.stress.status"
-        :statusColor="otherHealthData.stress.statusColor"
-        :analysis="otherHealthData.stress.analysis"
-        :hasData="hasData"
-    />
+<!--    &lt;!&ndash; 压力卡片 &ndash;&gt;-->
+<!--    <StressCard-->
+<!--        :value="otherHealthData.stress.value"-->
+<!--        :status="otherHealthData.stress.status"-->
+<!--        :statusColor="otherHealthData.stress.statusColor"-->
+<!--        :analysis="otherHealthData.stress.analysis"-->
+<!--        :hasData="hasData"-->
+<!--    />-->
 
-    <!-- 焦虑卡片 -->
-    <AnxietyCard
-        :value="otherHealthData.anxiety.value"
-        :status="otherHealthData.anxiety.status"
-        :statusColor="otherHealthData.anxiety.statusColor"
-        :analysis="otherHealthData.anxiety.analysis"
-        :hasData="hasData"
-    />
+<!--    &lt;!&ndash; 焦虑卡片 &ndash;&gt;-->
+<!--    <AnxietyCard-->
+<!--        :value="otherHealthData.anxiety.value"-->
+<!--        :status="otherHealthData.anxiety.status"-->
+<!--        :statusColor="otherHealthData.anxiety.statusColor"-->
+<!--        :analysis="otherHealthData.anxiety.analysis"-->
+<!--        :hasData="hasData"-->
+<!--    />-->
 
     <!-- 底部安全区域 -->
     <view class="bottom-safe-area"></view>
