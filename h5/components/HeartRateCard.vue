@@ -20,10 +20,7 @@
       </view>
     </view>
     <view class="hc-pill" :class="{ disabled: !hasData }">
-      <text class="hc-pill-text"
-            :style="{ color: statusColorDisplay,
-        fontSize:statusTextSize }"
-      >
+      <text class="hc-pill-text" :style="{ color: statusColorDisplay, fontSize:statusTextSize }">
         {{ statusText }}
       </text>
     </view>
@@ -67,7 +64,7 @@ export default {
       return this.hasData ? (this.statusColor || '#FBFBFB') : '#A4A4A4'
     },
     statusTextSize() {
-      return this.hasData ? '28rpx' : '24rpx'
+      return this.hasData ? '14px' : '12px'
     }
   }
 }

@@ -31,7 +31,7 @@
       }
     },
     {
-      "path": "pages/with-data/index",
+      "path": "pages/home/index",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTextStyle": "black",

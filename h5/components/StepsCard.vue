@@ -14,13 +14,18 @@
       <view class="hc-chart-grid"></view>
     </view>
     <view class="hc-stats">
-      <view class="hc-stat-item" v-for="(item, index) in statsDisplay" :key="index">
-        <text class="hc-stat-value">{{ item.value }}</text>
-        <text class="hc-stat-name">{{ item.name }}</text>
+      <view class="hc-stat-item1" v-for="(item, index) in statsDisplay" :key="index">
+        <view class="hc-stat-value">{{ item.value }}</view>
+        <view style="display: flex;justify-content: space-between;align-items: center">
+          <view class="hc-stat-name">{{ item.name }}</view>
+          <view class="hc-stat-unit">{{ item.unit }}</view>
+        </view>
       </view>
     </view>
     <view class="hc-pill" :class="{ disabled: !hasData }">
-      <text class="hc-pill-text" :style="{ color: statusColorDisplay }">{{ statusText }}</text>
+      <text class="hc-pill-text" :style="{ color: statusColorDisplay, fontSize:statusTextSize }">
+        {{ statusText }}
+      </text>
     </view>
   </view>
 </template>
@@ -29,25 +34,25 @@
 export default {
   name: 'StepsCard',
   props: {
-    title: { type: String, default: '步数' },
-    icon: { type: String, default: '/static/icons/step@2x.png' },
-    value: { type: [String, Number], default: '' },
-    unit: { type: String, default: '步' },
-    range: { type: String, default: '' },
-    status: { type: String, default: '' },
-    statusColor: { type: String, default: '#A4A4A4' },
-    stats: { type: Array, default: () => [] },
-    analysis: { type: String, default: '' },
-    hasData: { type: Boolean, default: false }
+    title: {type: String, default: '步数'},
+    icon: {type: String, default: '/static/icons/step@2x.png'},
+    value: {type: [String, Number], default: ''},
+    unit: {type: String, default: '步'},
+    range: {type: String, default: ''},
+    status: {type: String, default: ''},
+    statusColor: {type: String, default: '#A4A4A4'},
+    stats: {type: Array, default: () => []},
+    analysis: {type: String, default: ''},
+    hasData: {type: Boolean, default: false}
   },
   computed: {
     statsDisplay() {
       const arr = Array.isArray(this.stats) ? this.stats : []
       if (this.hasData && arr.length > 0) return arr
       return [
-        { name: '平均值', value: '0' },
-        { name: '最大值', value: '0' },
-        { name: '最小值', value: '0' }
+        {name: '步数', value: '0', unit: '步'},
+        {name: '距离', value: '0.00', unit: '公里'},
+        {name: '热量', value: '0', unit: '千卡'}
       ]
     },
     statusText() {
@@ -60,11 +65,46 @@ export default {
     },
     statusColorDisplay() {
       return this.hasData ? (this.statusColor || '#FBFBFB') : '#A4A4A4'
+    },
+    statusTextSize() {
+      return this.hasData ? '14px' : '12px'
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 @import "../static/styles/health-card.css";
+
+.hc-stat-item1 {
+  display: flex;
+  flex-direction: column;
+  border-radius: 40rpx;
+  padding: 16px;
+  border: 2rpx solid #3C3C3C;
+  width: calc(33.33% - 12rpx);
+  box-sizing: border-box;
+}
+
+.hc-stat-value {
+  display: flex;
+  justify-content: end;
+  font-weight: bold;
+  font-size: 16px;
+  color: #FFDA3C;
+}
+
+.hc-stat-name {
+  font-weight: bold;
+  font-size: 14px;
+  color: #FBFBFB;
+}
+
+.hc-stat-unit {
+  font-weight: 400;
+  font-size: 12px;
+  color: #A4A4A4;
+}
+
+
 </style>
