@@ -1,6 +1,7 @@
 import UIKit
 import AuthenticationServices
 import ObjectiveC
+import SystemConfiguration
 // JVerification 2.9.3 是 Objective-C 库，通过 BridgingHeader 导入
 // 需要在 BridgingHeader.h 中添加 #import <JVerification/JVERIFICATIONService.h>
 
@@ -90,6 +91,19 @@ extension UIViewController {
             return
         }
 
+        // 检查网络状态 - 必须使用蜂窝数据
+        let networkStatus = checkNetworkStatus()
+        print("🌐 当前网络状态: \(networkStatus)")
+
+        if networkStatus == .wifi {
+            let error = NSError(domain: "JiguangLoginError", code: -5, userInfo: [
+                NSLocalizedDescriptionKey: "一键登录必须使用蜂窝数据网络\n\n请按以下步骤操作：\n1. 关闭WiFi\n2. 确保蜂窝数据已开启\n3. 确认SIM卡已正确插入\n4. 重新尝试登录"
+            ])
+            print("❌ 当前使用WiFi，一键登录需要蜂窝数据")
+            completion(nil, error)
+            return
+        }
+
         // 检查认证环境 - checkVerifyEnable 返回 BOOL，不是闭包
         print("🔍 检查一键登录环境...")
         if JVERIFICATIONService.checkVerifyEnable() {
@@ -111,9 +125,64 @@ extension UIViewController {
         } else {
             // 环境不可用（可能是未插卡、无网络等情况）
             print("❌ 一键登录环境不可用")
-            let error = NSError(domain: "JiguangLoginError", code: -1, userInfo: [NSLocalizedDescriptionKey: "一键登录环境不可用。\n请检查:\n1. 是否插入SIM卡\n2. 是否开启蜂窝数据\n3. 是否关闭Wi-Fi使用运营商网络"])
+
+            // 根据网络状态提供更详细的错误信息
+            var errorMessage = "一键登录环境不可用\n\n"
+            if networkStatus == .notReachable {
+                errorMessage += "检测到无网络连接，请检查：\n1. 是否开启飞行模式\n2. 蜂窝数据是否开启"
+            } else {
+                errorMessage += "无法识别运营商信息，请检查：\n1. 关闭WiFi，使用蜂窝数据\n2. SIM卡是否正确插入\n3. 是否是中国移动/联通/电信\n4. 如果是双卡，确保数据使用的卡已激活\n5. 如果是eSIM，请确认已正确配置\n6. 尝试重启手机后再试"
+            }
+
+            let error = NSError(domain: "JiguangLoginError", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
             completion(nil, error)
         }
+    }
+
+    /// 检查当前网络状态
+    /// - Returns: 网络状态类型
+    private func checkNetworkStatus() -> NetworkStatus {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+
+        guard let reachability = withUnsafePointer(to: &zeroAddress, {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                SCNetworkReachabilityCreateWithAddress(nil, $0)
+            }
+        }) else {
+            return .notReachable
+        }
+
+        var flags: SCNetworkReachabilityFlags = []
+        if !SCNetworkReachabilityGetFlags(reachability, &flags) {
+            return .notReachable
+        }
+
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        let isWWAN = flags.contains(.isWWAN)
+
+        if !isReachable {
+            return .notReachable
+        }
+
+        if isWWAN {
+            return .cellular
+        }
+
+        if !needsConnection {
+            return .wifi
+        }
+
+        return .notReachable
+    }
+
+    /// 网络状态枚举
+    private enum NetworkStatus: String {
+        case notReachable = "无网络"
+        case wifi = "WiFi"
+        case cellular = "蜂窝数据"
     }
 
     /// 启动极光一键登录流程
