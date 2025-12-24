@@ -2,6 +2,7 @@ import UIKit
 import AuthenticationServices
 import ObjectiveC
 import SystemConfiguration
+import CoreTelephony
 // JVerification 2.9.3 是 Objective-C 库，通过 BridgingHeader 导入
 // 需要在 BridgingHeader.h 中添加 #import <JVerification/JVERIFICATIONService.h>
 
@@ -91,13 +92,16 @@ extension UIViewController {
             return
         }
 
+        // 详细诊断运营商信息
+        diagnosisCarrierInfo()
+
         // 检查网络状态 - 必须使用蜂窝数据
         let networkStatus = checkNetworkStatus()
-        print("🌐 当前网络状态: \(networkStatus)")
+        print("🌐 当前网络状态: \(networkStatus.rawValue)")
 
         if networkStatus == .wifi {
             let error = NSError(domain: "JiguangLoginError", code: -5, userInfo: [
-                NSLocalizedDescriptionKey: "一键登录必须使用蜂窝数据网络\n\n请按以下步骤操作：\n1. 关闭WiFi\n2. 确保蜂窝数据已开启\n3. 确认SIM卡已正确插入\n4. 重新尝试登录"
+                NSLocalizedDescriptionKey: "⚠️ 一键登录必须使用蜂窝数据\n\n检测到您正在使用WiFi网络！\n\n请执行以下操作：\n1. 打开控制中心\n2. 关闭WiFi（长按WiFi图标选择关闭）\n3. 确保蜂窝数据已开启\n4. 等待状态栏显示运营商名称\n5. 重新点击登录按钮"
             ])
             print("❌ 当前使用WiFi，一键登录需要蜂窝数据")
             completion(nil, error)
@@ -127,15 +131,97 @@ extension UIViewController {
             print("❌ 一键登录环境不可用")
 
             // 根据网络状态提供更详细的错误信息
-            var errorMessage = "一键登录环境不可用\n\n"
+            var errorMessage = "❌ 一键登录环境不可用\n\n"
             if networkStatus == .notReachable {
-                errorMessage += "检测到无网络连接，请检查：\n1. 是否开启飞行模式\n2. 蜂窝数据是否开启"
+                errorMessage += "检测到无网络连接\n\n请检查：\n1. 是否开启飞行模式\n2. 蜂窝数据是否开启"
             } else {
-                errorMessage += "无法识别运营商信息，请检查：\n1. 关闭WiFi，使用蜂窝数据\n2. SIM卡是否正确插入\n3. 是否是中国移动/联通/电信\n4. 如果是双卡，确保数据使用的卡已激活\n5. 如果是eSIM，请确认已正确配置\n6. 尝试重启手机后再试"
+                errorMessage += "⚠️ 无法识别运营商信息\n\n可能的原因：\n"
+                errorMessage += "1. 当前使用WiFi而非蜂窝数据\n"
+                errorMessage += "2. SIM卡未正确插入或未激活\n"
+                errorMessage += "3. 使用的是虚拟运营商（非移动/联通/电信）\n"
+                errorMessage += "4. eSIM配置未完成\n\n"
+                errorMessage += "解决方法：\n"
+                errorMessage += "• 关闭WiFi，使用蜂窝数据\n"
+                errorMessage += "• 检查状态栏是否显示运营商名称\n"
+                errorMessage += "• 双卡用户请确认数据卡已激活\n"
+                errorMessage += "• 尝试重启手机"
             }
 
             let error = NSError(domain: "JiguangLoginError", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
             completion(nil, error)
+        }
+    }
+
+    /// 诊断运营商信息
+    private func diagnosisCarrierInfo() {
+        print("\n========== 📱 运营商诊断信息 ==========")
+        let networkInfo = CTTelephonyNetworkInfo()
+
+        if #available(iOS 12.0, *) {
+            // iOS 12+ 支持多卡
+            if let providers = networkInfo.serviceSubscriberCellularProviders {
+                print("📶 检测到 \(providers.count) 张SIM卡")
+                for (key, carrier) in providers {
+                    print("\n卡槽: \(key)")
+                    print("  运营商名称: \(carrier.carrierName ?? "未知")")
+                    print("  国家代码: \(carrier.mobileCountryCode ?? "无")")
+                    print("  网络代码: \(carrier.mobileNetworkCode ?? "无")")
+                    print("  ISO国家码: \(carrier.isoCountryCode ?? "无")")
+                    print("  允许VoIP: \(carrier.allowsVOIP)")
+                }
+
+                // 检查数据服务使用的卡
+                if let dataIdentifier = networkInfo.dataServiceIdentifier {
+                    print("\n📡 数据服务使用的卡槽: \(dataIdentifier)")
+                    if let dataCarrier = providers[dataIdentifier] {
+                        print("  数据卡运营商: \(dataCarrier.carrierName ?? "未知")")
+                    }
+                }
+            } else {
+                print("⚠️ 无法获取SIM卡信息")
+            }
+
+            // 检查当前网络类型
+            if let radioTech = networkInfo.serviceCurrentRadioAccessTechnology {
+                print("\n📶 当前网络类型:")
+                for (key, tech) in radioTech {
+                    let techName = getRadioTechName(tech)
+                    print("  卡槽\(key): \(techName)")
+                }
+            }
+        } else {
+            // iOS 12以下
+            if let carrier = networkInfo.subscriberCellularProvider {
+                print("  运营商名称: \(carrier.carrierName ?? "未知")")
+                print("  国家代码: \(carrier.mobileCountryCode ?? "无")")
+                print("  网络代码: \(carrier.mobileNetworkCode ?? "无")")
+            }
+        }
+
+        print("======================================\n")
+    }
+
+    /// 获取网络制式名称
+    private func getRadioTechName(_ tech: String) -> String {
+        switch tech {
+        case CTRadioAccessTechnologyGPRS: return "GPRS (2G)"
+        case CTRadioAccessTechnologyEdge: return "EDGE (2G)"
+        case CTRadioAccessTechnologyWCDMA: return "WCDMA (3G)"
+        case CTRadioAccessTechnologyHSDPA: return "HSDPA (3G)"
+        case CTRadioAccessTechnologyHSUPA: return "HSUPA (3G)"
+        case CTRadioAccessTechnologyCDMA1x: return "CDMA (2G)"
+        case CTRadioAccessTechnologyCDMAEVDORev0: return "EVDO Rev0 (3G)"
+        case CTRadioAccessTechnologyCDMAEVDORevA: return "EVDO RevA (3G)"
+        case CTRadioAccessTechnologyCDMAEVDORevB: return "EVDO RevB (3G)"
+        case CTRadioAccessTechnologyeHRPD: return "eHRPD (3G)"
+        case CTRadioAccessTechnologyLTE: return "LTE (4G)"
+        default:
+            if #available(iOS 14.1, *) {
+                if tech == CTRadioAccessTechnologyNRNSA || tech == CTRadioAccessTechnologyNR {
+                    return "5G"
+                }
+            }
+            return "未知网络类型: \(tech)"
         }
     }
 
