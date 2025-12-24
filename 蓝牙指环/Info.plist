@@ -38,13 +38,5 @@
 	<array>
 		<string>bluetooth-central</string>
 	</array>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>需要访问蓝牙以搜索和连接智能指环设备</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>需要访问蓝牙以搜索和连接智能指环设备</string>
-    <key>NSCameraUsageDescription</key>
-    <string>扫码需要访问摄像头</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>从相册选择二维码图片</string>
 </dict>
 </plist>
