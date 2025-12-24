@@ -1,11 +1,11 @@
 {
   "pages": [
     {
-      "path": "pages/index/index",
+      "path": "pages/fitness/index",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "智能戒指",
+        "navigationBarTitleText": "健康列表",
         "navigationBarBackgroundColor": "#FFDA3C",
         "backgroundColor": "#0E1213"
       }
@@ -31,7 +31,7 @@
       }
     },
     {
-      "path": "pages/with-data/index",
+      "path": "pages/home/index",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTextStyle": "black",
@@ -151,6 +151,14 @@
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "社区",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/community/push",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "发布推文",
         "enablePullDownRefresh": false
       }
     }

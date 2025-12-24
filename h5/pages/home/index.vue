@@ -67,13 +67,6 @@
         :hasData="hasData"
     />
 
-    <!-- 心血管卡片 -->
-    <!--    <CardiovascularCard-->
-    <!--      :details="cardiovascularData.details"-->
-    <!--      :analysis="cardiovascularData.analysis"-->
-    <!--      :hasData="hasData"-->
-    <!--    />-->
-
     <!-- 血压卡片 -->
     <BloodPressureCard
         :stats="bloodPressureData.stats"
@@ -82,15 +75,6 @@
         :hasData="hasData"
     />
 
-    <!-- 疲劳卡片 -->
-    <!--    <FatigueCard-->
-    <!--      :stats="fatigueData.stats"-->
-    <!--      :distribution="fatigueData.distribution"-->
-    <!--      :analysis="fatigueData.analysis"-->
-    <!--      :hasData="hasData"-->
-    <!--    />-->
-
-    <!-- 其他健康指标卡片 -->
     <!-- 心率卡片 -->
     <HeartRateCard
         :value="otherHealthData.heartRate.value"
@@ -111,42 +95,6 @@
         :analysis="otherHealthData.bloodOxygen.analysis"
         :hasData="hasData"
     />
-
-    <!-- 抑郁卡片 -->
-    <!--      <CommonHealthCard
-            title="抑郁"
-            icon="/static/icons/depression.png"
-            :value="otherHealthData.depression.value"
-            :range="otherHealthData.depression.range"
-            :status="otherHealthData.depression.status"
-            :statusColor="otherHealthData.depression.statusColor"
-            :analysis="otherHealthData.depression.analysis"
-            :hasData="hasData"
-          />
-
-          &lt;!&ndash; 压力卡片 &ndash;&gt;
-          <CommonHealthCard
-            title="压力"
-            icon="/static/icons/stress.png"
-            :value="otherHealthData.stress.value"
-            :range="otherHealthData.stress.range"
-            :status="otherHealthData.stress.status"
-            :statusColor="otherHealthData.stress.statusColor"
-            :analysis="otherHealthData.stress.analysis"
-            :hasData="hasData"
-          />
-
-          &lt;!&ndash; 焦虑卡片 &ndash;&gt;
-          <CommonHealthCard
-            title="焦虑"
-            icon="/static/icons/anxiety.png"
-            :value="otherHealthData.anxiety.value"
-            :range="otherHealthData.anxiety.range"
-            :status="otherHealthData.anxiety.status"
-            :statusColor="otherHealthData.anxiety.statusColor"
-            :analysis="otherHealthData.anxiety.analysis"
-            :hasData="hasData"
-          />-->
 
     <!-- 步数卡片 -->
     <StepsCard

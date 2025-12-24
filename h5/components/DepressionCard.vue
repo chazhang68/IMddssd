@@ -39,7 +39,7 @@ export default {
   name: 'DepressionCard',
   props: {
     title: { type: String, default: '抑郁' },
-    icon: { type: String, default: '/static/icons/depression.png' },
+    icon: { type: String, default: '/static/icons/anxiety@2x.png' },
     value: { type: [String, Number], default: '' },
     distribution: { type: Array, default: () => [] },
     analysis: { type: String, default: '' },

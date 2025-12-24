@@ -20,7 +20,9 @@
       </view>
     </view>
     <view class="hc-pill" :class="{ disabled: !hasData }">
-      <text class="hc-pill-text" :style="{ color: statusColorDisplay }">{{ statusText }}</text>
+      <text class="hc-pill-text" :style="{ color: statusColorDisplay, fontSize:statusTextSize }">
+        {{ statusText }}
+      </text>
     </view>
   </view>
 </template>
@@ -45,9 +47,8 @@ export default {
       const arr = Array.isArray(this.stats) ? this.stats : []
       if (this.hasData && arr.length > 0) return arr
       return [
-        { name: '平均值', value: '0' },
-        { name: '最大值', value: '0' },
-        { name: '最小值', value: '0' }
+        { name: '最高体温 ℃', value: '0.0' },
+        { name: '最低体温 ℃', value: '0.0' }
       ]
     },
     statusText() {
@@ -60,11 +61,26 @@ export default {
     },
     statusColorDisplay() {
       return this.hasData ? (this.statusColor || '#FBFBFB') : '#A4A4A4'
+    },
+    statusTextSize() {
+      return this.hasData ? '14px' : '12px'
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 @import "../static/styles/health-card.css";
+
+
+.hc-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 40rpx;
+  padding: 16rpx;
+  border: 2rpx solid #3C3C3C;
+  width: calc(50% - 12rpx);
+  box-sizing: border-box;
+}
 </style>

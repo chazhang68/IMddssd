@@ -19,7 +19,7 @@
         </view>
 
         <view class="action-icons">
-          <view class="action-btn">
+          <view class="action-btn" @click="toPush">
             <image class="action-icon" src="/static/images/community/add@2x.png"/>
           </view>
           <view class="action-btn badge-wrap">
@@ -108,6 +108,12 @@ const posts = ref<[]>([
     }
   }
 ]);
+
+function toPush() {
+  uni.navigateTo({
+    url: '/pages/community/push'
+  });
+}
 </script>
 
 <style>
