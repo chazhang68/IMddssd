@@ -7,119 +7,118 @@
       </view>
 
       <!-- 环形比例图卡片 -->
-<!--      <view class="ring-chart-card">
-        <view class="ring-chart-wrapper">
-          <qiun-data-charts
-            type="ring"
-            :opts="ringOpts"
-            :chartData="ringChartData"
-            :canvas2d="true"
-            canvasId="ringChart"
-          />
-        </view>
-        <view class="ring-legend">
-          <view class="legend-item">
-            <view class="legend-row">
-              <view class="legend-dot" style="background: #FFDA3C"></view>
-              <text class="legend-label">积极情绪比例</text>
+      <!--      <view class="ring-chart-card">
+              <view class="ring-chart-wrapper">
+                <qiun-data-charts
+                  type="ring"
+                  :opts="ringOpts"
+                  :chartData="ringChartData"
+                  :canvas2d="true"
+                  canvasId="ringChart"
+                />
+              </view>
+              <view class="ring-legend">
+                <view class="legend-item">
+                  <view class="legend-row">
+                    <view class="legend-dot" style="background: #FFDA3C"></view>
+                    <text class="legend-label">积极情绪比例</text>
+                  </view>
+                  <text class="legend-value">{{ healthData.positiveEmotion }}%</text>
+                </view>
+                <view class="legend-item">
+                  <view class="legend-row">
+                    <view class="legend-dot" style="background: #FB3A3A"></view>
+                    <text class="legend-label">疲劳</text>
+                  </view>
+                  <text class="legend-value">{{ healthData.fatigue }}</text>
+                </view>
+                <view class="legend-item">
+                  <view class="legend-row">
+                    <view class="legend-dot" style="background: #255FBE"></view>
+                    <text class="legend-label">压力</text>
+                  </view>
+                  <text class="legend-value">{{ healthData.stress }}</text>
+                </view>
+              </view>
             </view>
-            <text class="legend-value">{{ healthData.positiveEmotion }}%</text>
-          </view>
-          <view class="legend-item">
-            <view class="legend-row">
-              <view class="legend-dot" style="background: #FB3A3A"></view>
-              <text class="legend-label">疲劳</text>
-            </view>
-            <text class="legend-value">{{ healthData.fatigue }}</text>
-          </view>
-          <view class="legend-item">
-            <view class="legend-row">
-              <view class="legend-dot" style="background: #255FBE"></view>
-              <text class="legend-label">压力</text>
-            </view>
-            <text class="legend-value">{{ healthData.stress }}</text>
-          </view>
-        </view>
-      </view>
--->
+      -->
       <!-- 身体电量卡片 -->
-<!--      <view class="body-power-card">
-        <view class="power-header">
-          <view class="power-title-row">
-            &lt;!&ndash; TODO: 电量图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder power-icon"></view>
-            <text class="power-title">身体电量</text>
-          </view>
-          <view class="power-progress-wrapper">
-            <view class="power-progress-bg">
-              <view class="power-progress-fill" :style="{ width: healthData.bodyPower + '%' }"></view>
-            </view>
-          </view>
-          <text class="power-value">{{ healthData.bodyPower }}%</text>
-        </view>
-        <view class="power-content">
-          <text class="power-text">{{ healthData.healthAdvice }}</text>
-        </view>
-      </view>-->
+      <!--      <view class="body-power-card">
+              <view class="power-header">
+                <view class="power-title-row">
+                  &lt;!&ndash; TODO: 电量图标 - 手动添加 &ndash;&gt;
+                  <view class="icon-placeholder power-icon"></view>
+                  <text class="power-title">身体电量</text>
+                </view>
+                <view class="power-progress-wrapper">
+                  <view class="power-progress-bg">
+                    <view class="power-progress-fill" :style="{ width: healthData.bodyPower + '%' }"></view>
+                  </view>
+                </view>
+                <text class="power-value">{{ healthData.bodyPower }}%</text>
+              </view>
+              <view class="power-content">
+                <text class="power-text">{{ healthData.healthAdvice }}</text>
+              </view>
+            </view>-->
 
       <!-- 健康指标网格 -->
       <view class="health-grid">
         <!-- 荷尔蒙 -->
-<!--        <view class="health-card">
-          <view class="card-header">
-            &lt;!&ndash; TODO: 荷尔蒙图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder card-icon"></view>
-            <view class="card-info">
-              <text class="card-label">荷尔蒙</text>
-              <text class="card-date">{{ healthData.date }}</text>
-            </view>
-            <text class="card-value">{{ healthData.hormone }}</text>
-          </view>
-          <view class="card-chart">
-            <qiun-data-charts
-              type="line"
-              :opts="lineOpts"
-              :chartData="hormoneChartData"
-              :canvas2d="true"
-              canvasId="hormoneChart"
-            />
-          </view>
-          <view class="card-time-axis">
-            <text class="time-label">00:00</text>
-            <text class="time-label">24:00</text>
-          </view>
-        </view>-->
+        <!--        <view class="health-card">
+                  <view class="card-header">
+                    &lt;!&ndash; TODO: 荷尔蒙图标 - 手动添加 &ndash;&gt;
+                    <view class="icon-placeholder card-icon"></view>
+                    <view class="card-info">
+                      <text class="card-label">荷尔蒙</text>
+                      <text class="card-date">{{ healthData.date }}</text>
+                    </view>
+                    <text class="card-value">{{ healthData.hormone }}</text>
+                  </view>
+                  <view class="card-chart">
+                    <qiun-data-charts
+                      type="line"
+                      :opts="lineOpts"
+                      :chartData="hormoneChartData"
+                      :canvas2d="true"
+                      canvasId="hormoneChart"
+                    />
+                  </view>
+                  <view class="card-time-axis">
+                    <text class="time-label">00:00</text>
+                    <text class="time-label">24:00</text>
+                  </view>
+                </view>-->
 
         <!-- 心血管 -->
-<!--        <view class="health-card">
-          <view class="card-header">
-            &lt;!&ndash; TODO: 心血管图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder card-icon"></view>
-            <view class="card-info">
-              <text class="card-label">心血管</text>
-              <text class="card-date">{{ healthData.date }}</text>
-            </view>
-          </view>
-          <view class="card-chart">
-            <qiun-data-charts
-              type="line"
-              :opts="lineOpts"
-              :chartData="cardiovascularChartData"
-              :canvas2d="true"
-              canvasId="cardiovascularChart"
-            />
-          </view>
-          <view class="card-time-axis">
-            <text class="time-label">00:00</text>
-            <text class="time-label">24:00</text>
-          </view>
-        </view>-->
+        <!--        <view class="health-card">
+                  <view class="card-header">
+                    &lt;!&ndash; TODO: 心血管图标 - 手动添加 &ndash;&gt;
+                    <view class="icon-placeholder card-icon"></view>
+                    <view class="card-info">
+                      <text class="card-label">心血管</text>
+                      <text class="card-date">{{ healthData.date }}</text>
+                    </view>
+                  </view>
+                  <view class="card-chart">
+                    <qiun-data-charts
+                      type="line"
+                      :opts="lineOpts"
+                      :chartData="cardiovascularChartData"
+                      :canvas2d="true"
+                      canvasId="cardiovascularChart"
+                    />
+                  </view>
+                  <view class="card-time-axis">
+                    <text class="time-label">00:00</text>
+                    <text class="time-label">24:00</text>
+                  </view>
+                </view>-->
 
         <!-- 血压 -->
         <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 血压图标 - 手动添加 -->
-            <view class="icon-placeholder card-icon"></view>
+            <image src="/static/icons/blood-pressure@2x.png" class="card-icon"/>
             <view class="card-info">
               <text class="card-label">血压</text>
               <text class="card-date">{{ healthData.date }}</text>
@@ -128,11 +127,11 @@
           </view>
           <view class="card-chart">
             <qiun-data-charts
-              type="line"
-              :opts="lineOpts"
-              :chartData="bloodPressureChartData"
-              :canvas2d="true"
-              canvasId="bloodPressureChart"
+                type="line"
+                :opts="lineOpts"
+                :chartData="bloodPressureChartData"
+                :canvas2d="true"
+                canvasId="bloodPressureChart"
             />
           </view>
           <view class="card-time-axis">
@@ -142,34 +141,33 @@
         </view>
 
         <!-- 情绪 -->
-<!--        <view class="health-card">
-          <view class="card-header">
-            &lt;!&ndash; TODO: 情绪图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder card-icon"></view>
-            <view class="card-info">
-              <text class="card-label">情绪</text>
-              <text class="card-date">{{ healthData.date }}</text>
-            </view>
-          </view>
-          <view class="card-chart emotion-chart">
-            <view class="emotion-grid">
-              <view v-for="(row, rowIndex) in emotionGrid" :key="rowIndex" class="emotion-row">
-                <view
-                  v-for="(cell, cellIndex) in row"
-                  :key="cellIndex"
-                  class="emotion-cell"
-                  :style="{ background: cell }"
-                ></view>
-              </view>
-            </view>
-          </view>
-        </view>-->
+        <!--        <view class="health-card">
+                  <view class="card-header">
+                    &lt;!&ndash; TODO: 情绪图标 - 手动添加 &ndash;&gt;
+                    <view class="icon-placeholder card-icon"></view>
+                    <view class="card-info">
+                      <text class="card-label">情绪</text>
+                      <text class="card-date">{{ healthData.date }}</text>
+                    </view>
+                  </view>
+                  <view class="card-chart emotion-chart">
+                    <view class="emotion-grid">
+                      <view v-for="(row, rowIndex) in emotionGrid" :key="rowIndex" class="emotion-row">
+                        <view
+                          v-for="(cell, cellIndex) in row"
+                          :key="cellIndex"
+                          class="emotion-cell"
+                          :style="{ background: cell }"
+                        ></view>
+                      </view>
+                    </view>
+                  </view>
+                </view>-->
 
         <!-- 睡眠 -->
         <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 睡眠图标 - 手动添加 -->
-            <view class="icon-placeholder card-icon"></view>
+            <image src="/static/icons/sleep@2x.png" class="card-icon"/>
             <view class="card-info">
               <text class="card-label">睡眠</text>
               <text class="card-date">{{ healthData.date }}</text>
@@ -189,114 +187,113 @@
         </view>
 
         <!-- 压力 -->
-<!--        <view class="health-card">
-          <view class="card-header">
-            &lt;!&ndash; TODO: 压力图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder card-icon"></view>
-            <view class="card-info">
-              <text class="card-label">压力</text>
-              <text class="card-date">{{ healthData.date }}</text>
-            </view>
-            <text class="card-value">{{ healthData.stressValue }}</text>
-          </view>
-          <view class="card-chart">
-            <qiun-data-charts
-              type="column"
-              :opts="columnOpts"
-              :chartData="stressChartData"
-              :canvas2d="true"
-              canvasId="stressChart"
-            />
-          </view>
-          <view class="card-time-axis">
-            <text class="time-label">00:00</text>
-            <text class="time-label">24:00</text>
-          </view>
-        </view>-->
+        <!--        <view class="health-card">
+                  <view class="card-header">
+                    &lt;!&ndash; TODO: 压力图标 - 手动添加 &ndash;&gt;
+                    <view class="icon-placeholder card-icon"></view>
+                    <view class="card-info">
+                      <text class="card-label">压力</text>
+                      <text class="card-date">{{ healthData.date }}</text>
+                    </view>
+                    <text class="card-value">{{ healthData.stressValue }}</text>
+                  </view>
+                  <view class="card-chart">
+                    <qiun-data-charts
+                      type="column"
+                      :opts="columnOpts"
+                      :chartData="stressChartData"
+                      :canvas2d="true"
+                      canvasId="stressChart"
+                    />
+                  </view>
+                  <view class="card-time-axis">
+                    <text class="time-label">00:00</text>
+                    <text class="time-label">24:00</text>
+                  </view>
+                </view>-->
 
         <!-- 焦虑 -->
-<!--        <view class="health-card">
-          <view class="card-header">
-            &lt;!&ndash; TODO: 焦虑图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder card-icon"></view>
-            <view class="card-info">
-              <text class="card-label">焦虑</text>
-              <text class="card-date">{{ healthData.date }}</text>
-            </view>
-            <text class="card-value">{{ healthData.anxiety }}</text>
-          </view>
-          <view class="card-chart">
-            <qiun-data-charts
-              type="column"
-              :opts="columnOpts"
-              :chartData="anxietyChartData"
-              :canvas2d="true"
-              canvasId="anxietyChart"
-            />
-          </view>
-          <view class="card-time-axis">
-            <text class="time-label">00:00</text>
-            <text class="time-label">24:00</text>
-          </view>
-        </view>-->
+        <!--        <view class="health-card">
+                  <view class="card-header">
+                    &lt;!&ndash; TODO: 焦虑图标 - 手动添加 &ndash;&gt;
+                    <view class="icon-placeholder card-icon"></view>
+                    <view class="card-info">
+                      <text class="card-label">焦虑</text>
+                      <text class="card-date">{{ healthData.date }}</text>
+                    </view>
+                    <text class="card-value">{{ healthData.anxiety }}</text>
+                  </view>
+                  <view class="card-chart">
+                    <qiun-data-charts
+                      type="column"
+                      :opts="columnOpts"
+                      :chartData="anxietyChartData"
+                      :canvas2d="true"
+                      canvasId="anxietyChart"
+                    />
+                  </view>
+                  <view class="card-time-axis">
+                    <text class="time-label">00:00</text>
+                    <text class="time-label">24:00</text>
+                  </view>
+                </view>-->
 
         <!-- 抑郁 -->
-<!--        <view class="health-card">
-          <view class="card-header">
-            &lt;!&ndash; TODO: 抑郁图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder card-icon"></view>
-            <view class="card-info">
-              <text class="card-label">抑郁</text>
-              <text class="card-date">{{ healthData.date }}</text>
-            </view>
-            <text class="card-value">{{ healthData.depression }}</text>
-          </view>
-          <view class="card-chart">
-            <qiun-data-charts
-              type="column"
-              :opts="columnOpts"
-              :chartData="depressionChartData"
-              :canvas2d="true"
-              canvasId="depressionChart"
-            />
-          </view>
-          <view class="card-time-axis">
-            <text class="time-label">00:00</text>
-            <text class="time-label">24:00</text>
-          </view>
-        </view>-->
+        <!--        <view class="health-card">
+                  <view class="card-header">
+                    &lt;!&ndash; TODO: 抑郁图标 - 手动添加 &ndash;&gt;
+                    <view class="icon-placeholder card-icon"></view>
+                    <view class="card-info">
+                      <text class="card-label">抑郁</text>
+                      <text class="card-date">{{ healthData.date }}</text>
+                    </view>
+                    <text class="card-value">{{ healthData.depression }}</text>
+                  </view>
+                  <view class="card-chart">
+                    <qiun-data-charts
+                      type="column"
+                      :opts="columnOpts"
+                      :chartData="depressionChartData"
+                      :canvas2d="true"
+                      canvasId="depressionChart"
+                    />
+                  </view>
+                  <view class="card-time-axis">
+                    <text class="time-label">00:00</text>
+                    <text class="time-label">24:00</text>
+                  </view>
+                </view>-->
 
         <!-- 疲劳 -->
-<!--        <view class="health-card">
-          <view class="card-header">
-            &lt;!&ndash; TODO: 疲劳图标 - 手动添加 &ndash;&gt;
-            <view class="icon-placeholder card-icon"></view>
-            <view class="card-info">
-              <text class="card-label">疲劳</text>
-              <text class="card-date">{{ healthData.date }}</text>
-            </view>
-            <text class="card-value">{{ healthData.fatigueValue }}</text>
-          </view>
-          <view class="card-chart">
-            <qiun-data-charts
-              type="column"
-              :opts="columnOpts"
-              :chartData="fatigueChartData"
-              :canvas2d="true"
-              canvasId="fatigueChart"
-            />
-          </view>
-          <view class="card-time-axis">
-            <text class="time-label">00:00</text>
-            <text class="time-label">24:00</text>
-          </view>
-        </view>-->
+        <!--        <view class="health-card">
+                  <view class="card-header">
+                    &lt;!&ndash; TODO: 疲劳图标 - 手动添加 &ndash;&gt;
+                    <view class="icon-placeholder card-icon"></view>
+                    <view class="card-info">
+                      <text class="card-label">疲劳</text>
+                      <text class="card-date">{{ healthData.date }}</text>
+                    </view>
+                    <text class="card-value">{{ healthData.fatigueValue }}</text>
+                  </view>
+                  <view class="card-chart">
+                    <qiun-data-charts
+                      type="column"
+                      :opts="columnOpts"
+                      :chartData="fatigueChartData"
+                      :canvas2d="true"
+                      canvasId="fatigueChart"
+                    />
+                  </view>
+                  <view class="card-time-axis">
+                    <text class="time-label">00:00</text>
+                    <text class="time-label">24:00</text>
+                  </view>
+                </view>-->
 
         <!-- 心率 -->
         <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 心率图标 - 手动添加 -->
-            <view class="icon-placeholder card-icon"></view>
+            <image src="/static/icons/heart-rate@2x.png" class="card-icon"/>
             <view class="card-info">
               <text class="card-label">心率</text>
               <text class="card-date">{{ healthData.date }}</text>
@@ -305,11 +302,11 @@
           </view>
           <view class="card-chart">
             <qiun-data-charts
-              type="line"
-              :opts="lineOpts"
-              :chartData="heartRateChartData"
-              :canvas2d="true"
-              canvasId="heartRateChart"
+                type="line"
+                :opts="lineOpts"
+                :chartData="heartRateChartData"
+                :canvas2d="true"
+                canvasId="heartRateChart"
             />
           </view>
           <view class="card-time-axis">
@@ -321,8 +318,7 @@
         <!-- 步数 -->
         <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 步数图标 - 手动添加 -->
-            <view class="icon-placeholder card-icon"></view>
+            <image src="/static/icons/step@2x.png" class="card-icon"/>
             <view class="card-info">
               <text class="card-label">步数</text>
               <text class="card-date">{{ healthData.date }}</text>
@@ -331,11 +327,11 @@
           </view>
           <view class="card-chart">
             <qiun-data-charts
-              type="column"
-              :opts="stepsColumnOpts"
-              :chartData="stepsChartData"
-              :canvas2d="true"
-              canvasId="stepsChart"
+                type="column"
+                :opts="stepsColumnOpts"
+                :chartData="stepsChartData"
+                :canvas2d="true"
+                canvasId="stepsChart"
             />
           </view>
           <view class="card-time-axis">
@@ -347,8 +343,7 @@
         <!-- 体温 -->
         <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 体温图标 - 手动添加 -->
-            <view class="icon-placeholder card-icon"></view>
+            <image src="/static/icons/temperature@2x.png" class="card-icon"/>
             <view class="card-info">
               <text class="card-label">体温</text>
               <text class="card-date">{{ healthData.date }}</text>
@@ -357,11 +352,11 @@
           </view>
           <view class="card-chart">
             <qiun-data-charts
-              type="line"
-              :opts="lineOpts"
-              :chartData="temperatureChartData"
-              :canvas2d="true"
-              canvasId="temperatureChart"
+                type="line"
+                :opts="lineOpts"
+                :chartData="temperatureChartData"
+                :canvas2d="true"
+                canvasId="temperatureChart"
             />
           </view>
           <view class="card-time-axis">
@@ -383,11 +378,11 @@
           </view>
           <view class="card-chart">
             <qiun-data-charts
-              type="line"
-              :opts="lineOpts"
-              :chartData="bloodOxygenChartData"
-              :canvas2d="true"
-              canvasId="bloodOxygenChart"
+                type="line"
+                :opts="lineOpts"
+                :chartData="bloodOxygenChartData"
+                :canvas2d="true"
+                canvasId="bloodOxygenChart"
             />
           </view>
           <view class="card-time-axis">
@@ -459,9 +454,9 @@ export default {
       },
       ringChartData: {
         series: [
-          { name: '积极情绪', data: 28 },
-          { name: '疲劳', data: 61 },
-          { name: '压力', data: 39 }
+          {name: '积极情绪', data: 28},
+          {name: '疲劳', data: 61},
+          {name: '压力', data: 39}
         ]
       },
       // 折线图配置
@@ -546,47 +541,50 @@ export default {
       // 各指标图表数据
       hormoneChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8'],
-        series: [{ name: '荷尔蒙', data: [30, 35, 42, 38, 45, 40, 42, 38] }]
+        series: [{name: '荷尔蒙', data: [30, 35, 42, 38, 45, 40, 42, 38]}]
       },
       cardiovascularChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8'],
-        series: [{ name: '心血管', data: [40, 45, 50, 48, 55, 52, 50, 48] }]
+        series: [{name: '心血管', data: [40, 45, 50, 48, 55, 52, 50, 48]}]
       },
       bloodPressureChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-        series: [{ name: '血压', data: [110, 112, 115, 110, 112, 110] }]
+        series: [{name: '血压', data: [110, 112, 115, 110, 112, 110]}]
       },
       stressChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-        series: [{ name: '压力', data: [20, 30, 25, 35, 28, 32, 40, 35, 30, 25, 38, 39] }]
+        series: [{name: '压力', data: [20, 30, 25, 35, 28, 32, 40, 35, 30, 25, 38, 39]}]
       },
       anxietyChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-        series: [{ name: '焦虑', data: [15, 20, 18, 25, 22, 20, 28, 25, 22, 18, 20, 22] }]
+        series: [{name: '焦虑', data: [15, 20, 18, 25, 22, 20, 28, 25, 22, 18, 20, 22]}]
       },
       depressionChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-        series: [{ name: '抑郁', data: [25, 30, 28, 35, 32, 30, 38, 35, 32, 28, 36, 39] }]
+        series: [{name: '抑郁', data: [25, 30, 28, 35, 32, 30, 38, 35, 32, 28, 36, 39]}]
       },
       fatigueChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-        series: [{ name: '疲劳', data: [50, 55, 58, 62, 65, 60, 68, 70, 65, 62, 66, 69] }]
+        series: [{name: '疲劳', data: [50, 55, 58, 62, 65, 60, 68, 70, 65, 62, 66, 69]}]
       },
       heartRateChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8'],
-        series: [{ name: '心率', data: [72, 75, 78, 76, 80, 78, 76, 78] }]
+        series: [{name: '心率', data: [72, 75, 78, 76, 80, 78, 76, 78]}]
       },
       stepsChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-        series: [{ name: '步数', data: [50, 100, 80, 200, 150, 120, 500, 800, 600, 400, 300, 250, 180, 150, 120, 100, 80, 60, 40, 30] }]
+        series: [{
+          name: '步数',
+          data: [50, 100, 80, 200, 150, 120, 500, 800, 600, 400, 300, 250, 180, 150, 120, 100, 80, 60, 40, 30]
+        }]
       },
       temperatureChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8'],
-        series: [{ name: '体温', data: [36.1, 36.2, 36.3, 36.2, 36.4, 36.3, 36.2, 36.2] }]
+        series: [{name: '体温', data: [36.1, 36.2, 36.3, 36.2, 36.4, 36.3, 36.2, 36.2]}]
       },
       bloodOxygenChartData: {
         categories: ['1', '2', '3', '4', '5', '6', '7', '8'],
-        series: [{ name: '血氧', data: [93, 94, 93, 95, 94, 93, 94, 93] }]
+        series: [{name: '血氧', data: [93, 94, 93, 95, 94, 93, 94, 93]}]
       },
       // 情绪网格数据
       emotionGrid: [
@@ -639,7 +637,6 @@ page {
 .card-icon {
   width: 48rpx;
   height: 48rpx;
-  background-color: rgba(255, 218, 60, 0.3);
 }
 
 .tab-icon {
@@ -899,12 +896,12 @@ page {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;   /* 底部对齐 */
+  align-items: center; /* 底部对齐 */
   justify-content: center; /* 水平居中 */
 }
 
 .sleep-bar {
-  width: 45rpx;            /* 固定宽度 */
+  width: 45rpx; /* 固定宽度 */
   margin: 4rpx;
   border-radius: 8rpx;
   background: #4C4489;
