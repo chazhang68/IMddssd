@@ -1,0 +1,39 @@
+
+.header {
+    background-color: #ffda3c;
+}
+
+.status-bar {
+    height: var(--status-bar-height, 44px);
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 88rpx;
+    padding: 0 30rpx;
+}
+
+.nav-left,
+.nav-right {
+    width: 120rpx;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+.back-icon {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.nav-title {
+    font-size: 34rpx;
+    font-weight: 600;
+    color: #0e1213;
+}

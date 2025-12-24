@@ -153,6 +153,14 @@
         "navigationBarTitleText": "社区",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/community/push",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "发布推文",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {
