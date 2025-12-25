@@ -402,16 +402,42 @@ class LoginView: UIView, UITextViewDelegate {
     /// 调用父视图控制器的极光登录方法
     @objc private func jiguangLoginTapped() {
         if let vc = owningViewController() {
-            vc.loginWithJiguang { token, error in
+            // 显示加载指示器（可选）
+            jiguangLoginButton.isEnabled = false
+            jiguangLoginButton.alpha = 0.5
+
+            vc.loginWithJiguang { [weak self] token, error in
+                // 恢复按钮状态
+                DispatchQueue.main.async {
+                    self?.jiguangLoginButton.isEnabled = true
+                    self?.jiguangLoginButton.alpha = 1.0
+                }
+
                 if let token = token {
-                    print("极光登录成功，token: \(token)")
+                    print("✅ 极光登录成功，token: \(token)")
                     // 发送登录成功通知
                     NotificationCenter.default.post(name: Notification.Name("LoginSuccess"), object: nil)
                 } else if let error = error {
-                    print("极光登录失败: \(error.localizedDescription)")
+                    print("❌ 极光登录失败: \(error.localizedDescription)")
+                    // 在主线程显示错误提示
+                    DispatchQueue.main.async {
+                        self?.showErrorAlert(title: "登录失败", message: error.localizedDescription)
+                    }
                 }
             }
         }
+    }
+
+    /// 显示错误提示弹窗
+    /// - Parameters:
+    ///   - title: 标题
+    ///   - message: 错误信息
+    private func showErrorAlert(title: String, message: String) {
+        guard let vc = owningViewController() else { return }
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .default))
+        vc.present(alert, animated: true)
     }
     
     /// Apple登录按钮点击事件

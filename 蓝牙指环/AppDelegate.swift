@@ -22,25 +22,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let jpushAppKey = "accc563b6c4db58543bf04f0"
         let channel = "App Store"
         let isProduction = true
-        
+
+        // 开启极光SDK调试日志，方便排查问题
+        JVERIFICATIONService.setDebug(true)
+
         // 初始化JVerification（一键登录）
         // JVerification 2.9.3 使用 setupWithConfig 方法
         // 注意：JCore 3.2.9 是基础组件，JVerification 已经依赖它
-        DispatchQueue.main.async {
-            let config = JVAuthConfig()
-            config.appKey = jpushAppKey
-            config.channel = channel
-            config.isProduction = isProduction
-            config.authBlock = { result in
-                if let result = result, let code = result["code"] as? Int, code == 2000 {
-                    print("极光SDK初始化成功")
+        let config = JVAuthConfig()
+        config.appKey = jpushAppKey
+        config.channel = channel
+        config.isProduction = isProduction
+        config.timeout = 10000  // 设置初始化超时时间为10秒
+        config.authBlock = { result in
+            if let result = result {
+                let code = result["code"] as? Int ?? -1
+                let message = result["message"] as? String ?? "未知错误"
+
+                if code == 2000 {
+                    print("✅ 极光SDK初始化成功")
+                    // 初始化成功后，立即进行预取号，提升一键登录成功率
+                    JVERIFICATIONService.preLogin(5000) { preResult in
+                        if let preResult = preResult, let preCode = preResult["code"] as? Int {
+                            if preCode == 2000 {
+                                print("✅ 极光预取号成功")
+                            } else {
+                                let preMsg = preResult["message"] as? String ?? "未知错误"
+                                print("⚠️ 极光预取号失败: [\(preCode)] \(preMsg)")
+                            }
+                        }
+                    }
                 } else {
-                    let message = (result?["message"] as? String) ?? "未知错误"
-                    print("极光SDK初始化失败: \(message)")
+                    print("❌ 极光SDK初始化失败: [\(code)] \(message)")
                 }
+            } else {
+                print("❌ 极光SDK初始化失败: 回调结果为空")
             }
-            JVERIFICATIONService.setup(with: config)
         }
+        JVERIFICATIONService.setup(with: config)
         
         // 初始化 BCLRingSDK
         SDKIntegrationHelper.shared.initializeSDK()
