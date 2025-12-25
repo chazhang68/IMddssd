@@ -8,13 +8,27 @@
       <!-- 点击按钮 -->
       <view class="tabs-row">
         <view class="tabs-left">
-          <view class="tab-item active">
-            <image class="action-icon" src="/static/images/community/Recommend@2x.png"/>
-            <text class="tab-text active">Discover</text>
+          <view
+              class="tab-item"
+              :class="{ active: tweetType === 0 }"
+              @click="switchTab(0)"
+          >
+            <image
+                class="action-icon"
+                src="/static/images/community/Recommend@2x.png"
+            />
+            <text class="tab-text" :class="{ active: tweetType === 0 }">Discover</text>
           </view>
-          <view class="tab-item">
-            <image class="action-icon" src="/static/images/community/follow@2x.png"/>
-            <text class="tab-text">Following</text>
+          <view
+              class="tab-item"
+              :class="{ active: tweetType === 1 }"
+              @click="switchTab(1)"
+          >
+            <image
+                class="action-icon"
+                src="/static/images/community/follow@2x.png"
+            />
+            <text class="tab-text" :class="{ active: tweetType === 1 }">Following</text>
           </view>
         </view>
 
@@ -78,41 +92,42 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
-import { onShow } from "@dcloudio/uni-app";
+import {ref, computed} from 'vue'
+import {onShow} from "@dcloudio/uni-app";
+import {getLatestTweets} from "@/api/tweet";
 
-const posts = ref<[]>([
-  {
-    id: 1,
-    author: 'SKYEAGLE Team',
-    time: '15:34 · October 17, 2025',
-    content: 'Lightweight, sleek, and packed with tech: stream your favorite content, take hands-free calls, and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight.',
-    hasAvatar: false,
-    action: 'unfollow',
-    metrics: {
-      likes: 3,
-      comments: 5,
-      views: 27
-    }
-  },
-  {
-    id: 2,
-    author: 'Stacey',
-    time: '12:30 · October 17, 2025',
-    content: 'Just shared two hilarious and entertaining GIF animations that will definitely brighten your day! Swipe through and enjoy the fun moments.',
-    hasAvatar: true,
-    action: 'follow',
-    metrics: {
-      likes: 12,
-      comments: 8,
-      views: 103
-    }
-  }
-]);
+const posts = ref<[]>([]);
+// 添加推文类型响应式数据
+const tweetType = ref<number>(0); // 0为Discover，1为Following
+
+// 计算属性：请求参数
+const requestParams = computed(() => ({
+  userId: '1',
+  size: 10,
+  tweetType: tweetType.value
+}));
 
 onShow(() => {
+  fetchPosts();
+});
 
-})
+const switchTab = async (type: number) => {
+  if (tweetType.value !== type) {
+    tweetType.value = type;
+    await fetchPosts();
+  }
+};
+
+// 添加获取推文的函数
+const fetchPosts = async () => {
+  try {
+    const res = await getLatestTweets(requestParams.value);
+    console.log(res);
+    posts.value = res.data.latestTweets;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 function toPush() {
   uni.navigateTo({

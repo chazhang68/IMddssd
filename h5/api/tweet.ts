@@ -28,7 +28,7 @@ export function getTweetDetail(params: { id: string }) { return http.get<ApiResp
  * @param params.size 列表大小（可选）
  * @returns 统一返回结构，数据为键值对象（包含列表/分页）
  */
-export function getLatestTweets(params: { userId: string; size?: number }) { return http.get<ApiResponse<Record<string, unknown>>>(`/communityuser/tweet/latest`, { userId: params.userId, size: params.size }) }
+export function getLatestTweets(params: { userId: string; size?: number, tweetType?: string }) { return http.get<ApiResponse<Record<string, unknown>>>(`/communityuser/tweet/latest`, { userId: params.userId, size: params.size, tweetType: params.tweetType }) }
 /**
  * 新增系统推文
  * @param body 请求体，包含推文内容

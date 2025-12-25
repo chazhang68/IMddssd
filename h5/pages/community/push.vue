@@ -77,7 +77,7 @@
 import LinkDialog from "@/components/dialog/LinkDialog.vue";
 import { ref } from 'vue'
 import { uploadFiles } from '@/api/common'
-import { addSystemTweet } from '@/api/tweet'
+import {addSystemTweet, addUserTweet} from '@/api/tweet'
 
 const linkDialogRef = ref(null)
 const placeholder = ref('Share your brilliant ideas')
@@ -142,15 +142,27 @@ function onPost() {
     return true
   })
 
-  addSystemTweet({
-    title: '系统公告',
-    tweetType: 'system',
+  addUserTweet({
+    title: 'wo fabu l ',
+    tweetType: '1',
     content: JSON.stringify(content),
     userId: uni.getStorageSync('userInfo').userId
   }).then(() => {
     uni.showToast({ title: 'Post successful' })
-    goBack()
+    setTimeout(() => {
+      goBack()
+    }, 1500)
   })
+
+  // addSystemTweet({
+  //   title: '系统公告',
+  //   tweetType: 'system',
+  //   content: JSON.stringify(content),
+  //   userId: uni.getStorageSync('userInfo').userId
+  // }).then(() => {
+  //   uni.showToast({ title: 'Post successful' })
+  //   goBack()
+  // })
 }
 
 /* ========== Upload ========== */
