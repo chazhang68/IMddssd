@@ -80,7 +80,6 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import { onShow } from "@dcloudio/uni-app";
-import {getUserInfo} from "@/api/user";
 
 const posts = ref<[]>([
   {
@@ -112,12 +111,7 @@ const posts = ref<[]>([
 ]);
 
 onShow(() => {
-  getUserInfo().then(res => {
-    console.log(res)
-    if (res.code === 200) {
-      uni.setStorageSync('userInfo', res.data)
-    }
-  })
+
 })
 
 function toPush() {

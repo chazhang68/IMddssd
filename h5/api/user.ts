@@ -19,6 +19,3 @@ export function uploadAvatar(files: Array<{ name?: string; filePath: string; fil
  * @returns 统一返回结构
  */
 export function updateProfile(body?: any) { return http.put<ApiResponse<Record<string, Record<string, unknown>>>>(`/user/profile/updateInfo`, body) }
-
-
-export function getUserInfo() { return http.get<ApiResponse<Record<string, Record<string, unknown>>>>(`/getUserInfo`, undefined) }

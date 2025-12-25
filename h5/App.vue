@@ -1,19 +1,35 @@
 <script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
+import {getUserInfo, login} from "@/api/wx";
 
-      uni.setStorageSync('token', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImxvZ2luX3VzZXJfa2V5IjoiODU0NzA2MWYtNWNmNC00NzBiLTg3MjUtODk2NThlMjg5YTRmIn0.U8naM0vqsq2zS_x3Tg8jTg7_nhBZR5lD-3xdh4kRULSxN__U-ah9ijYqm9MV-BECIhcO7jo-80SoPebC84QEzw');
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		}
-	}
+export default {
+  onLaunch: async function() {
+    console.log('App Launch')
+    try {
+      const loginRes = await login({
+        username: 'admin',
+        password: 'admin123'
+      })
+
+      await uni.setStorageSync('token', loginRes.token)
+
+      const userInfoRes = await getUserInfo()
+      console.log(userInfoRes)
+      if (userInfoRes.code === 200) {
+        await uni.setStorageSync('userInfo', userInfoRes.data)
+      }
+    } catch (error) {
+      console.error('App Launch error:', error)
+    }
+  },
+  onShow: function () {
+    console.log('App Show')
+  },
+  onHide: function () {
+    console.log('App Hide')
+  }
+}
 </script>
 
 <style>
-	/*每个页面公共css */
+/*每个页面公共css */
 </style>
