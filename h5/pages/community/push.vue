@@ -35,6 +35,7 @@ import {ref, onMounted, nextTick} from 'vue'
 import Quill from 'quill'
 import 'quill/dist/quill.snow.css'
 import LinkDialog from "@/components/dialog/LinkDialog.vue";
+import {addSystemTweet} from "@/api/tweet";
 
 const quillRef = ref<any>(null)
 const linkDialogRef = ref(null) // 添加引用
@@ -49,6 +50,14 @@ function onPost() {
     title: 'Posted',
     icon: 'none'
   });
+
+  addSystemTweet({
+    title: '系统公告',
+    tweetType: 'system',
+    content: quillRef.value.getText(),
+  }).then((res: any) => {
+    console.log('Posted:', res)
+  })
 }
 
 function chooseImage() {
