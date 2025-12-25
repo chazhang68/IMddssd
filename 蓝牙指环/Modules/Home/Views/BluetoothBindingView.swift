@@ -75,7 +75,7 @@ struct BluetoothBindingView: View {
                             .padding(.horizontal, 30)
                             .padding(.bottom, 36)
                             .onTapGesture {
-                                print("点击")
+                                print("点击111")
                                 // Action for pairing
                             }
                         }
