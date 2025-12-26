@@ -68,7 +68,7 @@
                 <text class="comment-time">{{ c.createTime || '' }}</text>
               </view>
             </view>
-            <view class="comment-actions">
+            <view class="comment-actions" v-if="!canDeleteComment(c)">
               <view class="action-item">
                 <image class="small-icon" src="/static/images/community/like@2x.png"/>
                 <text class="action-value likes">0</text>
@@ -77,13 +77,12 @@
                 <image class="small-icon" src="/static/images/community/chat@2x.png"/>
                 <text class="action-value">1</text>
               </view>
-              <text
-                  class="comment-action delete-action"
-                  v-if="canDeleteComment(c)"
-                  @click="onDeleteComment(c)"
-              >Delete
-              </text>
             </view>
+            <text
+                class="comment-action delete-action"
+                v-else
+                @click="onDeleteComment(c)"
+            >Delete</text>
           </view>
 
           <view class="comment-body">
@@ -514,7 +513,7 @@ page {
 .comment-actions {
   display: flex;
   align-items: center;
-  gap: 18rpx;
+  gap: 60rpx;
 }
 
 .action-item {
