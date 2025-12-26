@@ -20,3 +20,10 @@ export function listByPid(params: { tweetId: string; pid?: string }) { return ht
  * @returns 统一返回结构，数据为新增的 Comment
  */
 export function publishComment(body?: any) { return http.post<ApiResponse<Comment>>(`/communityuser/comment/publish`, body) }
+/**
+ * 删除评论
+ * @param params 参数对象
+ * @param params.id 评论ID（必填）
+ * @returns 统一返回结构
+ */
+export function deleteComment(params: { id: string }) { return http.delete<ApiResponse<unknown>>(`/communityuser/comment/${params.id}`, undefined) }
