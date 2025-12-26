@@ -96,7 +96,7 @@
             <text>{{ isCommentExpanded(c) ? 'Show less' : 'Show more' }}</text>
           </view>
 
-          <view class="replies" v-if="replyMap[c.id || ''] && replyMap[c.id || ''].length">
+          <view class="replies">
             <view
                 class="reply-row"
                 v-for="r in getVisibleReplies(c)"
@@ -134,9 +134,9 @@
             </view>
           </view>
 
-          <view class="load-replies" v-else @click="loadReplies(c)">
-            <text>Show all replies</text>
-          </view>
+<!--          <view class="load-replies" v-else @click="loadReplies(c)">-->
+<!--            <text>Show all replies</text>-->
+<!--          </view>-->
         </view>
       </view>
     </view>
