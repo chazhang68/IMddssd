@@ -86,7 +86,14 @@
           </view>
 
           <view class="comment-body">
-            <text class="comment-text">{{ c.commentContent }}</text>
+            <text class="comment-text" :class="{ clamp: !isCommentExpanded(c) }">{{ c.commentContent }}</text>
+          </view>
+          <view
+            class="show-more"
+            v-if="shouldShowMore(c)"
+            @click="toggleCommentContent(c)"
+          >
+            <text>{{ isCommentExpanded(c) ? 'Show less' : 'Show more' }}</text>
           </view>
 
           <view class="replies" v-if="replyMap[c.id || ''] && replyMap[c.id || ''].length">
@@ -97,7 +104,7 @@
             >
               <view class="reply-item">
                 <text class="reply-author">@{{ getDisplayName(r) }}</text>
-                <text class="reply-content"> {{ r.commentContent }}</text>
+                <text class="reply-content" :class="{ clamp: !isReplyExpanded(r) }"> {{ r.commentContent }}</text>
               </view>
               <view class="reply-actions">
                 <view class="action-item">
@@ -109,6 +116,13 @@
                   <text class="action-value">0</text>
                 </view>
               </view>
+            </view>
+            <view
+              class="show-more"
+              v-if="shouldShowMore(r)"
+              @click="toggleReplyContent(r)"
+            >
+              <text>{{ isReplyExpanded(r) ? 'Show less' : 'Show more' }}</text>
             </view>
             <view
                 class="toggle-replies"
@@ -165,6 +179,8 @@ const tweetStats = ref<Record<string, any> | null>(null)
 const topComments = ref<Comment[]>([])
 const replyMap = ref<Record<string, Comment[]>>({})
 const expandedMap = ref<Record<string, boolean>>({})
+const contentExpandedMap = ref<Record<string, boolean>>({})
+const replyExpandedMap = ref<Record<string, boolean>>({})
 const replyText = ref<string>('')
 
 const userInfo = ref<SysUser | null>(null)
@@ -314,6 +330,27 @@ function canDeleteComment(c: Comment) {
   const u = userInfo.value
   if (!u) return false
   return String(c.userId || '') === String(u.userId || '')
+}
+
+function shouldShowMore(c: Comment) {
+  const text = String(c.commentContent || '')
+  return text.length > 60
+}
+function isCommentExpanded(c: Comment) {
+  const id = String(c.id || '')
+  return !!contentExpandedMap.value[id]
+}
+function toggleCommentContent(c: Comment) {
+  const id = String(c.id || '')
+  contentExpandedMap.value[id] = !contentExpandedMap.value[id]
+}
+function isReplyExpanded(c: Comment) {
+  const id = String(c.id || '')
+  return !!replyExpandedMap.value[id]
+}
+function toggleReplyContent(c: Comment) {
+  const id = String(c.id || '')
+  replyExpandedMap.value[id] = !replyExpandedMap.value[id]
 }
 
 async function onDeleteTweet() {
@@ -604,6 +641,13 @@ page {
   font-size: 28rpx;
   color: #FBFBFB;
 }
+.comment-text.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .replies {
   margin-top: 16rpx;
@@ -639,6 +683,18 @@ page {
 .reply-content {
   font-size: 28rpx;
   color: #A4A4A4;
+}
+.reply-content.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.show-more {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #255FBE;
 }
 
 .toggle-replies, .load-replies {
