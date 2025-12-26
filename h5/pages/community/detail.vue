@@ -529,7 +529,6 @@ page {
   height: 280rpx;
   border-radius: 24rpx;
   background-color: #FFDA3C;
-  margin: 16rpx 0 30rpx 0;
 }
 
 .post-footer {
