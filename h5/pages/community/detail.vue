@@ -139,8 +139,6 @@
           </view>
         </view>
       </view>
-
-      <view class="bottom-safe-area"></view>
     </view>
 
     <!-- bottom toolbar -->
@@ -458,6 +456,7 @@ page {
 
 .content {
   flex: 1;
+  overflow: auto;
   padding-bottom: 30rpx;
 }
 
