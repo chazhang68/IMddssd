@@ -639,6 +639,10 @@ page {
 .comment-text {
   font-size: 28rpx;
   color: #FBFBFB;
+  line-height: 36rpx;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .comment-text.clamp {
   display: -webkit-box;
@@ -682,6 +686,10 @@ page {
 .reply-content {
   font-size: 28rpx;
   color: #A4A4A4;
+  line-height: 36rpx;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .reply-content.clamp {
   display: -webkit-box;
