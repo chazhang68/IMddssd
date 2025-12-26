@@ -407,8 +407,8 @@ page {
 }
 
 .post-type-icon {
-  width: 68rpx;
-  height: 68rpx;
+  width: 66rpx;
+  height: 66rpx;
   border-radius: 50%;
   border: 2rpx solid #323232;
 }
@@ -538,8 +538,8 @@ page {
 }
 
 .avatar {
-  width: 36rpx;
-  height: 36rpx;
+  width: 66rpx;
+  height: 66rpx;
   border-radius: 50%;
   background-color: #7351D5;
 }
