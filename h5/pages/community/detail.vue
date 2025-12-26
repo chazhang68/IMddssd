@@ -37,10 +37,10 @@
       </view>
 
       <view class="post-footer">
-        <view class="metric-btn likes">
-          <image class="metric-icon" src="/static/images/community/like@2x.png"/>
-          <text class="metric-value likes">{{ likesCount }}</text>
-        </view>
+          <view class="metric-btn likes">
+            <image class="metric-icon" :src="likedTweetByMe ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
+            <text class="metric-value" :class="likedTweetByMe?'likes' :''">{{ likesCount }}</text>
+          </view>
         <view class="metric-btn comments">
           <image class="metric-icon" src="/static/images/community/chat@2x.png"/>
           <text class="metric-value">{{ topComments.length }}</text>
@@ -70,7 +70,7 @@
             </view>
             <view class="comment-actions" v-if="!canDeleteComment(c)">
               <view class="action-item">
-                <image class="small-icon" src="/static/images/community/like@2x.png"/>
+                <image class="small-icon" :src="isCommentLikedByMe(c) ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
                 <text class="action-value likes">0</text>
               </view>
               <view class="action-item">
@@ -101,7 +101,7 @@
               </view>
               <view class="reply-actions">
                 <view class="action-item">
-                  <image class="small-icon" src="/static/images/community/like@2x.png"/>
+                  <image class="small-icon" :src="isCommentLikedByMe(r) ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
                   <text class="action-value likes">0</text>
                 </view>
                 <view class="action-item">
@@ -155,12 +155,13 @@
 <script setup lang="ts">
 import {ref, computed} from 'vue'
 import {onLoad} from "@dcloudio/uni-app";
-import {getTweetDetail, deleteTweet} from '@/api/tweet'
+import {getTweetDetail, deleteTweet, getTweetDetailWithStats} from '@/api/tweet'
 import {listByPid, publishComment, deleteComment as apiDeleteComment} from '@/api/comment'
 import type {Tweet, Comment, SysUser} from '@/api/types'
 
 const tweetId = ref<string>('')
 const tweet = ref<Tweet | null>(null)
+const tweetStats = ref<Record<string, any> | null>(null)
 const topComments = ref<Comment[]>([])
 const replyMap = ref<Record<string, Comment[]>>({})
 const expandedMap = ref<Record<string, boolean>>({})
@@ -194,11 +195,40 @@ const tweetTime = computed(() => {
 })
 
 const likesCount = computed(() => {
+  const s = tweetStats.value || {}
+  const keys = ['likeCount', 'likes', 'like', 'favCount']
+  for (const k of keys) {
+    const v = s[k]
+    if (v !== undefined && v !== null) return String(v)
+  }
   return '0'
 })
 const viewsCount = computed(() => {
   return '0'
 })
+const likedTweetByMe = computed(() => {
+  const s = tweetStats.value || {}
+  const candidates = ['liked', 'likedByMe', 'likedUser', 'likeStatus']
+  for (const k of candidates) {
+    const v = s[k]
+    if (typeof v === 'boolean') return v
+    if (typeof v === 'string') return v === 'true' || v === '1' || v.toLowerCase() === 'yes'
+    if (typeof v === 'number') return v > 0
+  }
+  return false
+})
+
+function isCommentLikedByMe(c: Comment) {
+  const p = (c.params || {}) as Record<string, any>
+  const candidates = ['liked', 'likedByMe', 'likeStatus']
+  for (const k of candidates) {
+    const v = p[k]
+    if (typeof v === 'boolean') return v
+    if (typeof v === 'string') return v === 'true' || v === '1' || v.toLowerCase() === 'yes'
+    if (typeof v === 'number') return v > 0
+  }
+  return false
+}
 
 const canDeleteTweet = computed(() => {
   const t = tweet.value
@@ -216,6 +246,13 @@ async function loadTweet() {
     const res = await getTweetDetail({id: tweetId.value})
     if (res.code === 200) {
       tweet.value = (res.data || null) as Tweet
+    }
+    const uid = String(userInfo.value?.userId || '')
+    if (tweetId.value) {
+      const statsRes = await getTweetDetailWithStats({id: tweetId.value, userId: uid})
+      if (statsRes.code === 200) {
+        tweetStats.value = (statsRes.data || null) as Record<string, any>
+      }
     }
   } catch {
   }
@@ -439,7 +476,7 @@ page {
 }
 
 .delete-action {
-  color: #FF6B6B;
+  color: #FB3A3A;
 }
 
 .post-desc {
@@ -480,12 +517,12 @@ page {
 }
 
 .metric-value {
-  font-size: 26rpx;
-  color: #FBFBFB;
+  font-size: 32rpx;
+  color: #A4A4A4;
 }
 
 .metric-value.likes {
-  color: #FF6B6B;
+  color: #FB3A3A;
 }
 
 .comments-section {
@@ -528,12 +565,12 @@ page {
 }
 
 .action-value {
-  font-size: 26rpx;
+  font-size: 28rpx;
   color: #A4A4A4;
 }
 
 .action-value.likes {
-  color: #FF6B6B;
+  color: #FB3A3A;
 }
 
 .avatar {
