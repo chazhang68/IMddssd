@@ -360,6 +360,10 @@ export interface Tweet {
   updateBy?: string;
   updateTime?: string;
   userId?: string;
+  userLiked?: boolean;
+  viewCount?: number;
+  commentCount?: number;
+  likeCount?: number;
 }
 
 export interface WxLoginBody {

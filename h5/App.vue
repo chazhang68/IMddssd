@@ -11,9 +11,7 @@ export default {
       })
 
       await uni.setStorageSync('token', loginRes.token)
-
       const userInfoRes = await getUserInfo()
-      console.log(userInfoRes)
       if (userInfoRes.code === 200) {
         await uni.setStorageSync('userInfo', userInfoRes.data)
       }

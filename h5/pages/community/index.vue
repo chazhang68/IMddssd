@@ -161,8 +161,6 @@ function toPage(page: string, params?: Record<string, any>) {
   });
 }
 
-
-
 async function handleLike(id: string | number) {
   try {
     const res = await likeTweet({

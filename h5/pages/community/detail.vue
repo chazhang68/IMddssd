@@ -36,11 +36,13 @@
         <view class="post-image"></view>
       </view>
 
-      <view class="post-footer">
-          <view class="metric-btn likes">
-            <image class="metric-icon" :src="tweet.userLiked ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
-            <text class="metric-value" :class="tweet.userLiked?'likes' :''">{{ tweet.likeCount }}</text>
-          </view>
+      <!-- 文章点赞区 -->
+      <view class="post-footer" v-if="tweet">
+        <view class="metric-btn likes" @click="handleLike(tweet.id)">
+          <image class="metric-icon"
+                 :src="tweet.userLiked ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
+          <text class="metric-value" :class="tweet.userLiked?'likes' :''">{{ tweet.likeCount }}</text>
+        </view>
         <view class="metric-btn comments">
           <image class="metric-icon" src="/static/images/community/chat@2x.png"/>
           <text class="metric-value">{{ tweet.commentCount }}</text>
@@ -54,12 +56,9 @@
         </view>
       </view>
 
+      <!-- 评论列表 -->
       <view class="comments-section">
-        <view
-            class="comment-module"
-            v-for="c in topComments"
-            :key="c.id"
-        >
+        <view class="comment-module" v-for="c in topComments" :key="c.id">
           <view class="comment-header">
             <view class="comment-left">
               <image class="avatar" src="/static/images/community/message@2x.png"/>
@@ -70,7 +69,8 @@
             </view>
             <view class="comment-actions" v-if="!canDeleteComment(c)">
               <view class="action-item">
-                <image class="small-icon" :src="isCommentLikedByMe(c) ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
+                <image class="small-icon"
+                       :src="isCommentLikedByMe(c) ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
                 <text class="action-value likes">0</text>
               </view>
               <view class="action-item">
@@ -78,37 +78,26 @@
                 <text class="action-value">1</text>
               </view>
             </view>
-            <text
-                class="comment-action delete-action"
-                v-else
-                @click="onDeleteComment(c)"
-            >Delete</text>
+            <text class="comment-action delete-action" v-else @click="onDeleteComment(c)">Delete</text>
           </view>
 
           <view class="comment-body">
             <text class="comment-text" :class="{ clamp: !isCommentExpanded(c) }">{{ c.commentContent }}</text>
           </view>
-          <view
-            class="show-more"
-            v-if="shouldShowMore(c)"
-            @click="toggleCommentContent(c)"
-          >
+          <view class="show-more" v-if="shouldShowMore(c)" @click="toggleCommentContent(c)">
             <text>{{ isCommentExpanded(c) ? 'Show less' : 'Show more' }}</text>
           </view>
 
           <view class="replies">
-            <view
-                class="reply-row"
-                v-for="r in getVisibleReplies(c)"
-                :key="r.id"
-            >
+            <view class="reply-row" v-for="r in getVisibleReplies(c)" :key="r.id">
               <view class="reply-item">
                 <text class="reply-author">@{{ getDisplayName(r) }}</text>
                 <text class="reply-content" :class="{ clamp: !isReplyExpanded(r) }"> {{ r.commentContent }}</text>
               </view>
               <view class="reply-actions">
                 <view class="action-item">
-                  <image class="small-icon" :src="isCommentLikedByMe(r) ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
+                  <image class="small-icon"
+                         :src="isCommentLikedByMe(r) ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
                   <text class="action-value likes">0</text>
                 </view>
                 <view class="action-item">
@@ -117,26 +106,14 @@
                 </view>
               </view>
             </view>
-            <view
-              class="show-more"
-              v-if="shouldShowMore(r)"
-              @click="toggleReplyContent(r)"
-            >
+            <view class="show-more" v-if="shouldShowMore(r)" @click="toggleReplyContent(r)">
               <text>{{ isReplyExpanded(r) ? 'Show less' : 'Show more' }}</text>
             </view>
-            <view
-                class="toggle-replies"
-                v-if="replyMap[c.id || ''].length > 2"
-                @click="toggleReplies(c)"
-            >
+            <view class="toggle-replies" v-if="replyMap[c.id || ''].length > 2" @click="toggleReplies(c)">
               <text v-if="!expandedMap[c.id || '']">Show all replies</text>
               <text v-else>Collapse all replies</text>
             </view>
           </view>
-
-<!--          <view class="load-replies" v-else @click="loadReplies(c)">-->
-<!--            <text>Show all replies</text>-->
-<!--          </view>-->
         </view>
       </view>
     </view>
@@ -170,6 +147,8 @@ import {onLoad} from "@dcloudio/uni-app";
 import {getTweetDetail, deleteTweet, getTweetDetailWithStats} from '@/api/tweet'
 import {listByPid, publishComment, deleteComment as apiDeleteComment} from '@/api/comment'
 import type {Tweet, Comment, SysUser} from '@/api/types'
+import {recordTweetView} from "@/api/tweetview";
+import {likeTweet} from "@/api/tweetlike";
 
 const tweetId = ref<string>('')
 const tweet = ref<Tweet | null>(null)
@@ -184,11 +163,7 @@ const replyText = ref<string>('')
 const userInfo = ref<SysUser | null>(null)
 
 onLoad((options: any) => {
-  try {
-    const cache = typeof uni !== 'undefined' ? (uni.getStorageSync('userInfo') || null) : null
-    if (cache) userInfo.value = cache as SysUser
-  } catch {
-  }
+  userInfo.value = uni.getStorageSync('userInfo') as SysUser
   tweetId.value = String(options?.tweetId)
   if (tweetId.value) {
     loadTweet()
@@ -206,30 +181,6 @@ const tweetTime = computed(() => {
   const t = tweet.value
   if (!t) return ''
   return t.publishTime || t.createTime || ''
-})
-
-const likesCount = computed(() => {
-  const s = tweetStats.value || {}
-  const keys = ['likeCount', 'likes', 'like', 'favCount']
-  for (const k of keys) {
-    const v = s[k]
-    if (v !== undefined && v !== null) return String(v)
-  }
-  return '0'
-})
-const viewsCount = computed(() => {
-  return '0'
-})
-const likedTweetByMe = computed(() => {
-  const s = tweetStats.value || {}
-  const candidates = ['liked', 'likedByMe', 'likedUser', 'likeStatus']
-  for (const k of candidates) {
-    const v = s[k]
-    if (typeof v === 'boolean') return v
-    if (typeof v === 'string') return v === 'true' || v === '1' || v.toLowerCase() === 'yes'
-    if (typeof v === 'number') return v > 0
-  }
-  return false
 })
 
 function isCommentLikedByMe(c: Comment) {
@@ -255,19 +206,32 @@ function getDisplayName(c: Comment) {
   return c.createBy || (c.userId ? `用户${c.userId}` : '')
 }
 
+async function viewTweet() {
+  const res = await  recordTweetView({
+    tweetId: tweetId.value,
+    userId: userInfo.value?.userId
+  })
+  if (res.code === 200) {
+    tweet.value.viewCount += 1
+  }
+}
+
 async function loadTweet() {
   try {
     const res = await getTweetDetail({id: tweetId.value})
     if (res.code === 200) {
       tweet.value = (res.data || null) as Tweet
+      await viewTweet()
     }
     const uid = String(userInfo.value?.userId || '')
     if (tweetId.value) {
-      const statsRes = await getTweetDetailWithStats({id: tweetId.value, userId: uid})
-      if (statsRes.code === 200) {
-        tweetStats.value = (statsRes.data || null) as Record<string, any>
-      }
+      // const statsRes = await getTweetDetailWithStats({id: tweetId.value, userId: uid})
+      // if (statsRes.code === 200) {
+      //   tweetStats.value = (statsRes.data || null) as Record<string, any>
+      // }
     }
+
+
   } catch {
   }
 }
@@ -331,21 +295,27 @@ function canDeleteComment(c: Comment) {
 }
 
 function shouldShowMore(c: Comment) {
+  if (!c || !c.commentContent) return false
   const text = String(c.commentContent || '')
   return text.length > 60
 }
+
+
 function isCommentExpanded(c: Comment) {
   const id = String(c.id || '')
   return !!contentExpandedMap.value[id]
 }
+
 function toggleCommentContent(c: Comment) {
   const id = String(c.id || '')
   contentExpandedMap.value[id] = !contentExpandedMap.value[id]
 }
+
 function isReplyExpanded(c: Comment) {
   const id = String(c.id || '')
   return !!replyExpandedMap.value[id]
 }
+
 function toggleReplyContent(c: Comment) {
   const id = String(c.id || '')
   replyExpandedMap.value[id] = !replyExpandedMap.value[id]
@@ -425,6 +395,24 @@ async function onPublishReply() {
     }
   } catch {
     uni.showToast({title: '发布失败', icon: 'error'})
+  }
+}
+
+async function handleLike(id: string | number) {
+  try {
+    const res = await likeTweet({
+      tweetId: Number(id),
+      userId: Number(userInfo?.userId || 0)
+    })
+    if (res.code === 200) {
+      const liked = !!tweet.value.userLiked
+      const count = Number(tweet.value.likeCount || 0)
+      const nextLiked = !liked
+      const nextCount = nextLiked ? count + 1 : Math.max(0, count - 1)
+      return { ...tweet.value, userLiked: nextLiked, likeCount: nextCount }
+    }
+  } catch (e) {
+    console.log(e)
   }
 }
 
@@ -643,6 +631,7 @@ page {
   word-break: break-word;
   overflow-wrap: anywhere;
 }
+
 .comment-text.clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -690,6 +679,7 @@ page {
   word-break: break-word;
   overflow-wrap: anywhere;
 }
+
 .reply-content.clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -697,6 +687,7 @@ page {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .show-more {
   margin-top: 8rpx;
   font-size: 24rpx;
