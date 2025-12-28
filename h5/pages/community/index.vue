@@ -33,7 +33,7 @@
         </view>
 
         <view class="action-icons">
-          <view class="action-btn" @click="toPush">
+          <view class="action-btn" @click="toPage('push')">
             <image class="action-icon" src="/static/images/community/add@2x.png"/>
           </view>
           <view class="action-btn badge-wrap">
@@ -47,7 +47,7 @@
     </view>
     <!-- 推文列表 -->
     <view class="content">
-      <view class="post-card" v-for="post in posts" :key="post.id">
+      <view class="post-card" v-for="post in posts" :key="post.id" @click.prevent="toPage('detail')">
         <view class="post-header">
           <view class="post-left">
             <image
@@ -129,9 +129,9 @@ const fetchPosts = async () => {
   }
 };
 
-function toPush() {
+function toPage(page: string, params?: any) {
   uni.navigateTo({
-    url: '/pages/community/push'
+    url: `/pages/community/${page}`
   });
 }
 </script>

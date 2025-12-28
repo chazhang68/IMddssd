@@ -41,3 +41,10 @@ export function addSystemTweet(body?: any) { return http.post<ApiResponse<Tweet>
  * @returns 统一返回结构，数据为新增的 Tweet
  */
 export function addUserTweet(body?: any) { return http.post<ApiResponse<Tweet>>(`/communityuser/tweet/user/add`, body) }
+/**
+ * 删除推文
+ * @param params 参数对象
+ * @param params.id 推文ID（必填）
+ * @returns 统一返回结构
+ */
+export function deleteTweet(params: { id: string }) { return http.delete<ApiResponse<unknown>>(`/communityuser/tweet/${params.id}`, undefined) }
