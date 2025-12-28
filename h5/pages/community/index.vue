@@ -3,7 +3,7 @@
     <view class="header">
       <view class="search-bar">
         <image class="search-icon" src="/static/images/community/search@2x.png"/>
-        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder"/>
+        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder" v-model="title" @input="debouncedFetchPosts"/>
       </view>
       <!-- 点击按钮 -->
       <view class="tabs-row">
@@ -83,6 +83,7 @@ import {ref, computed} from 'vue'
 import {onShow, onPullDownRefresh, onReachBottom} from "@dcloudio/uni-app";
 import {getLatestTweets} from "@/api/tweet";
 import {likeTweet} from "@/api/tweetlike";
+import {debounce} from "@/utils/debounce";
 
 const posts = ref<any[]>([]);
 const tweetType = ref<number>(0);
@@ -90,17 +91,20 @@ const pageNo = ref<number>(1);
 const pageSize = ref<number>(10);
 const total = ref<number>(0);
 const loading = ref<boolean>(false);
+const title = ref<string>('');
 const userInfo = uni.getStorageSync('userInfo');
 
 const requestParams = computed(() => ({
   pageNo: pageNo.value,
   pageSize: pageSize.value,
-  tweetType: tweetType.value
+  tweetType: tweetType.value,
+  title: title.value
 }));
 
 onShow(() => {
   fetchPosts();
-});
+})
+
 
 const switchTab = async (type: number) => {
   if (tweetType.value !== type) {
@@ -135,6 +139,9 @@ const fetchPosts = async (refresh = false) => {
     loading.value = false;
   }
 };
+
+// 创建防抖版本的搜索函数，延迟1秒执行
+const debouncedFetchPosts = debounce(fetchPosts, 1000, true)
 
 onPullDownRefresh(async () => {
   pageNo.value = 1;

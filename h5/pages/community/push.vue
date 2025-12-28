@@ -24,6 +24,7 @@
             v-model="block.value"
             class="text-input"
             :placeholder="placeholder"
+            maxlength="5000"
             auto-height
         />
 
@@ -80,6 +81,7 @@ import { uploadFiles } from '@/api/common'
 import {addSystemTweet, addUserTweet} from '@/api/tweet'
 
 const linkDialogRef = ref(null)
+const coverPicture = ref('')
 const placeholder = ref('Share your brilliant ideas')
 const blocks = ref<[]>([
   { id: genId(), type: 'text', value: '' }
@@ -100,7 +102,8 @@ function chooseImage() {
     sourceType: ['album'],
     success: async (res) => {
       const urls = await upload(res.tempFilePaths)
-      insertBlock('image', 'http://47.106.189.19/prod-api/profile/upload/2025/12/25/ScreenShot_2025-12-25_155800_898_20251225155847A004.png')
+      coverPicture.value = 'http://47.106.189.19/prod-api/profile/upload/2025/12/25/ScreenShot_2025-12-25_155800_898_20251225155847A004.png'
+      insertBlock('image', coverPicture.value)
     }
   })
 }
@@ -115,9 +118,6 @@ function chooseVideo() {
     }
   })
 }
-
-
-
 
 /* ========== Insert block ========== */
 function insertBlock(type: 'image' | 'video', url: string) {
@@ -145,6 +145,7 @@ function onPost() {
   addUserTweet({
     title: 'wo fabu l ',
     tweetType: '1',
+    mainImages: coverPicture.value,
     content: JSON.stringify(content),
     userId: uni.getStorageSync('userInfo').userId
   }).then(() => {

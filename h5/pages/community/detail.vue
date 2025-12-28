@@ -31,7 +31,23 @@
           </text>
         </view>
         <view class="post-desc">
-          <text class="post-text">{{ tweet.content }}</text>
+          <view v-for="(block, i) in parsedContent" :key="block.id || i" class="post-text">
+            <text v-if="block.type === 'text' && block.value?.trim()">
+              {{ block.value }}
+            </text>
+
+            <image
+                v-if="block.type === 'image'"
+                :src="block.url"
+                mode="widthFix"
+            />
+
+            <video
+                v-if="block.type === 'video'"
+                :src="block.url"
+                controls
+            />
+          </view>
         </view>
         <view class="post-image"></view>
       </view>
@@ -205,6 +221,18 @@ const canDeleteTweet = computed(() => {
 function getDisplayName(c: Comment) {
   return c.createBy || (c.userId ? `用户${c.userId}` : '')
 }
+
+const parsedContent = computed(() => {
+  if (!tweet.value?.content) return []
+  try {
+    const data = JSON.parse(tweet.value.content)
+    return Array.isArray(data) ? data : []
+  } catch (e) {
+    console.error('content JSON parse error', e)
+    return []
+  }
+})
+
 
 async function viewTweet() {
   const res = await  recordTweetView({
