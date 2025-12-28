@@ -11,15 +11,59 @@
       </view>
     </view>
 
-    <view class="editor-area">
-      <view id="quillEditor" class="editor-box"></view>
-    </view>
+    <!-- editor -->
+    <scroll-view class="editor-area" scroll-y>
+      <view
+          v-for="(block, index) in blocks"
+          :key="block.id"
+          class="editor-box"
+      >
+        <!-- text -->
+        <textarea
+            v-if="block.type === 'text'"
+            v-model="block.value"
+            class="text-input"
+            :placeholder="placeholder"
+            maxlength="5000"
+            auto-height
+        />
 
+        <!-- image -->
+        <image
+            v-if="block.type === 'image'"
+            :src="block.url"
+            class="image-block"
+            mode="widthFix"
+        />
+
+        <!-- video -->
+        <video
+            v-if="block.type === 'video'"
+            :src="block.url"
+            class="video-block"
+            controls
+        />
+      </view>
+    </scroll-view>
+
+    <!-- bottom toolbar -->
     <view class="bottom-toolbar">
       <view class="tool-icons">
-        <image class="tool-icon" src="/static/images/community/img@2x.png" @click="chooseImage"/>
-        <image class="tool-icon" src="/static/images/community/video@2x.png" @click="chooseVideo"/>
-        <image class="tool-icon" src="/static/images/community/Pair@2x.png" @click="openLinkModal"/>
+        <image
+            class="tool-icon"
+            src="/static/images/community/img@2x.png"
+            @click="chooseImage"
+        />
+        <image
+            class="tool-icon"
+            src="/static/images/community/video@2x.png"
+            @click="chooseVideo"
+        />
+        <image
+            class="tool-icon"
+            src="/static/images/community/Pair@2x.png"
+            @click="openLinkModal"
+        />
       </view>
       <view class="post-btn" @click="onPost">
         <text class="post-text">Post</text>
@@ -31,139 +75,131 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, nextTick} from 'vue'
-import Quill from 'quill'
-import 'quill/dist/quill.snow.css'
 import LinkDialog from "@/components/dialog/LinkDialog.vue";
+import { ref } from 'vue'
+import { uploadFiles } from '@/api/common'
+import {addSystemTweet, addUserTweet} from '@/api/tweet'
 
-const quillRef = ref<any>(null)
-const linkDialogRef = ref(null) // 添加引用
-const savedRange = ref<any>(null)
+const linkDialogRef = ref(null)
+const coverPicture = ref('')
+const placeholder = ref('Share your brilliant ideas')
+const blocks = ref<[]>([
+  { id: genId(), type: 'text', value: '' }
+])
+
+function genId() {
+  return Date.now() + Math.random().toString(16)
+}
 
 function goBack() {
-  uni.navigateBack();
+  uni.navigateBack()
 }
 
-function onPost() {
-  uni.showToast({
-    title: 'Posted',
-    icon: 'none'
-  });
-}
-
+/* ========== Image ========== */
 function chooseImage() {
   uni.chooseImage({
-    count: 9,              // 可选张数
-    sizeType: ['original', 'compressed'],
-    sourceType: ['album'], // 只打开相册
-    success(res: any) {
-      console.log('选择的图片：', res.tempFilePaths)
-      // res.tempFilePaths: string[]
-      // TODO：上传 / 插入 Quill
-      const url = res.tempFilePath
-      insertResourceToEditor('image',  url)
-    },
-    fail(err: any) {
-      console.error('选择图片失败', err)
+    count: 9,
+    sourceType: ['album'],
+    success: async (res) => {
+      const urls = await upload(res.tempFilePaths)
+      coverPicture.value = 'http://47.106.189.19/prod-api/profile/upload/2025/12/25/ScreenShot_2025-12-25_155800_898_20251225155847A004.png'
+      insertBlock('image', coverPicture.value)
     }
   })
 }
 
+/* ========== Video ========== */
 function chooseVideo() {
   uni.chooseVideo({
-    sourceType: ['album'], // 只打开相册
-    compressed: true,
-    maxDuration: 60,       // 秒
-    success(res: any) {
-      console.log('选择的视频：', res.tempFilePath)
-      // res.tempFilePath: string
-      // TODO：上传 / 插入 Quill
-      const url = res.tempFilePath
-      insertResourceToEditor('video',  url)
-    },
-    fail(err: any) {
-      console.error('选择视频失败', err)
+    sourceType: ['album'],
+    success: async (res) => {
+      const urls = await upload(res.tempFilePath)
+      insertBlock('video', urls[0])
     }
   })
 }
 
-function insertResourceToEditor(type: string, url: string) {
-  const quill = quillRef.value
-  if (!quill) return
+/* ========== Insert block ========== */
+function insertBlock(type: 'image' | 'video', url: string) {
+  blocks.value.push({
+    id: genId(),
+    type,
+    url
+  })
 
-  const range = quill.getSelection(true)
-  const index = range ? range.index : quill.getLength()
+  // 插入一个新的文本块，保证继续输入
+  blocks.value.push({
+    id: genId(),
+    type: 'text',
+    value: ''
+  })
+}
 
-  quill.insertEmbed(index, type, url)
-  quill.setSelection(index + 1, 0, 'silent')
+/* ========== Post ========== */
+function onPost() {
+  const content = blocks.value.filter((b) => {
+    if (b.type === 'text') return b.value.trim()
+    return true
+  })
+
+  addUserTweet({
+    title: 'wo fabu l ',
+    tweetType: '1',
+    mainImages: coverPicture.value,
+    content: JSON.stringify(content),
+    userId: uni.getStorageSync('userInfo').userId
+  }).then(() => {
+    uni.showToast({ title: 'Post successful' })
+    setTimeout(() => {
+      goBack()
+    }, 1500)
+  })
+
+  // addSystemTweet({
+  //   title: '系统公告',
+  //   tweetType: 'system',
+  //   content: JSON.stringify(content),
+  //   userId: uni.getStorageSync('userInfo').userId
+  // }).then(() => {
+  //   uni.showToast({ title: 'Post successful' })
+  //   goBack()
+  // })
+}
+
+/* ========== Upload ========== */
+async function upload(paths: any) {
+  try {
+    uni.showLoading({
+      title: '上传中...'
+    })
+
+    const files = paths.map((path: string) => ({
+      name: 'files',
+      filePath: path,
+      fileName: path.split('/').pop()
+    }))
+
+    const uploadRes = await uploadFiles(files)
+    if (uploadRes.code === 200) {
+      return uploadRes.urls
+    }
+  } catch (error) {
+    uni.showToast({
+      title: '上传失败',
+      icon: 'error'
+    })
+  } finally {
+    uni.hideLoading()
+  }
 }
 
 function openLinkModal() {
-  const quill = quillRef.value
-  if (quill) {
-    try {
-      savedRange.value = quill.getSelection()
-    } catch {
-      savedRange.value = null
-    }
-  }
   linkDialogRef.value.open()
 }
 
 function confirmLink(text: string, url: string) {
-  const quill = quillRef.value
-  if (!quill) return
-  const t = (text || '').trim()
-  const u = (url || '').trim()
-  if (!u) return
-  const end = quill.getLength()
-  const insertText = t || u
-  const safe = (s: string) =>
-      s.replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;')
-  const html = `<a href="${safe(u)}" rel="noopener noreferrer">${safe(insertText)}</a>`
-  try {
-    if (savedRange.value && typeof savedRange.value.index === 'number') {
-      quill.setSelection(savedRange.value.index, 0, 'silent')
-      quill.clipboard.dangerouslyPasteHTML(savedRange.value.index, html)
-      quill.setSelection(savedRange.value.index + insertText.length, 0, 'silent')
-    } else {
-      quill.clipboard.dangerouslyPasteHTML(end, html)
-      quill.setSelection(end + insertText.length, 0, 'silent')
-    }
-  } catch {
-    try {
-      quill.insertText(end, insertText)
-      quill.formatText(end, insertText.length, {link: u})
-      quill.setSelection(end + insertText.length, 0, 'silent')
-    } catch {
-    }
-  }
+
 }
-
-onMounted(() => {
-  const el = document.getElementById('quillEditor')
-  if (!el) return
-
-  const quill = new Quill(el, {
-    theme: 'snow',
-    placeholder: 'Share your brilliant ideas',
-    modules: {
-      toolbar: false,
-      history: {delay: 1000, maxStack: 100, userOnly: false}
-    }
-  })
-
-  quillRef.value = quill
-
-  nextTick(() => {
-    const end = quill.getLength()
-    quill.setSelection(end, 0, 'silent')
-  })
-})
 
 </script>
 
@@ -186,7 +222,6 @@ onMounted(() => {
 }
 
 .editor-box {
-  min-height: 100%;
   font-weight: 400;
   font-size: 14px;
   color: #FBFBFB;

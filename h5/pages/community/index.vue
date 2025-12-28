@@ -3,23 +3,23 @@
     <view class="header">
       <view class="search-bar">
         <image class="search-icon" src="/static/images/community/search@2x.png"/>
-        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder"/>
+        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder" v-model="title" @input="debouncedFetchPosts"/>
       </view>
       <!-- 点击按钮 -->
       <view class="tabs-row">
         <view class="tabs-left">
-          <view class="tab-item active">
+          <view class="tab-item" :class="{ active: tweetType === 0 }" @click="switchTab(0)">
             <image class="action-icon" src="/static/images/community/Recommend@2x.png"/>
-            <text class="tab-text active">Discover</text>
+            <text class="tab-text" :class="{ active: tweetType === 0 }">Discover</text>
           </view>
-          <view class="tab-item">
+          <view class="tab-item" :class="{ active: tweetType === 1 }" @click="switchTab(1)">
             <image class="action-icon" src="/static/images/community/follow@2x.png"/>
-            <text class="tab-text">Following</text>
+            <text class="tab-text" :class="{ active: tweetType === 1 }">Following</text>
           </view>
         </view>
 
         <view class="action-icons">
-          <view class="action-btn" @click="toPush">
+          <view class="action-btn" @click="toPage('push')">
             <image class="action-icon" src="/static/images/community/add@2x.png"/>
           </view>
           <view class="action-btn badge-wrap">
@@ -33,7 +33,7 @@
     </view>
     <!-- 推文列表 -->
     <view class="content">
-      <view class="post-card" v-for="post in posts" :key="post.id">
+      <view class="post-card" v-for="post in posts" :key="post.id" @click.prevent="toPage('detail', { tweetId: post.id }); ">
         <view class="post-header">
           <view class="post-left">
             <image
@@ -51,19 +51,20 @@
         <view class="post-desc">
           <text class="post-text">{{ post.content }}</text>
         </view>
-        <view class="post-image" :class="{ light: post.hasAvatar }"></view>
+        <view class="post-image" :class="{ light: post.mainImages }" v-if="post.mainImages"></view>
         <view class="post-footer">
-          <view class="metric-btn">
-            <image class="metric-icon" src="/static/images/community/like@2x.png"/>
-            <text class="metric-value">{{ post.metrics.likes }}</text>
+          <view class="metric-btn" @click.stop="handleLike(post.id)">
+            <image class="metric-icon"
+                   :src="post.userLiked?'/static/images/community/like@2x.png':'/static/images/community/nolike@2x.png'"/>
+            <text class="metric-value">{{ post.likeCount }}</text>
           </view>
-          <view class="metric-btn">
+          <view class="metric-btn" @click.stop="toPage('detail', { tweetId: post.id })">
             <image class="metric-icon" src="/static/images/community/chat@2x.png"/>
-            <text class="metric-value">{{ post.metrics.comments }}</text>
+            <text class="metric-value">{{ post.commentCount }}</text>
           </view>
           <view class="metric-btn">
             <image class="metric-icon" src="/static/images/community/look@2x.png"/>
-            <text class="metric-value">{{ post.metrics.views }}</text>
+            <text class="metric-value">{{ post.viewCount }}</text>
           </view>
           <view class="metric-btn">
             <image class="metric-icon" src="/static/images/community/share@2x.png"/>
@@ -78,41 +79,117 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import {ref, computed} from 'vue'
+import {onShow, onPullDownRefresh, onReachBottom} from "@dcloudio/uni-app";
+import {getLatestTweets} from "@/api/tweet";
+import {likeTweet} from "@/api/tweetlike";
+import {debounce} from "@/utils/debounce";
 
-const posts = ref<[]>([
-  {
-    id: 1,
-    author: 'SKYEAGLE Team',
-    time: '15:34 · October 17, 2025',
-    content: 'Lightweight, sleek, and packed with tech: stream your favorite content, take hands-free calls, and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight., and get real-time navigation—all right in your line of sight.',
-    hasAvatar: false,
-    action: 'unfollow',
-    metrics: {
-      likes: 3,
-      comments: 5,
-      views: 27
-    }
-  },
-  {
-    id: 2,
-    author: 'Stacey',
-    time: '12:30 · October 17, 2025',
-    content: 'Just shared two hilarious and entertaining GIF animations that will definitely brighten your day! Swipe through and enjoy the fun moments.',
-    hasAvatar: true,
-    action: 'follow',
-    metrics: {
-      likes: 12,
-      comments: 8,
-      views: 103
-    }
+const posts = ref<any[]>([]);
+const tweetType = ref<number>(0);
+const pageNo = ref<number>(1);
+const pageSize = ref<number>(10);
+const total = ref<number>(0);
+const loading = ref<boolean>(false);
+const title = ref<string>('');
+const userInfo = uni.getStorageSync('userInfo');
+
+const requestParams = computed(() => ({
+  pageNo: pageNo.value,
+  pageSize: pageSize.value,
+  tweetType: tweetType.value,
+  title: title.value
+}));
+
+onShow(() => {
+  fetchPosts();
+})
+
+
+const switchTab = async (type: number) => {
+  if (tweetType.value !== type) {
+    tweetType.value = type;
+    pageNo.value = 1;
+    await fetchPosts(true);
   }
-]);
+};
 
-function toPush() {
+const fetchPosts = async (refresh = false) => {
+  try {
+    loading.value = true;
+    const res = await getLatestTweets(requestParams.value);
+    const data: any = res.data || {};
+    const list: any[] = data.latestTweets || [];
+    total.value = Number(data.total || 0);
+    pageSize.value = Number(data.size || pageSize.value);
+    const currentPage = Number(data.page || pageNo.value);
+    if (refresh) {
+      posts.value = list;
+    } else {
+      if (currentPage <= 1) {
+        posts.value = list;
+      } else {
+        posts.value = posts.value.concat(list);
+      }
+    }
+    pageNo.value = currentPage;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    loading.value = false;
+  }
+};
+
+// 创建防抖版本的搜索函数，延迟1秒执行
+const debouncedFetchPosts = debounce(fetchPosts, 1000, true)
+
+onPullDownRefresh(async () => {
+  pageNo.value = 1;
+  await fetchPosts(true);
+  uni.stopPullDownRefresh();
+});
+
+onReachBottom(async () => {
+  const loaded = posts.value.length;
+  const hasMore = loaded < total.value;
+  if (loading.value || !hasMore) return;
+  pageNo.value = pageNo.value + 1;
+  await fetchPosts(false);
+});
+
+function toPage(page: string, params?: Record<string, any>) {
+  const queryParams = params ?
+      '?' + Object.keys(params)
+          .map(key => `${key}=${encodeURIComponent(params[key])}`)
+          .join('&') : '';
+
   uni.navigateTo({
-    url: '/pages/community/push'
+    url: `/pages/community/${page}${queryParams}`
   });
+}
+
+async function handleLike(id: string | number) {
+  try {
+    const res = await likeTweet({
+      tweetId: Number(id),
+      userId: Number(userInfo?.userId || 0)
+    })
+    if (res.code === 200) {
+      posts.value = posts.value.map((item: any) => {
+        if (!item) return item
+        if (String(item.id) === String(id)) {
+          const liked = !!item.userLiked
+          const count = Number(item.likeCount || 0)
+          const nextLiked = !liked
+          const nextCount = nextLiked ? count + 1 : Math.max(0, count - 1)
+          return { ...item, userLiked: nextLiked, likeCount: nextCount }
+        }
+        return item
+      })
+    }
+  } catch (e) {
+    console.log(e)
+  }
 }
 </script>
 

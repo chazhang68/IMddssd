@@ -1,0 +1,3969 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "标题：若依管理系统_接口文档",
+    "description": "描述：健康设备管理系统，包括心率、血氧、血压、睡眠、步数、体温等健康数据的采集与管理",
+    "contact": {
+      "name": "RuoYi"
+    },
+    "version": "版本号:3.9.0"
+  },
+  "servers": [
+    {
+      "url": "http://47.106.189.19:80",
+      "description": "Inferred Url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "体温记录管理",
+      "description": "Temperature User Controller"
+    },
+    {
+      "name": "关注关系接口",
+      "description": "Follow User Controller"
+    },
+    {
+      "name": "心率记录管理",
+      "description": "Heartrate User Controller"
+    },
+    {
+      "name": "推文查看接口",
+      "description": "Tweetview User Controller"
+    },
+    {
+      "name": "推文点赞接口",
+      "description": "Tweetlike User Controller"
+    },
+    {
+      "name": "推文管理接口",
+      "description": "Tweet User Controller"
+    },
+    {
+      "name": "文件上传",
+      "description": "Common Controller"
+    },
+    {
+      "name": "步数记录管理",
+      "description": "Step User Controller"
+    },
+    {
+      "name": "用户个人信息管理",
+      "description": "user Profile Controller"
+    },
+    {
+      "name": "用户鉴权API",
+      "description": "Wx Login Controller"
+    },
+    {
+      "name": "睡眠记录管理",
+      "description": "Sleep User Controller"
+    },
+    {
+      "name": "综合测量",
+      "description": "He Measurement User Controller"
+    },
+    {
+      "name": "血压记录管理",
+      "description": "Pressure User Controller"
+    },
+    {
+      "name": "血氧记录管理",
+      "description": "Oxygen User Controller"
+    },
+    {
+      "name": "设备管理",
+      "description": "Device User Controller"
+    },
+    {
+      "name": "评论接口",
+      "description": "Comment User Controller"
+    },
+    {
+      "name": "评论查看接口",
+      "description": "Commentview User Controller"
+    }
+  ],
+  "paths": {
+    "/communityuser/comment/listByPid": {
+      "get": {
+        "tags": [
+          "评论接口"
+        ],
+        "summary": "根据父级ID查看评论列表",
+        "operationId": "listByPidUsingGET",
+        "parameters": [
+          {
+            "name": "tweetId",
+            "in": "query",
+            "description": "推文ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "pid",
+            "in": "query",
+            "description": "父级评论ID，顶级为0",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Comment»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/comment/publish": {
+      "post": {
+        "tags": [
+          "评论接口"
+        ],
+        "summary": "用户发表评论",
+        "operationId": "publishCommentUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Comment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«Comment»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/commentview/record": {
+      "post": {
+        "tags": [
+          "评论查看接口"
+        ],
+        "summary": "记录评论查看",
+        "operationId": "recordCommentViewUsingPOST",
+        "parameters": [
+          {
+            "name": "commentId",
+            "in": "query",
+            "description": "评论ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "查看人ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/common/upload": {
+      "post": {
+        "tags": [
+          "文件上传"
+        ],
+        "summary": "通用上传请求（单个）",
+        "operationId": "uploadFileUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/common/uploads": {
+      "post": {
+        "tags": [
+          "文件上传"
+        ],
+        "summary": "通用上传请求（多个）",
+        "operationId": "uploadFilesUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/device": {
+      "post": {
+        "tags": [
+          "设备管理"
+        ],
+        "summary": "新增设备",
+        "operationId": "addUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Device"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/device/list": {
+      "get": {
+        "tags": [
+          "设备管理"
+        ],
+        "summary": "设备列表",
+        "operationId": "listUsingGET",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TableDataInfo"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/device/{id}": {
+      "get": {
+        "tags": [
+          "设备管理"
+        ],
+        "summary": "设备移除",
+        "operationId": "getInfoUsingGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/follow/mine": {
+      "get": {
+        "tags": [
+          "关注关系接口"
+        ],
+        "summary": "查看我的关注列表",
+        "operationId": "myFollowsUsingGET",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "用户ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Follow»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/follow/relation": {
+      "post": {
+        "tags": [
+          "关注关系接口"
+        ],
+        "summary": "添加关注",
+        "operationId": "addFollowUsingPOST",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "用户ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "followUserId",
+            "in": "query",
+            "description": "被关注人ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "关注关系接口"
+        ],
+        "summary": "取消关注",
+        "operationId": "cancelFollowUsingDELETE",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "用户ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "followUserId",
+            "in": "query",
+            "description": "被关注人ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/measurement": {
+      "post": {
+        "tags": [
+          "综合测量"
+        ],
+        "summary": "新增综合测量",
+        "operationId": "addUsingPOST_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HeMeasurement"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/measurement/list": {
+      "get": {
+        "tags": [
+          "综合测量"
+        ],
+        "summary": "查询综合测量列表",
+        "operationId": "listUsingGET_1",
+        "parameters": [
+          {
+            "name": "activityLevel",
+            "in": "query",
+            "description": "运动激烈程度",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "bloodOxygen",
+            "in": "query",
+            "description": "血氧",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "createBy",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createTime",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "delFlag",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "设备ID",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "heartRate",
+            "in": "query",
+            "description": "心率",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "hour_of_day",
+            "in": "query",
+            "description": "时间节点",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hrv",
+            "in": "query",
+            "description": "心率变异性",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "measureTime",
+            "in": "query",
+            "description": "UNIX时间（int类型时间）",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "params",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "perfusionRate",
+            "in": "query",
+            "description": "血液灌注率（保留）",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "number",
+              "format": "bigdecimal"
+            }
+          },
+          {
+            "name": "remark",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "reservedField",
+            "in": "query",
+            "description": "保留字段",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rrArray",
+            "in": "query",
+            "description": "RR 数组",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rrIntervalCount",
+            "in": "query",
+            "description": "RR 间期个数 N",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "searchValue",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sleepType",
+            "in": "query",
+            "description": "睡眠类型",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stepCount",
+            "in": "query",
+            "description": "步数",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "stressIndex",
+            "in": "query",
+            "description": "精神压力指数",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "temperature",
+            "in": "query",
+            "description": "温度",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "number",
+              "format": "bigdecimal"
+            }
+          },
+          {
+            "name": "updateBy",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "用户ID",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/heartrate": {
+      "post": {
+        "tags": [
+          "心率记录管理"
+        ],
+        "summary": "新增心率记录",
+        "description": "添加新的心率测量数据",
+        "operationId": "addUsingPOST_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Heartrate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/heartrate/daily": {
+      "get": {
+        "tags": [
+          "心率记录管理"
+        ],
+        "summary": "查询心率记录（日）",
+        "description": "查询指定日期每个小时的最后一次心率测量记录",
+        "operationId": "getDailyHeartrateUsingGET",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "设备ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "日期",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Heartrate»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/oxygen": {
+      "post": {
+        "tags": [
+          "血氧记录管理"
+        ],
+        "summary": "新增血氧记录",
+        "description": "添加新的血氧测量数据",
+        "operationId": "addUsingPOST_3",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Oxygen"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/oxygen/daily": {
+      "get": {
+        "tags": [
+          "血氧记录管理"
+        ],
+        "summary": "查询血氧记录（日）",
+        "description": "查询指定日期每个小时的最后一次血氧测量记录",
+        "operationId": "getDailyOxygenUsingGET",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "设备ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "日期",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Oxygen»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/pressure": {
+      "post": {
+        "tags": [
+          "血压记录管理"
+        ],
+        "summary": "新增血压记录",
+        "description": "添加新的血压测量数据",
+        "operationId": "addUsingPOST_4",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pressure"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "操作成功，返回格式：{\"code\":200,\"msg\":\"操作成功\"}",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败，返回格式：{\"code\":500,\"msg\":\"操作失败\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/pressure/daily": {
+      "get": {
+        "tags": [
+          "血压记录管理"
+        ],
+        "summary": "查询血压记录（日）",
+        "description": "查询指定日期每个小时的最后一次血压测量记录",
+        "operationId": "getDailyPressureUsingGET",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "设备ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "日期",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "查询成功，data字段为Pressure对象数组",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Pressure»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/sleep": {
+      "post": {
+        "tags": [
+          "睡眠记录管理"
+        ],
+        "summary": "新增睡眠记录",
+        "description": "添加新的睡眠监测数据",
+        "operationId": "addUsingPOST_5",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sleep"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/sleep/daily": {
+      "get": {
+        "tags": [
+          "睡眠记录管理"
+        ],
+        "summary": "查询睡眠记录（日）",
+        "description": "查询指定日期每个小时的最后一次睡眠监测记录",
+        "operationId": "getDailySleepUsingGET",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "设备ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "日期",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Sleep»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/step": {
+      "post": {
+        "tags": [
+          "步数记录管理"
+        ],
+        "summary": "新增步数记录",
+        "description": "添加新的步数统计数据",
+        "operationId": "addUsingPOST_6",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Step"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/step/daily": {
+      "get": {
+        "tags": [
+          "步数记录管理"
+        ],
+        "summary": "查询步数记录（日）",
+        "description": "查询指定日期每个小时的最后一次步数统计记录",
+        "operationId": "getDailyStepUsingGET",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "设备ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "日期",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Step»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/temperature": {
+      "post": {
+        "tags": [
+          "体温记录管理"
+        ],
+        "summary": "新增体温记录",
+        "description": "添加新的体温测量数据",
+        "operationId": "addUsingPOST_7",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Temperature"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/deviceuser/temperature/daily": {
+      "get": {
+        "tags": [
+          "体温记录管理"
+        ],
+        "summary": "查询体温记录（日）",
+        "description": "查询指定日期每个小时的最后一次体温测量记录",
+        "operationId": "getDailyTemperatureUsingGET",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "description": "设备ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "日期",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«List«Temperature»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/tweet/detail/full/{id}": {
+      "get": {
+        "tags": [
+          "推文管理接口"
+        ],
+        "summary": "查看推文详情(含互动统计)",
+        "operationId": "detailWithStatsUsingGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "推文ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "当前用户ID",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«Map«string,object»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/tweet/detail/{id}": {
+      "get": {
+        "tags": [
+          "推文管理接口"
+        ],
+        "summary": "查看推文详情",
+        "operationId": "detailUsingGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "推文ID",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«Tweet»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/tweet/latest": {
+      "get": {
+        "tags": [
+          "推文管理接口"
+        ],
+        "summary": "查看最新推文及未读统计",
+        "operationId": "latestTweetsUsingGET",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "当前用户ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "返回条数",
+            "required": false,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«Map«string,object»»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/tweet/system/add": {
+      "post": {
+        "tags": [
+          "推文管理接口"
+        ],
+        "summary": "系统新增推文（自动发布）",
+        "operationId": "addSystemTweetUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tweet"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«Tweet»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/tweet/user/add": {
+      "post": {
+        "tags": [
+          "推文管理接口"
+        ],
+        "summary": "用户发布推文",
+        "operationId": "addUserTweetUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tweet"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«Tweet»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/tweetlike/action": {
+      "post": {
+        "tags": [
+          "推文点赞接口"
+        ],
+        "summary": "推文点赞添加",
+        "operationId": "likeTweetUsingPOST",
+        "parameters": [
+          {
+            "name": "tweetId",
+            "in": "query",
+            "description": "推文ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "点赞人ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/communityuser/tweetview/record": {
+      "post": {
+        "tags": [
+          "推文查看接口"
+        ],
+        "summary": "推文查看记录",
+        "operationId": "recordTweetViewUsingPOST",
+        "parameters": [
+          {
+            "name": "tweetId",
+            "in": "query",
+            "description": "推文ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "查看人ID",
+            "required": true,
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/统一返回结果«object»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/user/profile/avatar": {
+      "post": {
+        "tags": [
+          "用户个人信息管理"
+        ],
+        "summary": "上传用户头像",
+        "description": "上传用户头像图片，支持jpg、png、gif等图片格式，上传成功后返回图片访问URL。\n\n请求参数：\n- avatarfile: 头像图片文件（MultipartFile，必填）\n\n响应说明：\n- code: 200表示成功，500表示失败\n- msg: 返回消息\n- data: 返回数据对象，包含imgUrl字段（String，图片访问地址）",
+        "operationId": "avatarUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            },
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "上传成功，返回结果中包含imgUrl字段（图片访问地址）",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "上传失败，可能原因：文件为空、文件格式不支持、系统异常"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/user/profile/updateInfo": {
+      "put": {
+        "tags": [
+          "用户个人信息管理"
+        ],
+        "summary": "修改用户个人信息",
+        "description": "更新当前登录用户的基本信息。请求参数说明：\n- nickName: 用户昵称（String）\n- email: 用户邮箱（String）\n- phonenumber: 手机号码（String）\n- sex: 用户性别（String，0=男,1=女,2=未知）\n- userHeight: 身高（String，varchar(20)）\n- userWeight: 体重（String，varchar(20)）\n- emotionalState: 感情状态（String，varchar(255)）\n- signature: 签名（String，varchar(255)）\n- birthBirthday: 出生生日（Date，datetime格式，yyyy-MM-dd HH:mm:ss）\n\n响应说明：\n- code: 200表示成功，500表示失败\n- msg: 返回消息\n- data: 返回数据（成功时为空）",
+        "operationId": "updateProfileUsingPUT",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SysUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "修改成功",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "修改失败，可能原因：手机号码已存在、邮箱账号已存在、系统异常"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/getUserInfo": {
+      "get": {
+        "tags": [
+          "用户鉴权API"
+        ],
+        "summary": "获取用户信息",
+        "operationId": "getInfoUsingGET_1",
+        "responses": {
+          "200": {
+            "description": "查询成功，data字段为Map对象",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/phoneLogin": {
+      "post": {
+        "tags": [
+          "用户鉴权API"
+        ],
+        "summary": "手机号一键登录",
+        "operationId": "phoneLoginUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhoneLoginBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/phoneVerify": {
+      "post": {
+        "tags": [
+          "用户鉴权API"
+        ],
+        "summary": "号码认证",
+        "operationId": "phoneVerifyUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhoneVerifyBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/userLogin": {
+      "post": {
+        "tags": [
+          "用户鉴权API"
+        ],
+        "summary": "账号密码登录",
+        "description": "账号密码登录",
+        "operationId": "loginUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "查询成功，data字段为Map对象",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    },
+    "/wxLogin": {
+      "post": {
+        "tags": [
+          "用户鉴权API"
+        ],
+        "summary": "微信登录",
+        "operationId": "wxLoginUsingPOST",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WxLoginBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未授权。返回格式：{\"code\":401,\"msg\":\"未授权，请先登录\"}"
+          },
+          "403": {
+            "description": "禁止访问。返回格式：{\"code\":403,\"msg\":\"没有权限访问该资源\"}"
+          },
+          "500": {
+            "description": "操作失败。返回格式：{\"code\":500,\"msg\":\"操作失败，请联系管理员\"}"
+          },
+          "601": {
+            "description": "警告消息。返回格式：{\"code\":601,\"msg\":\"警告提示信息\"}"
+          }
+        },
+        "security": [
+          {
+            "Authorization": [
+              "global"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Comment": {
+        "title": "Comment",
+        "type": "object",
+        "properties": {
+          "commentContent": {
+            "type": "string"
+          },
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "delFlag": {
+            "type": "string"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "params": {
+            "type": "object"
+          },
+          "pid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "tweetId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Device": {
+        "title": "Device",
+        "required": [
+          "deviceNo"
+        ],
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deviceLinkJson": {
+            "type": "string",
+            "description": "设备链接JSON配置",
+            "example": "{\"mac\":\"AA:BB:CC:DD:EE:FF\"}"
+          },
+          "deviceName": {
+            "type": "string",
+            "description": "设备名称",
+            "example": "智能健康手环"
+          },
+          "deviceNo": {
+            "type": "string",
+            "description": "设备编号",
+            "example": "DEV001"
+          },
+          "deviceType": {
+            "type": "string",
+            "description": "设备类型",
+            "example": "手环"
+          },
+          "hardwareVersion": {
+            "type": "string",
+            "description": "硬件版本号",
+            "example": "HW_V1.0"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64"
+          },
+          "params": {
+            "type": "object"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "softwareVersion": {
+            "type": "string",
+            "description": "软件版本号",
+            "example": "1.0.0"
+          },
+          "status": {
+            "type": "string",
+            "description": "设备状态",
+            "example": "0"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64",
+            "example": 100
+          }
+        },
+        "description": "设备实体"
+      },
+      "Follow": {
+        "title": "Follow",
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "followUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "params": {
+            "type": "object"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "HeMeasurement": {
+        "title": "HeMeasurement",
+        "type": "object",
+        "properties": {
+          "activityLevel": {
+            "type": "integer",
+            "description": "运动激烈程度",
+            "format": "int64"
+          },
+          "bloodOxygen": {
+            "type": "integer",
+            "description": "血氧",
+            "format": "int64"
+          },
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "delFlag": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64"
+          },
+          "heartRate": {
+            "type": "integer",
+            "description": "心率",
+            "format": "int64"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "hrv": {
+            "type": "integer",
+            "description": "心率变异性",
+            "format": "int64"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "measureTime": {
+            "type": "integer",
+            "description": "UNIX时间（int类型时间）",
+            "format": "int64"
+          },
+          "params": {
+            "type": "object"
+          },
+          "perfusionRate": {
+            "type": "number",
+            "description": "血液灌注率（保留）",
+            "format": "bigdecimal"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "reservedField": {
+            "type": "string",
+            "description": "保留字段"
+          },
+          "rrArray": {
+            "type": "string",
+            "description": "RR 数组"
+          },
+          "rrIntervalCount": {
+            "type": "integer",
+            "description": "RR 间期个数 N",
+            "format": "int64"
+          },
+          "sleepType": {
+            "type": "string",
+            "description": "睡眠类型"
+          },
+          "stepCount": {
+            "type": "integer",
+            "description": "步数",
+            "format": "int64"
+          },
+          "stressIndex": {
+            "type": "integer",
+            "description": "精神压力指数",
+            "format": "int64"
+          },
+          "temperature": {
+            "type": "number",
+            "description": "温度",
+            "format": "bigdecimal"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64"
+          }
+        }
+      },
+      "Heartrate": {
+        "title": "Heartrate",
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64",
+            "example": 1
+          },
+          "heartRateValue": {
+            "type": "integer",
+            "description": "心率值（次/分钟）",
+            "format": "int64",
+            "example": 75
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "description": "心率记录ID",
+            "format": "int64"
+          },
+          "measureTime": {
+            "type": "string",
+            "description": "测量时间",
+            "format": "date-time"
+          },
+          "params": {
+            "type": "object"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64",
+            "example": 100
+          }
+        },
+        "description": "心率记录实体"
+      },
+      "LoginBody": {
+        "title": "LoginBody",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "Oxygen": {
+        "title": "Oxygen",
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64",
+            "example": 1
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "description": "血氧记录ID",
+            "format": "int64"
+          },
+          "measureTime": {
+            "type": "string",
+            "description": "测量时间",
+            "format": "date-time"
+          },
+          "oxygenValue": {
+            "type": "string",
+            "description": "血氧饱和度值（%）",
+            "example": "98"
+          },
+          "params": {
+            "type": "object"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64",
+            "example": 100
+          }
+        },
+        "description": "血氧记录实体"
+      },
+      "PhoneLoginBody": {
+        "title": "PhoneLoginBody",
+        "type": "object",
+        "properties": {
+          "exID": {
+            "type": "string"
+          },
+          "loginToken": {
+            "type": "string"
+          }
+        }
+      },
+      "PhoneVerifyBody": {
+        "title": "PhoneVerifyBody",
+        "type": "object",
+        "properties": {
+          "exID": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "Pressure": {
+        "title": "Pressure",
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64",
+            "example": 1
+          },
+          "diastolicPressure": {
+            "type": "integer",
+            "description": "舒张压（低压）mmHg",
+            "format": "int64",
+            "example": 80
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "description": "血压记录ID",
+            "format": "int64"
+          },
+          "measureTime": {
+            "type": "string",
+            "description": "测量时间",
+            "format": "date-time"
+          },
+          "params": {
+            "type": "object"
+          },
+          "pulse": {
+            "type": "integer",
+            "description": "脉搏（次/分钟）",
+            "format": "int64",
+            "example": 72
+          },
+          "remark": {
+            "type": "string"
+          },
+          "systolicPressure": {
+            "type": "integer",
+            "description": "收缩压（高压）mmHg",
+            "format": "int64",
+            "example": 120
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64",
+            "example": 100
+          }
+        },
+        "description": "血压记录实体"
+      },
+      "Sleep": {
+        "title": "Sleep",
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64",
+            "example": 1
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "description": "睡眠记录ID",
+            "format": "int64"
+          },
+          "measureTime": {
+            "type": "string",
+            "description": "测量时间",
+            "format": "date-time"
+          },
+          "params": {
+            "type": "object"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "sleepType": {
+            "type": "string",
+            "description": "睡眠类型",
+            "example": "深度睡眠"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64",
+            "example": 100
+          }
+        },
+        "description": "睡眠记录实体"
+      },
+      "Step": {
+        "title": "Step",
+        "type": "object",
+        "properties": {
+          "calories": {
+            "type": "string",
+            "description": "消耗卡路里（千卡）",
+            "example": "300"
+          },
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64",
+            "example": 1
+          },
+          "distance": {
+            "type": "string",
+            "description": "距离（公里）",
+            "example": "5.2"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "description": "步数记录ID",
+            "format": "int64"
+          },
+          "measureTime": {
+            "type": "string",
+            "description": "记录日期",
+            "format": "date-time"
+          },
+          "params": {
+            "type": "object"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "stepCount": {
+            "type": "integer",
+            "description": "步数",
+            "format": "int64",
+            "example": 8000
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64",
+            "example": 100
+          }
+        },
+        "description": "步数记录实体"
+      },
+      "SysDept": {
+        "title": "SysDept",
+        "required": [
+          "deptName",
+          "orderNum"
+        ],
+        "type": "object",
+        "properties": {
+          "ancestors": {
+            "type": "string"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SysDept"
+            }
+          },
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "delFlag": {
+            "type": "string"
+          },
+          "deptId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "deptName": {
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string"
+          },
+          "email": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "leader": {
+            "type": "string"
+          },
+          "orderNum": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "params": {
+            "type": "object"
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parentName": {
+            "type": "string"
+          },
+          "phone": {
+            "maxLength": 11,
+            "minLength": 0,
+            "type": "string"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SysRole": {
+        "title": "SysRole",
+        "required": [
+          "roleKey",
+          "roleName",
+          "roleSort"
+        ],
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dataScope": {
+            "type": "string"
+          },
+          "delFlag": {
+            "type": "string"
+          },
+          "deptCheckStrictly": {
+            "type": "boolean"
+          },
+          "deptIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "flag": {
+            "type": "boolean"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "menuCheckStrictly": {
+            "type": "boolean"
+          },
+          "menuIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "params": {
+            "type": "object"
+          },
+          "permissions": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "remark": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "roleKey": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "roleName": {
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string"
+          },
+          "roleSort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SysUser": {
+        "title": "SysUser",
+        "required": [
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar": {
+            "type": "string"
+          },
+          "birthBirthday": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "delFlag": {
+            "type": "string"
+          },
+          "dept": {
+            "$ref": "#/components/schemas/SysDept"
+          },
+          "deptId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "email": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "emotionalState": {
+            "type": "string"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "loginDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "loginIp": {
+            "type": "string"
+          },
+          "nickName": {
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string"
+          },
+          "openId": {
+            "type": "string"
+          },
+          "params": {
+            "type": "object"
+          },
+          "password": {
+            "type": "string"
+          },
+          "phonenumber": {
+            "maxLength": 11,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "pwdUpdateDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "roleIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SysRole"
+            }
+          },
+          "sex": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "unionId": {
+            "type": "string"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userHeight": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userName": {
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string"
+          },
+          "userWeight": {
+            "type": "string"
+          }
+        }
+      },
+      "TableDataInfo": {
+        "title": "TableDataInfo",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Temperature": {
+        "title": "Temperature",
+        "type": "object",
+        "properties": {
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deviceId": {
+            "type": "integer",
+            "description": "设备ID",
+            "format": "int64",
+            "example": 1
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "description": "体温记录ID",
+            "format": "int64"
+          },
+          "measureTime": {
+            "type": "string",
+            "description": "测量时间",
+            "format": "date-time"
+          },
+          "params": {
+            "type": "object"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "temperatureValue": {
+            "type": "string",
+            "description": "体温值（摄氏度）",
+            "example": "36.5"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID",
+            "format": "int64",
+            "example": 100
+          }
+        },
+        "description": "体温记录实体"
+      },
+      "Tweet": {
+        "title": "Tweet",
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "createBy": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "delFlag": {
+            "type": "string"
+          },
+          "hour_of_day": {
+            "type": "string",
+            "description": "时间节点"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "params": {
+            "type": "object"
+          },
+          "publishStatus": {
+            "type": "string"
+          },
+          "publishTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "tweetType": {
+            "type": "string"
+          },
+          "updateBy": {
+            "type": "string"
+          },
+          "updateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "WxLoginBody": {
+        "title": "WxLoginBody",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "encryptedData": {
+            "type": "string"
+          },
+          "encryptedIv": {
+            "type": "string"
+          }
+        }
+      },
+      "统一返回结果«Comment»": {
+        "title": "统一返回结果«Comment»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "description": "返回数据",
+            "$ref": "#/components/schemas/Comment"
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Comment»»": {
+        "title": "统一返回结果«List«Comment»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Follow»»": {
+        "title": "统一返回结果«List«Follow»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Follow"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Heartrate»»": {
+        "title": "统一返回结果«List«Heartrate»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Heartrate"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Oxygen»»": {
+        "title": "统一返回结果«List«Oxygen»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Oxygen"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Pressure»»": {
+        "title": "统一返回结果«List«Pressure»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Pressure"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Sleep»»": {
+        "title": "统一返回结果«List«Sleep»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Sleep"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Step»»": {
+        "title": "统一返回结果«List«Step»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Step"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«List«Temperature»»": {
+        "title": "统一返回结果«List«Temperature»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "array",
+            "description": "返回数据",
+            "items": {
+              "$ref": "#/components/schemas/Temperature"
+            }
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«Map«string,object»»": {
+        "title": "统一返回结果«Map«string,object»»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "object",
+            "description": "返回数据"
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«Tweet»": {
+        "title": "统一返回结果«Tweet»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "description": "返回数据",
+            "$ref": "#/components/schemas/Tweet"
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      },
+      "统一返回结果«object»": {
+        "title": "统一返回结果«object»",
+        "required": [
+          "code",
+          "msg"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "状态码",
+            "format": "int32",
+            "example": 200
+          },
+          "data": {
+            "type": "object",
+            "description": "返回数据"
+          },
+          "msg": {
+            "type": "string",
+            "description": "返回消息",
+            "example": "操作成功"
+          }
+        },
+        "description": "接口的统一返回格式"
+      }
+    },
+    "securitySchemes": {
+      "Authorization": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
+}
