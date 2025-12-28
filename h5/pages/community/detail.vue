@@ -38,16 +38,16 @@
 
       <view class="post-footer">
           <view class="metric-btn likes">
-            <image class="metric-icon" :src="likedTweetByMe ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
-            <text class="metric-value" :class="likedTweetByMe?'likes' :''">{{ likesCount }}</text>
+            <image class="metric-icon" :src="tweet.userLiked ? '/static/images/community/like@2x.png' : '/static/images/community/nolike@2x.png'"/>
+            <text class="metric-value" :class="tweet.userLiked?'likes' :''">{{ tweet.likeCount }}</text>
           </view>
         <view class="metric-btn comments">
           <image class="metric-icon" src="/static/images/community/chat@2x.png"/>
-          <text class="metric-value">{{ topComments.length }}</text>
+          <text class="metric-value">{{ tweet.commentCount }}</text>
         </view>
         <view class="metric-btn views">
           <image class="metric-icon" src="/static/images/community/look@2x.png"/>
-          <text class="metric-value">{{ viewsCount }}</text>
+          <text class="metric-value">{{ tweet.viewCount }}</text>
         </view>
         <view class="metric-btn share">
           <image class="metric-icon" src="/static/images/community/share@2x.png"/>
@@ -189,7 +189,7 @@ onLoad((options: any) => {
     if (cache) userInfo.value = cache as SysUser
   } catch {
   }
-  tweetId.value = String(options?.id || '1')
+  tweetId.value = String(options?.tweetId)
   if (tweetId.value) {
     loadTweet()
     loadTopComments()
@@ -535,7 +535,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20rpx 30rpx;
+  padding: 24rpx 32rpx;
   border-top: 2rpx solid #2F2E2D;
   border-bottom: 2rpx solid #2F2E2D;
 }
