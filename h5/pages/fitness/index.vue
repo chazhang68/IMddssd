@@ -368,8 +368,7 @@
         <!-- 血氧 -->
         <view class="health-card">
           <view class="card-header">
-            <!-- TODO: 血氧图标 - 手动添加 -->
-            <view class="icon-placeholder card-icon"></view>
+            <image src="/static/icons/SpO₂@2x.png" class="card-icon"/>
             <view class="card-info">
               <text class="card-label">血氧</text>
               <text class="card-date">{{ healthData.date }}</text>
