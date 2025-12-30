@@ -49,7 +49,6 @@
             />
           </view>
         </view>
-        <view class="post-image"></view>
       </view>
 
       <!-- 文章点赞区 -->
@@ -477,7 +476,7 @@ page {
 }
 
 .post-card {
-  padding: 30rpx;
+  padding: 30rpx 30rpx 10rpx;
 }
 
 .post-header {

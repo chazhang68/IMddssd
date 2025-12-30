@@ -420,9 +420,6 @@ page {
   font-size: 28rpx;
   color: #A4A4A4;
   line-height: 36rpx;
-  white-space: pre-wrap;
-  word-break: break-word;
-  overflow-wrap: anywhere;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
