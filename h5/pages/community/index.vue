@@ -85,6 +85,19 @@ import {debounce} from "@/utils/debounce";
 
 const domain = 'http://47.106.189.19/prod-api';
 const posts = ref<any[]>([]);
+function formatTweetItem(item: any) {
+  let contentText = '';
+  try {
+    const parsed = JSON.parse(item?.content || '');
+    if (Array.isArray(parsed)) {
+      contentText = parsed.filter((b: any) => b && b.type === 'text' && String(b.value || '').trim())
+        .map((b: any) => String(b.value || '')).join('\n').trim();
+    }
+  } catch {
+  }
+  if (!contentText) contentText = String(item?.content || '');
+  return {...item, content: contentText};
+}
 const tweetType = ref<number>(0);
 const pageNo = ref<number>(1);
 const pageSize = ref<number>(10);
@@ -123,12 +136,12 @@ const fetchPosts = async (refresh = false) => {
     pageSize.value = Number(data.size || pageSize.value);
     const currentPage = Number(data.page || pageNo.value);
     if (refresh) {
-      posts.value = list;
+      posts.value = list.map(formatTweetItem);
     } else {
       if (currentPage <= 1) {
-        posts.value = list;
+        posts.value = list.map(formatTweetItem);
       } else {
-        posts.value = posts.value.concat(list);
+        posts.value = posts.value.concat(list.map(formatTweetItem));
       }
     }
     pageNo.value = currentPage;
@@ -407,6 +420,9 @@ page {
   font-size: 28rpx;
   color: #A4A4A4;
   line-height: 36rpx;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
