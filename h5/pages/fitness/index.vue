@@ -1,5 +1,20 @@
 <template>
   <view class="health-page">
+    <view class="header">
+      <view class="status-bar"></view>
+      <view class="nav-bar">
+        <view class="nav-left">
+          <!-- 返回图标 -->
+          <image class="back-icon" src="/static/icons/back.png"></image>
+        </view>
+        <text class="nav-title">智能戒指</text>
+        <view class="nav-right">
+          <!-- 设置图标 -->
+          <image class="setting-icon" src="/static/icons/setting.png"></image>
+        </view>
+      </view>
+    </view>
+
     <scroll-view class="content" scroll-y>
       <!-- 最近更新时间 -->
       <view class="update-time">
@@ -395,6 +410,20 @@
       <view class="bottom-safe-area"></view>
     </scroll-view>
 
+    <!-- 底部TabBar -->
+    <view class="tab-bar">
+      <view class="tab-item active">
+        <!-- 首页图标 -->
+        <image class="tab-icon" src="/static/icons/home.png"></image>
+        <text class="tab-label active">首页</text>
+      </view>
+      <view class="tab-item">
+        <!-- 健康图标 -->
+        <image class="tab-icon" src="/static/icons/health.png"></image>
+        <text class="tab-label">健康</text>
+      </view>
+    </view>
+
   </view>
 </template>
 
@@ -611,10 +640,46 @@ page {
   background-color: #0E1213;
 }
 
-/* 图标占位符 */
-.icon-placeholder {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 8rpx;
+.health-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0E1213;
+}
+
+/* 顶部导航栏 */
+.header {
+  background-color: #FFDA3C;
+}
+
+.status-bar {
+  height: var(--status-bar-height, 44px);
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 88rpx;
+  padding: 0 30rpx;
+}
+
+.nav-left,
+.nav-right {
+  width: 120rpx;
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #0E1213;
 }
 
 .back-icon {
@@ -911,4 +976,35 @@ page {
   padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 }
 
+/* 底部TabBar */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  background-color: #2F2E2D;
+  border-radius: 40rpx 40rpx 0 0;
+  padding: 20rpx 0;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -8rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-label {
+  font-size: 24rpx;
+  color: #A4A4A4;
+}
+
+.tab-label.active {
+  color: #FFDA3C;
+}
 </style>

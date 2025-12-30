@@ -499,7 +499,7 @@ page {
   display: flex;
   flex-direction: row;
   background-color: #2F2E2D;
-  border-radius: 32rpx 32rpx 0 0;
+  border-radius: 40rpx 40rpx 0 0;
   padding: 20rpx 0;
   padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
   box-shadow: 0 -8rpx 8rpx rgba(0, 0, 0, 0.08);
