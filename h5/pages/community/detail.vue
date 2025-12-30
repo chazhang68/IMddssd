@@ -400,7 +400,7 @@ async function onDeleteComment(c: Comment) {
 }
 
 async function onPublishReply() {
-  const content = replyText.value.trim()
+  const content = replyText.value
   if (!content) {
     uni.showToast({title: '请输入内容', icon: 'none'})
     return

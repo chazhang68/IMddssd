@@ -138,7 +138,7 @@ function insertBlock(type: 'image' | 'video', url: string) {
 /* ========== Post ========== */
 function onPost() {
   const content = blocks.value.filter((b) => {
-    if (b.type === 'text') return b.value.trim()
+    if (b.type === 'text') return b.value
     return true
   })
 
@@ -228,6 +228,28 @@ function confirmLink(text: string, url: string) {
   text-align: left;
   font-style: normal;
   text-transform: none;
+  width: 100%;
+}
+
+/* 文本块输入：铺满容器宽度，自动增高 */
+.text-input {
+  width: calc(100% - 30rpx);
+  max-width: 100%;
+  min-height: 40vh;
+  display: block;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FBFBFB;
+  caret-color: #FFDA3C;
+  padding: 0;
+  margin: 0;
+  line-height: 36rpx;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  resize: none; /* H5防止拖拽改变大小 */
 }
 
 /* 使用深度选择器 */
