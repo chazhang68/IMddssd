@@ -3,7 +3,8 @@
     <view class="header">
       <view class="search-bar">
         <image class="search-icon" src="/static/images/community/search@2x.png"/>
-        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder" v-model="title" @input="debouncedFetchPosts"/>
+        <input class="search-input" placeholder="Search..." placeholder-class="search-placeholder" v-model="title"
+               @input="debouncedFetchPosts"/>
       </view>
       <!-- 点击按钮 -->
       <view class="tabs-row">
@@ -33,17 +34,14 @@
     </view>
     <!-- 推文列表 -->
     <view class="content">
-      <view class="post-card" v-for="post in posts" :key="post.id" @click.prevent="toPage('detail', { tweetId: post.id }); ">
+      <view class="post-card" v-for="post in posts" :key="post.id"
+            @click.prevent="toPage('detail', { tweetId: post.id }); ">
         <view class="post-header">
           <view class="post-left">
-            <image
-                class="post-type-icon"
-                src="/static/images/community/message@2x.png"
-                v-if="!post.hasAvatar || post.hasAvatar"
-            />
+            <image class="post-type-icon" :src="domain+post.userAvatar" />
             <view class="author-box">
-              <text class="post-author">{{ post.author }}</text>
-              <text class="post-time">{{ post.time }}</text>
+              <text class="post-author">{{ post.userNickName }}</text>
+              <text class="post-time">{{ post.createTime }}</text>
             </view>
           </view>
           <text class="post-action">{{ post.action }}</text>
@@ -51,7 +49,7 @@
         <view class="post-desc">
           <text class="post-text">{{ post.content }}</text>
         </view>
-        <view class="post-image" :class="{ light: post.mainImages }" v-if="post.mainImages"></view>
+        <image class="post-image" :src="post.mainImages" v-if="post.mainImages"/>
         <view class="post-footer">
           <view class="metric-btn" @click.stop="handleLike(post.id)">
             <image class="metric-icon"
@@ -85,6 +83,7 @@ import {getLatestTweets} from "@/api/tweet";
 import {likeTweet} from "@/api/tweetlike";
 import {debounce} from "@/utils/debounce";
 
+const domain = 'http://47.106.189.19/prod-api';
 const posts = ref<any[]>([]);
 const tweetType = ref<number>(0);
 const pageNo = ref<number>(1);
@@ -182,7 +181,7 @@ async function handleLike(id: string | number) {
           const count = Number(item.likeCount || 0)
           const nextLiked = !liked
           const nextCount = nextLiked ? count + 1 : Math.max(0, count - 1)
-          return { ...item, userLiked: nextLiked, likeCount: nextCount }
+          return {...item, userLiked: nextLiked, likeCount: nextCount}
         }
         return item
       })
@@ -419,10 +418,9 @@ page {
 }
 
 .post-image {
+  width: 100%;
   height: 280rpx;
   border-radius: 24rpx;
-  background-color: #FFDA3C;
-  margin: 16rpx 0 30rpx 0;
 }
 
 .post-image.light {
@@ -434,6 +432,7 @@ page {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-top: 20rpx;
 }
 
 .metric-btn {
